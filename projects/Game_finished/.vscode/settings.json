@@ -1,0 +1,87 @@
+{
+  //****************************cpp配置**************************
+    "files.associations": {
+      "iostream": "cpp",
+      "iosfwd": "cpp",
+      "ostream": "cpp",
+      "numeric": "cpp",
+      "new": "cpp",
+      "*.tcc": "cpp",
+      "vector": "cpp"
+    },
+
+  //****************************vim配置****************************
+  //"gd" goto defination no tags
+  //"c-o" go back to last place
+  "vim.easymotion": false,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  // 设置高亮并配置颜色
+  "vim.hlsearch": true,
+  "vim.searchHighlightColor": "#ffee00",
+
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [{
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ] ,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // 保存
+      "before": ["<leader>", "w"],
+      "commands": [":w"]
+    },{
+      // 关闭页面
+      "before": ["<leader>", "q"],
+      "commands": [":q"]
+    },{ 
+      // 左右选择窗口
+      "before": ["H"], 
+      "after": ["g", "T"] 
+    },{
+      "before": ["L"],
+      "after": ["g", "t"] 
+    },{
+      // 多行注释 zs快捷键
+      "before": ["z", "s"],
+      "after": ["g","c","c"]
+    },
+    //重新撤销与反撤销
+    {
+        "before": ["u"],
+        "commands": ["undo"]
+    },
+    {
+        "before": ["<C-r>"],
+        "commands": ["redo"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-n>": false
+  },
+
+  "editor.lineNumbers": "relative",
+  //------------vscode-icons--------------
+  "workbench.iconTheme": "vscode-icons",
+
+  //------------guide colors costomer
+  //颜色显示当前编辑状态
+  "workbench.colorCustomizations": {
+  "editorIndentGuide.activeBackground": "#00ff62",
+  "editorIndentGuide.background": "#ff0040"
+  },
+  //C+p打开可以固定住
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "editor.renderWhitespace": "boundary",
+  "cmake.configureOnOpen": false,
+  "C_Cpp.errorSquiggles": "Enabled"
+  // 添加配置 取消VScode自动补全功能 autoClosingBrackets = never
+  /*
+  d:跳转到函数定义
+  C-o:返回到上次跳转位置
+  */
+}
