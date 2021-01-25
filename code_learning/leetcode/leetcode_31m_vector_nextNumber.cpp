@@ -2,24 +2,23 @@
 #include <vector>
 #include <algorithm> // 包含reverse
 
-using namespace std; 
+/* -------------------------------------------
+ * vector reverse使用
+ * 下一个更大数 前一个更小数 从后往前挨个遍历然后翻转的思路很精妙
+ * 说不上来为啥
+ * ------------------------------------------*/
+using namespace std;
 
 int main()
 {
-    vector<int> array;
-    array.push_back(1);
-    array.push_back(4);
-    array.push_back(7);
-    array.push_back(5);
-    array.push_back(2);
-    array.push_back(6);
-    array.push_back(1);
+    vector<int> array {1,4,7,5,2,6,1};
+
     cout<<array.size()<<endl;
 
     /********************************
      *  next bigger one
      *==============================*/
-    // 只有一个或为空 直接结束
+//     只有一个或为空 直接结束
 //    if(array.size() < 2) return 0 ;
 //    // 定义双指针
 //    int prior = array.size() - 2;
@@ -65,9 +64,7 @@ int main()
             // 前面的数大
             if(array[prior] > array[slower]){
                 // 交换数值
-                int temp = array[slower];
-                array[slower] = array[prior];
-                array[prior] = temp;
+                swap(array[slower] , array[prior]);
                 // 并将交换位置之后 prior后面的所有数交换位置
                 reverse(array.begin()+prior+1,array.end());
                 return 0;

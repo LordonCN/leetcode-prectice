@@ -24,9 +24,7 @@ void bubbleSort(vector<int> &nums)
             if(nums[high]<nums[low])
                 swap(nums[low],nums[high]);
         }
-
     }
-
 }
 
 /* -------------------------------------------

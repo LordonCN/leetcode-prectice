@@ -77,7 +77,10 @@ TreeNode* creatTree(TreeNode* &seed)
 
 }
 ```
-
+- 排序
+<br>目前<br>
+  347 451 为stl-sort排序(hashmap+2dvector)<br>
+  251 为快排 冒泡 stl-sort排序
 
 ###### 1、const的使用
 - 加载函数最后
@@ -236,3 +239,6 @@ int main()
     // 对于顺序有比较高要求的情况来说很好用
     reverse(smallNumber.begin(),smallNumber.end());
 ```
+
+### 复习时间
+- 1.24  114 108 树有关内容有点遗忘

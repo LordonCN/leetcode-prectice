@@ -1,7 +1,6 @@
 #include <iostream>
 #include "listNode.h"
-using namespace std; 
-/*结构体初始化的时候用*跟不用到底有什么区别? */
+using namespace std;
 
 struct ListNode {
     int val;

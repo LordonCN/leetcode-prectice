@@ -10,6 +10,7 @@ using namespace std;
  * 然后对应查表即可
  * string 追加使用append
  * 前面添加用+号 roman = "string" + roman;
+ * tip 1.24 char*写错 其他还行
  * ------------------------------------------*/
 
 string intToRoman(int num)

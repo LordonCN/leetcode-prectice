@@ -1,0 +1,4 @@
+/Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug

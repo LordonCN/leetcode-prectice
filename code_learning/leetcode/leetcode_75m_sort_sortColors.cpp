@@ -14,21 +14,25 @@ void sortColors(vector<int> &nums)
     if(nums.size()<2)
         return;
 
+    // 双指针
     int zeroOne = 0,oneTwo= nums.size()-1;
     int i = 0;
     while(i<=oneTwo)
     {
+        // 左指针与遍历进行交换
         if(nums[i]==0)
         {
             swap(nums[zeroOne],nums[i]);
             zeroOne += 1;
             i += 1;
         }
+        // 有指针与遍历进行交换
         else if(nums[i]==2)
         {
             swap(nums[i],nums[oneTwo]);
             oneTwo -= 1;
             // 这里太关键了 如果后面还有0 那么还应该进行一次判断将0放到前面去
+            // 意思是i 这里不改变
         }
         else i += 1;
     }

@@ -34,14 +34,7 @@ int twoParts(vector<int> nums,int target)
 int main()
 {
     // 首先准备好nums target
-    vector<int> nums;
-        nums.push_back(7);
-        nums.push_back(9);
-        nums.push_back(0);
-        nums.push_back(1);
-        nums.push_back(2);
-        nums.push_back(3);
-        nums.push_back(7);
+    vector<int> nums {7,9,0,1,2,3,7};
 
     int target = 5;
     int result;

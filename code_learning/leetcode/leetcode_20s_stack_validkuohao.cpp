@@ -3,15 +3,12 @@
 #include <stack> // 本身就是一个模板类
 using namespace std;
 
-/*************************************************************************
- * INPUT:   charList ""
- *                                                                                    *
- * OUTPUT:  whether it is empty
- *                                                                                    *
- * WARNINGS:  special situation
- *                                                                                    *
- * HISTORY:  use char 外部循环靠指针所指向数值进行判断 while循环
- *======================================================================*/
+/* -------------------------------------------
+ * 栈的应用
+ * switch-case
+ * enum-switch-case
+ * ------------------------------------------*/
+
 void charStack(char *charList)
 {
     stack<char>charStack; // char类型 栈创建
@@ -21,9 +18,8 @@ void charStack(char *charList)
     while(*charList)
     {
         // 取所指向符号
-        switch(*charList) // 取
+        switch(*charList) // 当前不为空
         {
-            // 如果左括号就入栈
             case '{' : charStack.push(*charList);break;
             case '[' : charStack.push(*charList);break;
             case '(' : charStack.push(*charList);break;
@@ -63,15 +59,6 @@ void charStack(char *charList)
 
 }
 
-/*************************************************************************
- * INPUT:   stringList ""
- *                                                                                    *
- * OUTPUT:  whether it is empty
- *                                                                                    *
- * WARNINGS:  special situation
- *                                                                                    *
- * HISTORY:  use string string可以使用size()求得总长度 直接循环遍历即可
- *======================================================================*/
 void stringStack(string stringList)
 {
     stack<char>stringStack;
@@ -117,14 +104,23 @@ void stringStack(string stringList)
 
 int main()
 {
-//    char* charList = "{}"; // char 类型 指针定义 双引号包含内容
-//    charStack(charList);
+    enum {charType,stringType};
+    auto choice = charType;
 
-
-    // 使用string 并且加入stack模板
+    char* charList = "{}"; // char 类型 指针定义 双引号包含内容
     string stringList ="()";
-    stringStack(stringList);
 
+    switch(choice)
+    {
+        case charType:
+                charStack(charList);
+                break;
+        case stringType:
+                stringStack(stringList);
+                break;
+        default:
+            break;
+    }
 
     return 0;
 }

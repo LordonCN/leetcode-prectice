@@ -40,6 +40,7 @@ int main()
     }
     // 慢指针删除结点
     slow->next = slow->next->next;
+    // 之前跳过的那个节点要删除不 ？
     delete slow,fast;
 
     return 0;

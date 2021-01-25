@@ -50,6 +50,5 @@ int main()
 
     sortedArrayToBST(root,0,array.size(),array);
 
-
     return 0;
 }
