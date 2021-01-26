@@ -1,5 +1,6 @@
 cmake-build-debug/
 .DS_Store
+.idea/
 /cmake-build-debug/CMakeFiles/
 /cmake-build-debug/Testing/
 cmake-build-debug/CMakeFiles/
