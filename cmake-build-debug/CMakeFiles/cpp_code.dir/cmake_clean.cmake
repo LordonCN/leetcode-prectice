@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.o"
+  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.o"
   "cpp_code"
   "cpp_code.pdb"
 )

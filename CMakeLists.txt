@@ -7,7 +7,7 @@ include_directories(heads)
 
 add_executable(cpp_code
 
-        code_learning/leetcode/leetcode_61m_list_rotateRight.cpp
+        code_learning/leetcode/leetcode_12m_string_intToRoman.cpp
 
         heads/listNode.h
         heads/treeNode.h
