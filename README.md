@@ -1,27 +1,13 @@
-#### 关键知识点
+const #### 关键知识点
 
 ###### 0、多种类型数据结构的创建
-- 链表
-多用头插法创建 循环创建
-```c++
-ListNode* initList(ListNode* Head)
-{
-    Head->val = 0;
-    Head->next = nullptr;
-    ListNode *s;
-    // 头插法进行链表填充
-    for(int i = 2; i > 0; i--)
-    {
-        // 需要进行如下操作 否则报段错误
-        s = new ListNode;
-        s->val = i;
-        // 开始插入
-        s->next = Head->next;
-        Head->next = s;
-    }
-    return Head;
-}
-```
+# 链表
+### 目前涉及到题目类型
+19 快慢指针 删除第n个点<br>
+21 swqp交换两链表 链表的拼接<br>
+24 三个指针进行node两两交换<br>
+61 整体翻转 使用map或者暴力破解<br>
+
 - 树
 <br> 使用递归创建
 ```c++
@@ -77,14 +63,31 @@ TreeNode* creatTree(TreeNode* &seed)
 
 }
 ```
-- 排序
-<br>目前<br>
-  347 451 为stl-sort排序(hashmap+2dvector)<br>
-  251 为快排 冒泡 stl-sort排序
 
+# 排序
+### 目前涉及到题目类型
+  56  stl-sort 二维数组<br>
+  75  双指针 vector-swap交换<br>
+  347 451 为stl-sort排序(hashmap+2dvector)<br>
+  215 stl-sort 数值大小排序<br>
+  179 stl-sort 数值逐位排序 按照字符串大小排序<br>
+  251 快排 冒泡 stl-sort排序<br>
+
+# cpp 相关知识点
 ###### 1、const的使用
-- 加载函数最后
 ```c++
+    // 引用只是为提高程序执行效率
+    // 函数中首先选择引用传递 & 直接对传入参数进行修改
+    void sortVector(vector<int>&nums)
+    { quickSort(nums);}
+
+    // 如果不想在原来基础上进行修改 加个const即可 
+    vector<int> sortVector(const vector<int>&nums)
+    {
+        vector<int>fakenums = nums;
+        quickSort(fakenums);
+        return fakenums;
+    }
     // the variable is constant and prevent to modifying it 
     // it's a way to replace the #define
     const int i = 5;
@@ -108,7 +111,7 @@ TreeNode* creatTree(TreeNode* &seed)
     
 ```
 
-###### 2、添加enum 内联 条件运算符进行状态切换
+###### 2、添加enum 条件运算符进行状态切换
 - enum
 ````c++
     state.h
@@ -118,19 +121,21 @@ TreeNode* creatTree(TreeNode* &seed)
         void setAttackMode(){state = (state==attack)?noattack:attack};
 ````
     
-###### 3、添加vactor容器(keyword:vector class)
+###### 3、添加vactor容器
 - 创建容器
 ```c++
     Agents.h
         // 创建智能指针类型容器
-        std::vector<std::shared_ptr<AgentAbstract>> all_agents;
+        vector<std::shared_ptr<AgentAbstract>> all_agents;
+        vector<shared_ptr<int>> sharePtr;
+        
         // 创建类指针容器
-        std::vector<AgentAbstract*> ally;
+        vector<AgentAbstract*> ally;
+        
         // 创建int容器
         std::vector<int> intCounter;
         vector<int*> intPointer;
         vector<string> stringList;
-        vector<shared_ptr<int>> sharePtr;
         
 ```
 
@@ -142,7 +147,7 @@ game.h:
 	std::shared_ptr<Agents> agents; // 先声明
 	
 game.cpp
-        agents.reset(new Agents(policyChoice)); // TODO:智能指针声明后初始化
+    agents.reset(new Agents(policyChoice)); // 智能指针声明后初始化
 
 ````
 - 方法二：直接初始化完毕
@@ -157,31 +162,30 @@ agents.cpp
 
 using namespace std;
 
-/*************************************************************************
+/**************************************
  *  int ptr 
- *======================================================================*/
+ *====================================*/
 void intFunctionTest(shared_ptr<int>(pointer) )
 {
    *pointer = 10;
 }
 
-/*************************************************************************
+/**************************************
  *  double ptr 
- *======================================================================*/
+ *====================================*/
 void doubleFunctionTest(shared_ptr<double>(pointer) )
 {
     *pointer = 10.12;
 }
 
-/*************************************************************************
+/**************************************
  *  return smart ptr
- *======================================================================*/
+ *====================================*/
 shared_ptr<int> intFunctionReturn(shared_ptr<int>(pointer))
 {
    return pointer;
 }
 
-// 这一部分在game project中应用了 并且已更新在readme.md中
 int main()
 {
     // way1
@@ -209,13 +213,15 @@ int main()
     cout<<"address of stack is static: "<<&pointerInt_r<<endl;
     cout<<"value is: "<<*pointerInt_r<<endl;
 
-
     return 0;
 }
 ````
 
-###### 5、sort的使用
+###### 5、stl-sort的使用(不能在原数组调整)
 - 在 include <algorithm> 中
+<br>`本质`是对从选择范围内的所有数值进行`两两比较`后排序
+<br>基本用法：
+  
 ```c++
     // 从小到大默认排序 可以用于数组 vector 给好起止就好
     sort(nums.begin(),nums.end());
@@ -223,12 +229,30 @@ int main()
     // 若要从大到小排序 需要配合下面的函数进行修改 同时也可以用于二维数组
     sort(nums.begin(),nums.end(),sortCmp);
 
-    bool sortCmp(const vector<int>&a,const vector<int>&b)
-//    bool sortCmp(int a,int b)
-     
-    return a[0] < b[0]; // 升序 < 降序
-//    return a < b; // 升序 < 降序
+
     }
+```
+<br>当前适用情况：
+```c++
+    // 二维数组按照其中某一维度排序 56
+    bool sortCmp(const vector<int>&a,const vector<int>&b)
+    {
+        return a[0] < b[0]; // 升序 < 降序
+    }
+        
+    // 数值大小排序 215
+    bool sortCmp(int a,int b)
+    {
+        return a < b; // 升序 < 降序
+    }
+        
+    // 按照字符串大小排序
+    // 数值逐位排序 179
+    bool sortCmp(int a,int b)
+    {
+        return to_string(a) < to_string(b); 
+    }
+
 ```
 
 

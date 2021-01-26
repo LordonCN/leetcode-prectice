@@ -1,6 +1,6 @@
 #include <iostream>
 #include "listNode.h"
-#include <map>
+#include <unordered_map>
 
 using namespace std; 
 /* -------------------------------------------
@@ -40,7 +40,7 @@ ListNode* rotateRightLastToFront(ListNode* head,int target)
     ListNode* sum  = head;
     ListNode* s ;
     int length = 0;
-    while(sum->next != nullptr)
+    while(sum->next)
     {
         sum = sum->next;
         length++;
@@ -62,21 +62,32 @@ ListNode* rotateRightLastToFront(ListNode* head,int target)
     return head;
 }
 
-//ListNode* rotateRightMap(ListNode* head,int target)
-//{
-////    ListNode* sum  = head;
-//    map<int,int> hash ;
-//    int length = 0;
-//    while(sum->next != nullptr)
-//    {
-//        sum = sum->next;
-//        length++;
-//        hash.insert(length,sum->val);
-//    }
-//
-//    return head;
-//}
+void rotateRightMap(ListNode* head,unordered_map<int,int>numberSum)
+{
+    ListNode* sum = head;
+    int howmany = 0;
+    // 将链表元素保存到map中
+    while(sum)
+    {
+        numberSum[howmany] = sum->val;
+        howmany ++;
+        sum = sum->next;
+    }
+    // 1.可以直接对for(auto A : numberSum)进行循环遍历 使用尾插法创建一个新的
 
+    // 2.此处使用头插法进行顺次遍历
+    ListNode* s;
+    // 删除原head内容 头插法重新创建
+    head->next = nullptr;
+    for(int i = 1;i<howmany;i++)
+    {
+        s = new ListNode;
+        s->val = numberSum[i];
+        s->next = head;
+        head = s;
+    }
+
+}
 int main()
 {
     ListNode *head = new ListNode;
@@ -84,9 +95,12 @@ int main()
     int target = 2;
 
     // 暴力破解 遍历完后挨个挪到前面
-    rotateRightLastToFront(head,target);
+//    rotateRightLastToFront(head,target);
+
     // map 哈希查表 这里没有int,int类型的map 所以再cpp中不适用
-//    rotateRightMap(head,target);
+    // 1.26 反攻
+    unordered_map<int,int> numberSum;
+    rotateRightMap(head,numberSum);
 
     return 0;
 }

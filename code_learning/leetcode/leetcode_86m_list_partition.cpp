@@ -48,7 +48,7 @@ ListNode* partition(ListNode* head,int target)
     vector<int> smallNumber;
     slow = head;
     fast = head->next;
-    while(fast != nullptr)
+    while(fast)
     {
         // 先顺序遍历 把小的数添加到vector中
         // 并且删除head中原来的小结点

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.o"
+  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.o"
   "cpp_code"
   "cpp_code.pdb"
 )

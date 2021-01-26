@@ -143,32 +143,32 @@ cpp_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/build
 .PHONY : cpp_code/fast
 
-code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.o: code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.o
+code_learning/leetcode/leetcode_61m_list_rotateRight.o: code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.o
 
-.PHONY : code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.o
+.PHONY : code_learning/leetcode/leetcode_61m_list_rotateRight.o
 
 # target to build an object file
-code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.o
-.PHONY : code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.o
+code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.o
+.PHONY : code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.o
 
-code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.i: code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.i
+code_learning/leetcode/leetcode_61m_list_rotateRight.i: code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.i
 
-.PHONY : code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.i
+.PHONY : code_learning/leetcode/leetcode_61m_list_rotateRight.i
 
 # target to preprocess a source file
-code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.i
-.PHONY : code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.i
+code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.i
+.PHONY : code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.i
 
-code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.s: code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.s
+code_learning/leetcode/leetcode_61m_list_rotateRight.s: code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.s
 
-.PHONY : code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.s
+.PHONY : code_learning/leetcode/leetcode_61m_list_rotateRight.s
 
 # target to generate assembly for a file
-code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.s
-.PHONY : code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.cpp.s
+code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.s
+.PHONY : code_learning/leetcode/leetcode_61m_list_rotateRight.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpp_code"
-	@echo "... code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.o"
-	@echo "... code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.i"
-	@echo "... code_learning/leetcode/leetcode_179m_stl-sort-essentially_largestNumber.s"
+	@echo "... code_learning/leetcode/leetcode_61m_list_rotateRight.o"
+	@echo "... code_learning/leetcode/leetcode_61m_list_rotateRight.i"
+	@echo "... code_learning/leetcode/leetcode_61m_list_rotateRight.s"
 .PHONY : help
 
 

@@ -16,16 +16,18 @@ int main()
         return 0;
     // 创建守卫用来返回结果  创建前置指针用来连接
     ListNode *Pre,*follow;
-    Pre->next = Head->next;
+    Pre->next = Head;
     follow = Pre;
 
     // 如果可以交换 不是奇数
     while (Head->next)
     {
         ListNode *s = Head->next;
-        // 开始交换
+        // 前到后
         Head->next = s->next;
+        // 后到前
         s->next = Head;
+        // 头连接
         follow->next = s;
 
         // 为下一轮做准备
