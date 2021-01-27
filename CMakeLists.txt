@@ -7,8 +7,7 @@ include_directories(heads)
 
 add_executable(cpp_code
 
-#        code_learning/leetcode/leetcode_15m_vector_threeSum.cpp
-        code_learning/basic_pair.cpp
+        code_learning/leetcode/leetcode_84h_stack_largestRectangleArea.cpp
 
         heads/listNode.h
         heads/treeNode.h

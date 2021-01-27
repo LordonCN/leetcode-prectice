@@ -73,6 +73,13 @@ TreeNode* creatTree(TreeNode* &seed)
   215 stl-sort 数值大小排序<br>
   179 stl-sort 数值逐位排序 按照字符串大小排序<br>
   251 快排 冒泡 stl-sort排序<br>
+  45  string-sort
+
+## map-hash
+  45 用于保存同型异构题 first为排序后的结果 second为排序前
+  347 字符统计 first为字母 second为出现次数
+  451 字符统计 first为字母 second为出现次数
+  17 查map表 排列组合 递归
 
 ## cpp 相关知识点
 ###### 1、const的使用
@@ -265,6 +272,6 @@ int main()
     reverse(smallNumber.begin(),smallNumber.end());
 ```
 
-### 复习时间
+## 复习时间
 - 1.24  114 108 树有关内容有点遗忘
 - 1.25  整理链表 hashmap pair
