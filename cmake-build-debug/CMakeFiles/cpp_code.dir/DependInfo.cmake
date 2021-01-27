@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_12m_string_intToRoman.cpp" "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.o"
+  "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp" "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

@@ -143,32 +143,32 @@ cpp_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/build
 .PHONY : cpp_code/fast
 
-code_learning/leetcode/leetcode_12m_string_intToRoman.o: code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.o
+code_learning/leetcode/leetcode_15m_vector_threeSum.o: code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
 
-.PHONY : code_learning/leetcode/leetcode_12m_string_intToRoman.o
+.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.o
 
 # target to build an object file
-code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.o
-.PHONY : code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.o
+code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
+.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
 
-code_learning/leetcode/leetcode_12m_string_intToRoman.i: code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.i
+code_learning/leetcode/leetcode_15m_vector_threeSum.i: code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
 
-.PHONY : code_learning/leetcode/leetcode_12m_string_intToRoman.i
+.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.i
 
 # target to preprocess a source file
-code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.i
-.PHONY : code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.i
+code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
+.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
 
-code_learning/leetcode/leetcode_12m_string_intToRoman.s: code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.s
+code_learning/leetcode/leetcode_15m_vector_threeSum.s: code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
 
-.PHONY : code_learning/leetcode/leetcode_12m_string_intToRoman.s
+.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.s
 
 # target to generate assembly for a file
-code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.s
-.PHONY : code_learning/leetcode/leetcode_12m_string_intToRoman.cpp.s
+code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
+.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpp_code"
-	@echo "... code_learning/leetcode/leetcode_12m_string_intToRoman.o"
-	@echo "... code_learning/leetcode/leetcode_12m_string_intToRoman.i"
-	@echo "... code_learning/leetcode/leetcode_12m_string_intToRoman.s"
+	@echo "... code_learning/leetcode/leetcode_15m_vector_threeSum.o"
+	@echo "... code_learning/leetcode/leetcode_15m_vector_threeSum.i"
+	@echo "... code_learning/leetcode/leetcode_15m_vector_threeSum.s"
 .PHONY : help
 
 
