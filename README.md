@@ -1,7 +1,7 @@
-const #### 关键知识点
+# 关键知识点
 
 ###### 0、多种类型数据结构的创建
-# 链表
+## 链表
 ### 目前涉及到题目类型
 02 链表按位相加 整体翻转 取map元素+链表尾插
 19 快慢指针 删除第n个点<br>
@@ -65,7 +65,7 @@ TreeNode* creatTree(TreeNode* &seed)
 }
 ```
 
-# 排序
+## 排序
 ### 目前涉及到题目类型
   56  stl-sort 二维数组<br>
   75  双指针 vector-swap交换<br>
@@ -74,7 +74,7 @@ TreeNode* creatTree(TreeNode* &seed)
   179 stl-sort 数值逐位排序 按照字符串大小排序<br>
   251 快排 冒泡 stl-sort排序<br>
 
-# cpp 相关知识点
+## cpp 相关知识点
 ###### 1、const的使用
 ```c++
     // 引用只是为提高程序执行效率
@@ -267,3 +267,4 @@ int main()
 
 ### 复习时间
 - 1.24  114 108 树有关内容有点遗忘
+- 1.25  整理链表 hashmap pair

@@ -143,32 +143,32 @@ cpp_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/build
 .PHONY : cpp_code/fast
 
-code_learning/leetcode/leetcode_15m_vector_threeSum.o: code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
+code_learning/basic_pair.o: code_learning/basic_pair.cpp.o
 
-.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.o
+.PHONY : code_learning/basic_pair.o
 
 # target to build an object file
-code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
-.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
+code_learning/basic_pair.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o
+.PHONY : code_learning/basic_pair.cpp.o
 
-code_learning/leetcode/leetcode_15m_vector_threeSum.i: code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
+code_learning/basic_pair.i: code_learning/basic_pair.cpp.i
 
-.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.i
+.PHONY : code_learning/basic_pair.i
 
 # target to preprocess a source file
-code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
-.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
+code_learning/basic_pair.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.i
+.PHONY : code_learning/basic_pair.cpp.i
 
-code_learning/leetcode/leetcode_15m_vector_threeSum.s: code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
+code_learning/basic_pair.s: code_learning/basic_pair.cpp.s
 
-.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.s
+.PHONY : code_learning/basic_pair.s
 
 # target to generate assembly for a file
-code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
-.PHONY : code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
+code_learning/basic_pair.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.s
+.PHONY : code_learning/basic_pair.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpp_code"
-	@echo "... code_learning/leetcode/leetcode_15m_vector_threeSum.o"
-	@echo "... code_learning/leetcode/leetcode_15m_vector_threeSum.i"
-	@echo "... code_learning/leetcode/leetcode_15m_vector_threeSum.s"
+	@echo "... code_learning/basic_pair.o"
+	@echo "... code_learning/basic_pair.i"
+	@echo "... code_learning/basic_pair.s"
 .PHONY : help
 
 

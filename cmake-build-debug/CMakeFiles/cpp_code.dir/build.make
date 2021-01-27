@@ -77,27 +77,27 @@ include CMakeFiles/cpp_code.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cpp_code.dir/flags.make
 
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o: CMakeFiles/cpp_code.dir/flags.make
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o: ../code_learning/leetcode/leetcode_15m_vector_threeSum.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o -c /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp
+CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o: CMakeFiles/cpp_code.dir/flags.make
+CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o: ../code_learning/basic_pair.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o -c /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/basic_pair.cpp
 
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp > CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.i
+CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/basic_pair.cpp > CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.i
 
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.s
+CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/basic_pair.cpp -o CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.s
 
 # Object files for target cpp_code
 cpp_code_OBJECTS = \
-"CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o"
+"CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o"
 
 # External object files for target cpp_code
 cpp_code_EXTERNAL_OBJECTS =
 
-cpp_code: CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_15m_vector_threeSum.cpp.o
+cpp_code: CMakeFiles/cpp_code.dir/code_learning/basic_pair.cpp.o
 cpp_code: CMakeFiles/cpp_code.dir/build.make
 cpp_code: CMakeFiles/cpp_code.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_code"
