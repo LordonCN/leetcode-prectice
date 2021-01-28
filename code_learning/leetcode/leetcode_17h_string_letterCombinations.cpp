@@ -7,12 +7,15 @@
 using namespace std;
 
 /* -------------------------------------------
- * 这个递归有点晕 绕了好久
- * ------------------------------------------*/
-/* -------------------------------------------
  * 递归排列组合
+ * 这个递归有点晕 绕了好久
+ * 思路：
+ * 1、首先参考leetcode12 创建一个表格用于查询
+ * 2、排列组合与树形结构很显然 但是递归起来有点绕
+ * 3、首先考虑第一个数字下的字符循环遍历 这里用 A_ 作为当前数字当前循环下取出的字符
+ * 4、递归中
  * -------------------------------------------*/
-void letterHelper(string digt,int time,string &lettercombin,vector<string> &result,unordered_map<char,string> &dictionary)
+void letterHelper(string digt,string &lettercombin,vector<string> &result,unordered_map<char,string> &dictionary)
 {
     // 递归停止
     if(lettercombin.size()==digt.size()){
@@ -26,7 +29,7 @@ void letterHelper(string digt,int time,string &lettercombin,vector<string> &resu
     for(char A_ : dictionary[digt[lettercombin.size()]])
     {
         lettercombin += A_;
-        letterHelper(digt,time,lettercombin,result,dictionary);
+        letterHelper(digt,lettercombin,result,dictionary);
     }
     //
     lettercombin.pop_back();
@@ -48,18 +51,16 @@ void letterCombian(string digt)
     };
     vector<string> result;
     string lettercombin;
-    letterHelper(digt,0,lettercombin,result,dictionary);
+    // 输入量多为了调试直观
+    letterHelper(digt,lettercombin,result,dictionary);
 
     return ;
 }
 
 int main()
 {
-
     string digt = "462";
-
     letterCombian(digt);
-
     return 0;
 }
 
