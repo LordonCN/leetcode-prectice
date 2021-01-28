@@ -7,7 +7,7 @@ include_directories(heads)
 
 add_executable(cpp_code
 
-        code_learning/leetcode/leetcode_84h_stack_largestRectangleArea.cpp
+        code_learning/leetcode/leetcode_48m_vector_2dVectorRotate.cpp
 
         heads/listNode.h
         heads/treeNode.h

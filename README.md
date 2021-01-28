@@ -9,7 +9,7 @@
 24 三个指针进行node两两交换<br>
 61 整体翻转 使用map或者暴力破解<br>
 
-- 树
+## 树
 <br> 使用递归创建
 ```c++
 TreeNode* creatTree(TreeNode* &seed)
@@ -66,6 +66,7 @@ TreeNode* creatTree(TreeNode* &seed)
 ```
 
 ## 排序
+
 ### 目前涉及到题目类型
   56  stl-sort 二维数组<br>
   75  双指针 vector-swap交换<br>
@@ -80,6 +81,10 @@ TreeNode* creatTree(TreeNode* &seed)
   347 字符统计 first为字母 second为出现次数
   451 字符统计 first为字母 second为出现次数
   17 查map表 排列组合 递归
+
+## 递归
+  17 46 排列组合递归
+  递归创建树
 
 ## cpp 相关知识点
 ###### 1、const的使用

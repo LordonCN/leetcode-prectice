@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_84h_stack_largestRectangleArea.cpp.o"
+  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_48m_vector_2dVectorRotate.cpp.o"
   "cpp_code"
   "cpp_code.pdb"
 )

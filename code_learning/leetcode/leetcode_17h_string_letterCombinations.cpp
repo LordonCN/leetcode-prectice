@@ -20,7 +20,8 @@ void letterHelper(string digt,string &lettercombin,vector<string> &result,unorde
     // 递归停止
     if(lettercombin.size()==digt.size()){
         result.push_back(lettercombin);
-        // 此处清除组合后的最后一位 叶子节点表示每个数字都遍历到了 下面添加该数字表示字符的下一位
+        // 此处清除该位叶子节点数值 退出当前递归为A_取下一个值做准备
+        // 叶子节点表示每个数字都遍历到了 下面添加该数字表示字符的下一位
         lettercombin.pop_back();
         return;
     }
@@ -31,7 +32,7 @@ void letterHelper(string digt,string &lettercombin,vector<string> &result,unorde
         lettercombin += A_;
         letterHelper(digt,lettercombin,result,dictionary);
     }
-    //
+    // 上层返回字符清除 飞叶子节点
     lettercombin.pop_back();
 
     return ;
