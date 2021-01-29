@@ -1121,57 +1121,12 @@ public:
 
 **问题描述**：丑数是质因子只有2、5和8的数，规定1是第一个丑数。求第n个丑数。
 
-**我的思路**：采用三指针法。因为每一个丑数都能看作从前边某个丑数与2、5或8相乘得到。因此，我们从1开始创建三个附属于丑数序列的虚序列。每个指针都指向当前2、3或5作为比较的对象，当当前对象乘以相应因子后仍小于最大的丑数时，则不断循环前进。这样不会漏掉任何一个丑数。
+**别人的思路**：采用三指针法。因为每一个丑数都能看作从前边某个丑数与2、5或8相乘得到。因此，我们从1开始创建三个附属于丑数序列的虚序列。每个指针都指向当前2、3或5作为比较的对象，当当前对象乘以相应因子后仍小于最大的丑数时，则不断循环前进。这样不会漏掉任何一个丑数。
 
-**代码**：
+**我的思路**: 直接统计吧，主要是学怎么在有质因数条件下判断成立于否。
 
-~~~C++
-class Solution {
-public:
-    int nthUglyNumber(int n) {
-        vector<int> uglyNum = {1};
-        int it2 = 0,it3 = 0,it5 = 0; 
-        while(uglyNum.size() < n)
-        {            
-            while((uglyNum[it2] * 2) <= uglyNum.back())
-                it2++;            
-            while((uglyNum[it3] * 3) <= uglyNum.back())
-                it3++;
-            while((uglyNum[it5] * 5) <= uglyNum.back())
-                it5++;
-            
-            int min2 = uglyNum[it2] * 2, min3 = uglyNum[it3] * 3, min5 = uglyNum[it5] * 5;
-            if(min2 < min3)
-            {
-                if(min2 < min5)
-                {
-                    uglyNum.push_back(min2);
-                    it2++;
-                }
-                else
-                {
-                    uglyNum.push_back(min5);
-                    it5++;
-                }
-            }
-            else
-            {
-                if(min3 < min5)
-                {
-                    uglyNum.push_back(min3);
-                    it3++;
-                }
-                else
-                {
-                    uglyNum.push_back(min5);
-                    it5++;
-                }
-            }                
-        }
-        return uglyNum.back();
-    }
-};
-~~~
+**链接**：[leetcode264](code_learning/leetcode/leetcode_264m_judge_nthUglyNumber.cpp)
+
 
 ## VIII. 广度优先搜索
 ## IX. 深度优先搜索(DFS)
