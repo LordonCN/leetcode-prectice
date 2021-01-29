@@ -1174,43 +1174,18 @@ public:
 ~~~
 
 ## VIII. 广度优先搜索
-
 ## IX. 深度优先搜索(DFS)
 
 ### 22M. 产生括号对
 
 **问题描述**：给出应产生的括号对数n，生成所有符合条件的括号对。其中任何一对括号对中不能包含未闭合的单个括号，如`(()`是错误的，而`((()()))`等是正确的。
 
-**思路**：这个问题属于最基本的卡特兰数问题，但是弄清一共有多少个还不够，把每一种情况确定下来需要用到递归。我们知道左括号和右括号的初始数量都是n，每使用一个左括号或右括号都把变量left或right减去1，递归终止条件是左括号和右括号的数量都为0。
+**思路**：这个问题属于最基本的卡特兰数问题，把每一种情况确定下来需要用到递归。我们知道左括号和右括号的初始数量都是n，每使用一个左括号或右括号都把变量left或right减去1，递归终止条件是左括号和右括号的数量都为0。
+类似于DFS深度 ,46题通过判断该数字是否用过来进行添加 ,此题目通过将数字该位括号后添加了穿插这种中间操作 ,递归过程同leetcode17
 
-**代码**：
+**注意**： 1先添加左括号 回溯的时候清除左括号 添加右括号 .2一开始想的时候就没有搞清楚这个该怎么递归 想成了() ()() ()()() 三种情况
 
-~~~C++
-class Solution{
-public:
-    vector<string> generateParenthesis(int n)
-    {
-        if(n == 0) return {""};
-        vector<string> res = {};
-        helper(n, n, "", res);
-        
-        return res;  
-    }
-    void helper(int left, int right, string s, vector<string>& res)
-    {
-        if(left == 0 && right == 0)
-        {
-            res.push_back(s);
-            return;
-        }
-        if(left > 0)
-            helper(left - 1, right, s + "(", res);
-        if(left < right)
-            helper(left, right - 1, s + ")", res);
-        return;
-    }
-};
-~~~
+**链接**：[leetcode22](code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp))
 
 ### 36M. 有效的数独*
 
