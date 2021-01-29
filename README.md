@@ -3,7 +3,7 @@
 ###### 0、多种类型数据结构的创建
 ## 链表
 ### 目前涉及到题目类型
-02 链表按位相加 整体翻转 取map元素+链表尾插
+02 链表按位相加 整体翻转 取map元素+链表尾插<br>
 19 快慢指针 删除第n个点<br>
 21 swap交换两链表 链表的拼接<br>
 24 三个指针进行node两两交换<br>
@@ -77,13 +77,14 @@ TreeNode* creatTree(TreeNode* &seed)
   45  string-sort
 
 ## map-hash
-  45 用于保存同型异构题 first为排序后的结果 second为排序前
-  347 字符统计 first为字母 second为出现次数
-  451 字符统计 first为字母 second为出现次数
+  45 用于保存同型异构题 first为排序后的结果 second为排序前<br>
+  347 字符统计 first为字母 second为出现次数<br>
+  451 字符统计 first为字母 second为出现次数<br>
   17 查map表 排列组合 递归
 
 ## 递归
-  17 46 48 78排列组合递归
+  17 46 48 78排列组合递归<br>
+  22 递归创建括号 `回溯`<br>
   递归创建树
 
 ## cpp 相关知识点
