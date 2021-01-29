@@ -3,11 +3,12 @@ project(cpp_code)
 
 set(CMAKE_CXX_STANDARD 14)
 
+
 include_directories(heads)
 
 add_executable(cpp_code
 
-        code_learning/leetcode/leetcode_78m_vector_subSet.cpp
+        code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp
 
         heads/listNode.h
         heads/treeNode.h

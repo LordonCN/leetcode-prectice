@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o"
+  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o"
   "cpp_code"
   "cpp_code.pdb"
 )

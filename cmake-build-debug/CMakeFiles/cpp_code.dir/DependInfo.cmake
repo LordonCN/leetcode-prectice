@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_78m_vector_subSet.cpp" "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o"
+  "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp" "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

@@ -143,32 +143,32 @@ cpp_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/build
 .PHONY : cpp_code/fast
 
-code_learning/leetcode/leetcode_78m_vector_subSet.o: code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o
+code_learning/leetcode/leetcode_22m_vector_generateKuohao.o: code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o
 
-.PHONY : code_learning/leetcode/leetcode_78m_vector_subSet.o
+.PHONY : code_learning/leetcode/leetcode_22m_vector_generateKuohao.o
 
 # target to build an object file
-code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o
-.PHONY : code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o
+code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o
+.PHONY : code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o
 
-code_learning/leetcode/leetcode_78m_vector_subSet.i: code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i
+code_learning/leetcode/leetcode_22m_vector_generateKuohao.i: code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i
 
-.PHONY : code_learning/leetcode/leetcode_78m_vector_subSet.i
+.PHONY : code_learning/leetcode/leetcode_22m_vector_generateKuohao.i
 
 # target to preprocess a source file
-code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i
-.PHONY : code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i
+code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i
+.PHONY : code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i
 
-code_learning/leetcode/leetcode_78m_vector_subSet.s: code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s
+code_learning/leetcode/leetcode_22m_vector_generateKuohao.s: code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s
 
-.PHONY : code_learning/leetcode/leetcode_78m_vector_subSet.s
+.PHONY : code_learning/leetcode/leetcode_22m_vector_generateKuohao.s
 
 # target to generate assembly for a file
-code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s
-.PHONY : code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s
+code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s
+.PHONY : code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpp_code"
-	@echo "... code_learning/leetcode/leetcode_78m_vector_subSet.o"
-	@echo "... code_learning/leetcode/leetcode_78m_vector_subSet.i"
-	@echo "... code_learning/leetcode/leetcode_78m_vector_subSet.s"
+	@echo "... code_learning/leetcode/leetcode_22m_vector_generateKuohao.o"
+	@echo "... code_learning/leetcode/leetcode_22m_vector_generateKuohao.i"
+	@echo "... code_learning/leetcode/leetcode_22m_vector_generateKuohao.s"
 .PHONY : help
 
 

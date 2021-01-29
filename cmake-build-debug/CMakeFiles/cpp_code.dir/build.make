@@ -77,27 +77,27 @@ include CMakeFiles/cpp_code.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cpp_code.dir/flags.make
 
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o: CMakeFiles/cpp_code.dir/flags.make
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o: ../code_learning/leetcode/leetcode_78m_vector_subSet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o -c /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_78m_vector_subSet.cpp
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o: CMakeFiles/cpp_code.dir/flags.make
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o: ../code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o -c /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp
 
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_78m_vector_subSet.cpp > CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.i
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp > CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.i
 
-CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_78m_vector_subSet.cpp -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.s
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.s
 
 # Object files for target cpp_code
 cpp_code_OBJECTS = \
-"CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o"
+"CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o"
 
 # External object files for target cpp_code
 cpp_code_EXTERNAL_OBJECTS =
 
-cpp_code: CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_78m_vector_subSet.cpp.o
+cpp_code: CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp.o
 cpp_code: CMakeFiles/cpp_code.dir/build.make
 cpp_code: CMakeFiles/cpp_code.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_code"
