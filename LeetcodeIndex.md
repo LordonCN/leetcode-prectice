@@ -88,7 +88,7 @@
 
 **我的思路**：按照区间头从小到大排序，比较好分析一些。对每对相邻区间排序，如果后者的头小于前者的尾，则可以混合，所有相邻的混合过的区间可用start和end统一表示成一个区间。这道题可分为允许和不允许对原输入进行操作的，如果允许改变输入，那么混合过后可以直接删除多余的那个，改变另一个的尾部，而剩去start和end进行计数，当然从提交结果来看，vector的erase操作是相当费时的。
 
-**链接**：[leetcode](code_learning/leetcode/leetcode_56m_sort_2dVectorSort.cpp)
+**链接**：[leetcode](code_learning/leetcode/leetcode_56m_vector_mergelap.cpp)
 
 
 ### 61M. 轮换链表
@@ -1148,52 +1148,7 @@ public:
 
 **我的思路**：遍历三遍，分别判定数独有效的三个条件。即横竖和九宫格不出现相同的数字。对于每次遍历，都采用一组hash来保存。缺点：效率低，遍历次数多。
 
-**我的代码**：
-
-~~~C++
-class Solution {
-public:
-    bool isValidSudoku(vector<vector<char>>& board) {
-        for(int i = 0; i < board.size(); i++)
-        {
-            unordered_set<char> hash;
-            for(int j = 0; j < board.size(); j++)
-            {
-                if(board[i][j] == '.') continue;
-                if(hash.find(board[i][j]) != hash.end()) return false;
-                else hash.insert(board[i][j]);
-            }
-        }
-        for(int j = 0; j < board.size(); j++)
-        {
-            unordered_set<char> hash;
-            for(int i = 0; i < board.size(); i++)
-            {
-                if(board[i][j] == '.') continue;
-                if(hash.find(board[i][j]) != hash.end()) return false;
-                else hash.insert(board[i][j]);
-            }
-        }
-        for(int k = 0; k < 3; k++)
-        {
-            for(int p = 0; p < 3; p++)
-            {
-                unordered_set<char> hash;
-                for(int i = k * 3; i < (k + 1) * 3; i++)
-                {
-                    for(int j = p * 3; j < p * 3 + 3; j++)
-                    {
-                        if(board[i][j] == '.') continue;
-                        if(hash.find(board[i][j]) != hash.end()) return false;
-                        else hash.insert(board[i][j]);
-                    }
-                }
-            }
-        }
-        return true;
-    }
-};
-~~~
+**链接**：[leetcode36](code_learning/leetcode/leetcode_36m_vector_isValidSudoku.cpp)
 
 **优化**：最好能一次遍历完，需要更改数据结构，使用bitmap效率会很高。
 

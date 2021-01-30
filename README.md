@@ -81,6 +81,7 @@ TreeNode* creatTree(TreeNode* &seed)
   347 字符统计 first为字母 second为出现次数<br>
   451 字符统计 first为字母 second为出现次数<br>
   17 查map表 排列组合 递归
+  36 用来统计字符出现次数 map.clear()
 
 ## 递归
   17 46 48 78排列组合递归<br>
