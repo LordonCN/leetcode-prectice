@@ -1156,204 +1156,36 @@ public:
 
 **问题描述**：给出一组数据candidates，其中无重复数据，另外给出一个目标target，求所有可能组成和为target的组合，不能有重复的解，并且**candidates中每个元素都可以无限制次数地使用**。
 
-**我的思路**：按照深度优先搜索的思路，从后往前遍历，对每个数，判断当前remain是否为0（每次加入解集一个数，remain即减去这个数），接下来可以用两种方法实现这道题，第一种：可以分为将这个数加入当前解集和不加入当前解集，然后氛围两个支路继续递归。需要注意的是，对于加入这个数到当前解集这个递归支路，由于每个数可用的次数不限制，那么这个支路相当于又会产生若干次递归，一直加到remain小于当前这个数为止，因此递归的次数非常之多。第二种方法：是正统的深度优先搜索，对于每一次递归，如果遍历到了当前序号为i的元素，那么都从i开始依次将剩下的元素加入解集，每加入一次都将产生一次递归。
+**别人的思路**：按照深度优先搜索的思路，从后往前遍历，对每个数，判断当前remain是否为0（每次加入解集一个数，remain即减去这个数），接下来可以用两种方法实现这道题，第一种：可以分为将这个数加入当前解集和不加入当前解集，然后氛围两个支路继续递归。需要注意的是，对于加入这个数到当前解集这个递归支路，由于每个数可用的次数不限制，那么这个支路相当于又会产生若干次递归，一直加到remain小于当前这个数为止，因此递归的次数非常之多。第二种方法：是正统的深度优先搜索，对于每一次递归，如果遍历到了当前序号为i的元素，那么都从i开始依次将剩下的元素加入解集，每加入一次都将产生一次递归。
 
-**代码**：
+**我的思路**：从大到小遍历 做自减计算即可(不过这样写有bug)  ，后改用递归 比较好写。
 
-方法一（效率低）：
+**链接**：[leetcode39](code_learning/leetcode/leetcode_39m_vector_combinationSum.cpp)<br>
 
-~~~C++
-class Solution {
-public:
-    void recurHelper(const vector<int>& candidates, vector<vector<int>>& res, vector<int> curVec, int remain, int pointer)
-    {
-        if(remain == 0)
-        {
-            res.push_back(curVec);
-            return;
-        }
-        int current = candidates[pointer];
-        if(pointer == 0)
-        {
-            if(remain < current || remain % current != 0)
-                return;
-            else
-            {
-                while(remain != 0)
-                {
-                    remain -= current;
-                    curVec.push_back(current);
-                }
-                res.push_back(curVec);
-                return;
-            }
-        }
-        else
-        {
-            recurHelper(candidates, res, curVec, remain, pointer - 1);
-            while(remain >= current)
-            {
-                remain -= current;
-                curVec.push_back(current);
-                recurHelper(candidates, res, curVec, remain, pointer - 1);
-            }
-            return;
-        }
-    }
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>> res = {};
-        if(candidates.empty()) return res;
-        sort(candidates.begin(), candidates.end());
-        if(target == 0)
-        {
-            res = {{}};
-            return res;
-        }
-        else if(candidates[0] > target) return res;
-        vector<int> curVec = {};
-        recurHelper(candidates, res, curVec, target, candidates.size() - 1);
-        return res;
-    }
-};
-~~~
-
-方法二（效率高）：
-
-~~~C++
-class Solution {
-public:
-    void recurHelper(const vector<int>& candidates, vector<vector<int>>& res, vector<int>& curVec, const int remain, const int pointer)
-    {
-#ifdef DEBUG
-        res.push_back({0,0,0,remain,pointer,0,0,0});
-#endif
-        if(remain < 0) return;
-        //找到合法解
-        if(remain == 0)
-        {
-            res.push_back(curVec);
-            return;
-        }
-        for(int i = pointer; i >= 0; i--)
-        {
-            curVec.push_back(candidates[i]);
-            recurHelper(candidates, res, curVec, remain - candidates[i], i);
-            curVec.pop_back();
-            
-        }
-        return;
-    }
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>> res = {};
-        sort(candidates.begin(), candidates.end());
-        if(candidates.empty() || candidates[0] > target) return res;
-        vector<int> curVec = {};
-        recurHelper(candidates, res, curVec, target, candidates.size() - 1);
-        return res;
-    }
-};
-~~~
+**链接**：[leetcode39-digui](code_learning/leetcode/leetcode_39m_vector_combinationSumDigui.cpp)
 
 ### 40M. 组合之和II
 
 **问题描述**：给出一组数据candidates，其中可能有重复的数；另外给出一个目标target，求所有可能组成和为target的组合，并且不能有重复的解。
 
 **我的思路**：按照深度优先搜索的思路，从后往前遍历，对每个数，判断当前remain是否为0（每次加入解集一个数，remain即减去这个数），可以分为将这个数加入当前解集合和不加入当前解集合，然后分为两个支路继续递归。需要注意的是如何排除重复的解：出现重复解的原因在于，给出的candidates中本身有重复的元素，那么则需要在上边两个递归前加入条件判断语句——**如果前后两个相同的元素，前者没有被加入到本次解集中，那么在前者所产生的支路，后者也不加入解集。**举例：
+参考 39题 直接在39基础上修改后出现最后结果中存在重复的情况 此处添加vector清除重复元素部分
 
-```C++
-candidates: [5,4,4,3,2,1]
-target: 10
-```
+**链接**：[leetcode40-digui](code_learning/leetcode/leetcode_40m_vector_combinationSum2Digui.cpp)
 
-可能重复的解是[5,4,1]，原因是有两个4。在循环中，如果第一个4没有被加入到当前解集中，那么第二个4也不加入到当前解集，否则会和之前加入第一个4的解集重复。这样的判断不会漏掉任何一个解集，比用哈希表每次加入前判断是否已存在当前解效率要高很多。
-
-**代码**：
-
-```C++
-class Solution {
-public:
-    void recurHelper(vector<vector<int>>& res, vector<int>& candidates, vector<int>& curSol, int remain, int index, vector<bool>& flag)
+```c++
+    // 2d清除vector中重复元素
+    vector<vector<int>>::iterator it,it1;
+    for (it=++result.begin(); it != result.end();)
     {
-        if(remain == 0)
-        {
-            res.push_back(curSol);
-            return;
-        }
-        else if(remain < 0 || index < 0)
-            return;
-        recurHelper(res, candidates, curSol, remain, index - 1, flag);
-        
-        //如果前一个数和当前数相等且前一个数没被选中，那么这个数页不选，直接跳过本次迭代，为了避免重复的情况。
-        if((index < candidates.size() - 1) && candidates[index] == candidates[index + 1] && !flag[index + 1])  
-        {
-            return;
-        }
-        flag[index] = true;
-        curSol.push_back(candidates[index]);
-        recurHelper(res, candidates, curSol, remain - candidates[index], index - 1, flag);
-        curSol.pop_back();
-        flag[index] = false;
-        
-        return;
+        it1 = find(result.begin(),it,*it);    //若当前位置之前存在重复元素，删除当前元素,erase返回当前元素的下一个元素指针
+        if(it1 != it)
+            it=result.erase(it);
+        else
+            it++;
     }
-    
-    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-        if(candidates.empty() || target == 0) return {{}};
-        sort(candidates.begin(), candidates.end());
-        vector<vector<int>> res = {};
-        vector<bool> flag(candidates.size(), false);
-        vector<int> curSol = {};
-        recurHelper(res, candidates, curSol, target, candidates.size() - 1, flag);
-        
-        return res;
-    }
-};
 ```
 
-
-
-**优化后的代码**：
-
-~~~C++
-//用来加速，详情<https://blog.csdn.net/huanucas/article/details/88981012>
-static const auto __ = []() {
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-    return nullptr;
-}();
-
-class Solution {
-public:
-    bool isValidSudoku(vector<vector<char>>& board) {
-        const int rows = board.size();		//使用const好习惯
-        const int cols = board[0].size();
-        
-        vector<bitset<9>> rowValid(rows);	//用来保存记录	
-        vector<bitset<9>> colValid(rows);	
-        vector<bitset<9>> boxValid(rows);
-        
-        for (int i=0; i<rows; i++) {
-            for (int j=0; j<cols; j++) {
-                if (board[i][j] == '.')
-                    continue;
-                
-                int val = board[i][j] - '0' -  1;
-                int box = (i / 3) * 3 + (j / 3);	//这个方法好，如果从上倒下从左到右分别把九宫格编号编为0～8，那么这种方法刚好能使每一个数字都赋予相应的九宫格编号。
-                
-                // 在一次遍历中统统检查完，效率高。
-                if (rowValid[i].test(val) || colValid[j].test(val) || boxValid[box].test(val))
-                    return false;
-                
-                rowValid[i].set(val);
-                colValid[j].set(val);
-                boxValid[box].set(val); 
-            }
-        }
-        
-        return true;
-    }
-};
-~~~
 
 ## X. 分治法
 

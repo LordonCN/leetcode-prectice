@@ -10,83 +10,34 @@
 61 整体翻转 使用map或者暴力破解<br>
 
 ## 树
-<br> 使用递归创建
-```c++
-TreeNode* creatTree(TreeNode* &seed)
-{
-    char creat;
-    seed = new TreeNode;
-    
-    cout<<"creat left child?(Y/N)"<<endl;
-    cin>>creat;
-    if(creat == 'Y'){
-        creatTree(seed->left);
-    }
-    else{
-        seed->left = nullptr;
-    }
-
-    cout<<"creat right child?(Y/N)"<<endl;
-    cin>>creat;
-    if(creat == 'Y'){
-        creatTree(seed->right);
-    }
-    else{
-        seed->right= nullptr;
-    }
-    return seed;
-}
-
-```
-
-<br> 使用递归进行深度搜索 在有关平衡二叉树的判断上则需要对深度进行二次判断(单独计算左侧树最大深度，右侧树最大深度)
-
-```c++
-    int maxDepth(TreeNode* root) {
-        if (root == NULL) return 0;
-        return 1 + max(maxDepth(root->left), maxDepth(root->right));
-    }
-
-    int minDepth(TreeNode* root) {
-        if (root == NULL) return 0;
-            {
-                ldepth = minDepth(root->left),
-                rdepth = minDepth(root->right);
-
-                if(root->left && !root->right)
-                    return 1+ldepth;
-                
-                if(!root->left && root->right)
-                return 1+rdepth;
-
-                return 1 + min(ledpth,rdepth);
-            }
-
-}
-```
+17 排列组合<br>
+46 排列组合<br>
+48 排列组合<br>
+78 排列组合<br>
+22 递归创建括号 `回溯`<br>
+39 vector递归组合 `回溯`<br>
 
 ## 排序
-
-### 目前涉及到题目类型
-  56  stl-sort 二维数组<br>
-  75  双指针 vector-swap交换<br>
-  347 451 为stl-sort排序(hashmap+2dvector)<br>
-  215 stl-sort 数值大小排序<br>
-  179 stl-sort 数值逐位排序 按照字符串大小排序<br>
-  251 快排 冒泡 stl-sort排序<br>
-  45  string-sort
+56  stl-sort 二维数组<br>
+75  双指针 vector-swap交换<br>
+347 451 为stl-sort排序(hashmap+2dvector)<br>
+215 stl-sort 数值大小排序<br>
+179 stl-sort 数值逐位排序 按照字符串大小排序<br>
+251 快排 冒泡 stl-sort排序<br>
+45  string-sort
 
 ## map-hash
-  45 用于保存同型异构题 first为排序后的结果 second为排序前<br>
-  347 字符统计 first为字母 second为出现次数<br>
-  451 字符统计 first为字母 second为出现次数<br>
-  17 查map表 排列组合 递归
-  36 用来统计字符出现次数 map.clear()
+45 用于保存同型异构题 first为排序后的结果 second为排序前<br>
+347 字符统计 first为字母 second为出现次数<br>
+451 字符统计 first为字母 second为出现次数<br>
+17 查map表 排列组合 递归<br>
+36 用来统计字符出现次数 map.clear()
 
 ## 递归
-  17 46 48 78排列组合递归<br>
-  22 递归创建括号 `回溯`<br>
-  递归创建树
+17 46 48 78排列组合递归<br>
+22 递归创建括号 `回溯`<br>
+39 vector递归组合<br>
+递归创建树
 
 ## cpp 相关知识点
 ###### 1、const的使用
