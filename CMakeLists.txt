@@ -8,7 +8,7 @@ include_directories(heads)
 
 add_executable(cpp_code
 
-        code_learning/leetcode/leetcode_40m_vector_combinationSum2Digui.cpp
+        code_learning/leetcode/leetcode_11m_vector_maxArea.cpp
 
         heads/listNode.h
         heads/treeNode.h
