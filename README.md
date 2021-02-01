@@ -191,12 +191,11 @@ int main()
 ```c++
     // 从小到大默认排序 可以用于数组 vector 给好起止就好
     sort(nums.begin(),nums.end());
-
     // 若要从大到小排序 需要配合下面的函数进行修改 同时也可以用于二维数组
     sort(nums.begin(),nums.end(),sortCmp);
-
-
-    }
+    
+    // lambda
+    sort(nums.begin(),nums.end(),[](int a,int b){return a>b});
 ```
 <br>当前适用情况：
 ```c++
@@ -205,30 +204,44 @@ int main()
     {
         return a[0] < b[0]; // 升序 < 降序
     }
-        
     // 数值大小排序 215
     bool sortCmp(int a,int b)
     {
         return a < b; // 升序 < 降序
     }
-        
     // 按照字符串大小排序
     // 数值逐位排序 179
     bool sortCmp(int a,int b)
     {
         return to_string(a) < to_string(b); 
     }
-
 ```
 
-
-###### 6、reverse的使用
+###### 6、reverse-vector内容翻转的使用
 - 在 include <algorithm> 中
 ```c++
     // 对于vector类型的数据reverse很好用
     // 对于顺序有比较高要求的情况来说很好用
     reverse(smallNumber.begin(),smallNumber.end());
 ```
+
+###### 7、accumulate-vector中元素求和的使用
+- include <numeric>
+
+```c++
+    int aSum = accumulate(a.begin(),a.end(),0);
+```
+
+
+###### 8、erase-vector-map-set清空的使用
+- 清空
+```c++
+    hashmap.erase(hashmap.begin(),hashmap.end());
+    vector.erase(hashmap.begin(),hashmap.end());
+    set.erase(hashmap.begin(),hashmap.end());
+```
+
+
 
 ## 复习时间
 - 1.24  114 108 树有关内容有点遗忘
