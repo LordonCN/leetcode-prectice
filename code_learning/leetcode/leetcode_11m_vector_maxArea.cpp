@@ -15,14 +15,8 @@ void maxArea(vector<int> nums)
     {
         maxWaterArea = max(maxWaterArea,min(nums[front],nums[back])*(back-front));
 
-        if(nums[front]<= nums[back])
-        {
-            front ++;
-        }
-        else
-        {
-            back --;
-        }
+        if(nums[front]<= nums[back]) front ++;
+        else back --;
     }
 
     return ;
