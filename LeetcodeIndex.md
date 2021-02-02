@@ -1209,166 +1209,20 @@ public:
 
 **链接**：[leetcode11-twoPointer](code_learning/leetcode/leetcode_11m_vector_maxArea.cpp)
 
-
-### 159M. 最多包含两个不同字母的子串 ###
-
-**问题描述**；选择一个子串，使得这个子串最多包含两个不同的字母。
-
-**我的思路**：滑动窗口的判断标准为判断字串内不同字母的个数。使用变量counter记录重复的字母数，index记录每个字母出现在滑动窗口内的次数。
-
-~~~C++
-class Solution{
-public:
-    int lengthOfLongestSubstringTwoDistinct(string s)
-    {
-        if(s.empty()) return 0;
-        int n = s.size();
-        int[] index = new int[128];
-        //记录不同字母的个数
-        int counter = 0;
-        int res = 0;
-        
-        for(int left = 0, j = 0; j < n; j++)
-        {
-           	if(index[s[j]] == 0)
-            {
-                counter++;
-            }
-            index[s[j]]++;
-            while(counter > 2)
-            {
-                index[s[left]]--;
-                if(index[s[left]] == 0)
-                    counter--;
-                left++;
-            }
-            res = max(res, j + 1 - left);
-        }
-        return res;
-    }
-};
-~~~
-
-
-
 ## XII. 动态规划
 
 ### 53E. 最大的子序列
 
 **问题描述**：给出一个序列，寻找其中一个连续的子序列，使得这个子序列的所有元素和最大。
 
-**我的思路**：
+**别人的思路**：
 
 * 动态规划：假设我们从头到尾遍历，那么对于当前的这个数有加入和不加入子序列的两种选择，如果前边的子序列的和为正数，那么我们可以选择加入这个子序列，这时我们称前面这个子序列是有贡献的，我们将前边的子序列加入candidates；反之如果前边子序列已经为负了，那么前边的子序列就可以抛弃了，我们从当前这个数再起一个新的子序列，最后在candidate不断比较的过程中选出最优解。
-* 分治法：对于每一个序列，我们都可将其分为如下序列：`[l, m]`和` [m + 1, r]`，我们对这两个序列分别计算五个数: lmax, rmax, lbmax, rbmax, max，其中前两个指的是左半子序列和右半子序列的最大子序列和，中间两个是指包含靠中间边界的最大子序列和，最后一个是整个序列的最大子序列和，即` max(lmax, rmax, max(rbmax, lbmax, rbmax + lbmax))`。
 
-**我的代码**：
 
-~~~C++
-#define DC
+**我的思路**：使用贪心与动态规划 不过`动态在哪里`还不太理解
 
-#ifdef DP
-//Dynamic programming
-//Note that if we find the contiguous subarray (i, j) which contains the largest sum, then for each k(i < k < j), the sum of subarray (i, k) should not be negative, otherwise we can simply remove the (i, k) and get a subarray (k+1, j) with a larger sum.
-class Solution {
-public:
-    int maxSubArray(vector<int>& nums) {
-        if(nums.empty()) return 0;
-        int partialSum = 0;
-        int maxSum = INT_MIN;
-        for(int i = 0; i < nums.size(); i++){
-            partialSum += nums[i];
-            maxSum = (maxSum > partialSum)?maxSum:partialSum;
-            if(partialSum < 0) partialSum = 0;
-        }
-        return maxSum;
-    }
-};
-#endif
-
-#ifdef DC
-/*
-Devide and Conquer
-For each array (l, r), we devide it into the left(l, m) and right(m + 1, r) subarrays and calculate five values:
-lmax: the max sum in the left subarray
-rmax: the max sum in the right subarray
-lbmax: the max sum of the boundary subarray ending at m,
-rbmax: the max sum of the boundary subarray starting at m+1,
-max: the max sum of the subarrays of this array, which is max(lmax, rmax, lbmax+rbmax).
-*/
-class Solution{
-public:
-    int maxSubArray(vector<int>& nums){
-        if(nums.size() == 0) return 0;
-        else if(nums.size() == 1) return nums[0];
-        
-        int res = maxSubArrayDC(nums, 0, nums.size() - 1);
-        return res;
-    }
-    
-    int maxSubArrayDC(vector<int>& nums, int l, int r){
-        int lmax = 0, rmax = 0;
-        int lbmax, rbmax;
-        int bmax, max;
-        if(nums.size() == 2){
-            max = nums[0] > nums[1] ? nums[0] : nums[1];
-            max = max > nums[0] + nums[1] ? max : nums[0] + nums[1];
-            return max;
-        }
-        int m = (l + r) >> 1;
-        if(l < m - 1){
-            lmax = maxSubArrayDC(nums, l, m);
-            int temp = 0;
-            lbmax = nums[m];
-            for(int i = m; i > -1; i--){
-            temp += nums[i];
-            lbmax = lbmax>temp?lbmax:temp;
-            }
-        }   
-        else {
-            if(l == m){
-                lmax = nums[m];
-                lbmax = nums[m];
-            } else {
-                lmax = nums[l] > nums[m] ? nums[l] : nums[m];
-                lmax = lmax > nums[l] + nums[m] ? lmax : nums[l] + nums[m];
-                if(nums[l] > 0) lbmax = nums[l] + nums[m];
-                else lbmax = nums[m];
-            }
-        }
-        if(m + 1 < r - 1){
-            rmax = maxSubArrayDC(nums, m + 1, r);
-            int temp = 0;
-            rbmax = nums[m + 1];
-            for(int i = m + 1; i < nums.size(); i++){
-            temp += nums[i];
-            rbmax = rbmax>temp?rbmax:temp;
-            }
-        } 
-        else{
-            if(r == m + 1){
-                rmax = nums[m + 1];
-                rbmax = nums[m + 1];
-            } else {
-                rmax = nums[r] > nums[m + 1] ? nums[r] : nums[m + 1];
-                rmax = rmax > nums[r] + nums[m + 1] ? rmax : nums[r] + nums[m + 1];
-                if(nums[r] > 0) rbmax = nums[m + 1] + nums[r];
-                else rbmax = nums[m + 1];
-            }
-        }
-        
-        
-        bmax = rbmax + lbmax;
-        bmax = bmax > rbmax ? bmax : rbmax;
-        bmax = bmax > lbmax ? bmax : lbmax;
-        
-        max = lmax>rmax?lmax:rmax;
-        max = max>bmax?max:bmax;
-        return max;
-    }
-};
-#endif
-~~~
+**链接**：[leetcode53](code_learning/leetcode/leetcode_53e_vector_maxSubArray.cpp)
 
 ### 120M. 三角形的最短路径
 
