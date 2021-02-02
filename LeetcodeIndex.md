@@ -1237,39 +1237,11 @@ public:
 ]
 ~~~
 
-**我的思路**：这是个动态规划问题，我们找出每一个位置对应的值，即从(i, j)这一点移动到最下层的最小路径，那么我们知道当前点只能从正上方的点和左上方的点移动过来，因此` d[i][j] = min(d[i - 1][j], d[i - 1][j - 1]) + triangle[i][j]`。为了使用最少的空间，我们只分配一个大小为n的数组，从头到尾只利用这一个数组的空间，同时利用一些临时变量做一些记录（代码中的temp用来记录被覆盖的左上方数据，t用来记录即将被覆盖的正上方数据）。
+**别人的思路**：这是个动态规划问题，我们找出每一个位置对应的值，即从(i, j)这一点移动到最下层的最小路径，那么我们知道当前点只能从正上方的点和左上方的点移动过来，因此` d[i][j] = min(d[i - 1][j], d[i - 1][j - 1]) + triangle[i][j]`。为了使用最少的空间，我们只分配一个大小为n的数组，从头到尾只利用这一个数组的空间，同时利用一些临时变量做一些记录（代码中的temp用来记录被覆盖的左上方数据，t用来记录即将被覆盖的正上方数据）。
 
-**代码**：
+**我的思路**：递归方式实现反向中序遍历,可以看做树
 
-~~~C++
-class Solution {
-public:
-    int minimumTotal(vector<vector<int>>& triangle) {
-        if(triangle.size() == 0) return 0;
-        else if(triangle.size() == 1) return triangle[0][0];
-        int size = triangle.size();
-        vector<int> res(size, INT_MAX);
-        res[0] = triangle[1][0] + triangle[0][0];
-        res[1] = triangle[1][1] + triangle[0][0];
-        for(int i = 2; i < triangle.size(); i++)
-        {
-          	//用来记录左上方的点的结果，即将被覆盖
-            int temp = res[0];
-            res[0] = res[0] + triangle[i][0];
-            res[i] = res[i - 1] + triangle[i][i];
-            for(int j = 1; j < i; j++)
-            {
-              	//用来计算正上方点的结果，即将被覆盖
-                int t = res[j];
-                res[j] = min(temp, t) + triangle[i][j];
-                temp = t;
-            }
-        }
-        int min = *min_element(res.begin(), res.end());
-        return min;
-    }
-};
-~~~
+**链接**：[leetcode120](code_learning/leetcode/leetcode_120m_vector_minTrianglePath.cpp)
 
 ## XIII. 图
 
