@@ -6,11 +6,9 @@ using namespace std;
 
 /* -------------------------------------------
  * vector题目
- * 亮点：
- * 不取引用操作排序会有浅拷贝*
  * ------------------------------------------*/
 
-void medianSlidingWindow(const vector<int> nums,int number)
+void medianSlidingWindow(const vector<int>& nums,int number)
 {
     // number/2 = 0时应该return accumulate(nums.begin(),nums.end(),0)*1.0/nums.size();
     // number/2 = 1时应该return sort(nums.begin(),nums.end()) 取 nums[i+k/2+1];
@@ -52,7 +50,7 @@ int main()
     vector<int> nums {1,3,-1,-3,5,3,6,7};
 
     // 逆序排序
-    int target = 2;
+    int target = 3;
 
     medianSlidingWindow(nums,target);
 
