@@ -48,13 +48,18 @@ int getDeepth(TreeNode* &root )
     {
         int ldeepth = getDeepth(root->left);
         int rdeepth = getDeepth(root->right);
-        // 如果相等或者右侧大 得返回右侧计数 求最大深度
+        // 其中每一个子节点都要成立
+        if(abs(ldeepth-rdeepth)>1 || ldeepth == -1 || rdeepth == -1) return -1;
+        // 如果相等或者右侧大 得返回右侧计数 求最大深度 叶子节点的话就又+1
         return ldeepth>rdeepth? ldeepth+1:rdeepth+1;
     }
     return 0;
 
 }
 
+/* -------------------------------------------
+ * 判断左右深度是否相同
+ * ------------------------------------------*/
 bool isBalance(TreeNode* &root)
 {
     if(!root) return true;
@@ -62,8 +67,7 @@ bool isBalance(TreeNode* &root)
     int left = getDeepth(root->left);
     int right = getDeepth(root->right);
 
-
-    return abs(left-right)<=1;
+    return abs(left-right)<=1 && left!=-1 && right!=-1;
 
 }
 

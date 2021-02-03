@@ -16,6 +16,7 @@
 22 递归创建括号 `回溯`<br>
 39 vector递归组合 `回溯`<br>
 120 vector递归组合 `回溯`<br>
+437 相互调用 耦合度高
 
 ## 排序
 56  stl-sort 二维数组<br>
@@ -38,6 +39,7 @@
 22 递归创建括号 `回溯`<br>
 39 vector递归组合 `回溯`<br>
 120 递归 `动态`<br>
+424 string递归 `遍历`<br>
 
 递归创建树
 
@@ -226,7 +228,8 @@ int main()
 ```
 
 ###### 6、reverse-vector内容翻转的使用
-- 在 include <algorithm> 中
+-  include `<vector>`
+-  include `<algorithm>` 
 ```c++
     // 对于vector类型的数据reverse很好用
     // 对于顺序有比较高要求的情况来说很好用
@@ -234,15 +237,18 @@ int main()
 ```
 
 ###### 7、accumulate-vector中元素求和的使用
-- include <numeric>
+- include `<numeric>`
+- include `<vector>`
 
 ```c++
+    vector<int>a;
     int aSum = accumulate(a.begin(),a.end(),0);
 ```
 
 
 ###### 8、erase-vector-map-set清空的使用
-- 清空
+-  include `<vector>`
+-  include `<unordered_map>`
 ```c++
     hashmap.erase(hashmap.begin(),hashmap.end());
     vector.erase(hashmap.begin(),hashmap.end());
