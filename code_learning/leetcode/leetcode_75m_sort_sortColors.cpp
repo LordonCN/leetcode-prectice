@@ -41,16 +41,7 @@ void sortColors(vector<int> &nums)
 int main()
 {
     // 首先准备好nums target
-    vector<int> nums;
-    nums.push_back(0);
-    nums.push_back(1);
-    nums.push_back(2);
-    nums.push_back(2);
-    nums.push_back(1);
-    nums.push_back(1);
-    nums.push_back(0);
-    nums.push_back(0);
-    nums.push_back(1);
+    vector<int> nums{0,1,2,2,1,1,0,0,1};
 
     sortColors(nums);
 
