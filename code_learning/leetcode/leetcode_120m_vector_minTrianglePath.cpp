@@ -41,9 +41,9 @@ void helper(vector<vector<int>>&nums,int i,int j,vector<int>&temp)
     temp.push_back(nums[j][i]);
 
     // 2、中间部分
-    helper(nums,i+1,j+1,temp);
-    helper(nums,i,j+1,temp);
     helper(nums,i-1,j+1,temp);
+    helper(nums,i,j+1,temp);
+    helper(nums,i+1,j+1,temp);
 
     temp.pop_back();
     return ;
