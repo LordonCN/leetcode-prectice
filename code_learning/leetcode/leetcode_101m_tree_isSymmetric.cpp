@@ -37,21 +37,22 @@ TreeNode* initTree(TreeNode* &root)
 
 /* -------------------------------------------
  * 递归判断是否对称 终止条件为空的判断
+ * 都不存在 一个存在一个不存在 都存在但是值不同 都存在且相同
  * ------------------------------------------*/
 bool compare(TreeNode* &left,TreeNode* &right)
 {
+    //3
     // 对称迭代到最后是这个结果
     if(!left && !right) return true;
     // 不对称判断
-    else if (left && !right) return false;
-    else if (!left && right) return false;
+    else if (!left || !right) return false;
     // 上面三个判断之后 left right都存在 那么剔除掉值不相同的
     else if (left->val != right->val) return false;
 
+    //2
     // 其余的肯定相同 那么继续向下迭代
     bool leftOK = compare(left->left,left->right);
     bool rightOK = compare(right->left,right->right);
-
 
     return leftOK && rightOK;
 }
@@ -61,10 +62,8 @@ int main()
     TreeNode *root= new TreeNode;
     root = initTree(root);
     bool result = false;
-    //  特殊判断 如果头为空
-//    if(!root) return true;
 
-    result = compare(root->left,root->right);
+    result = root ? compare(root->left,root->right) : true;
 
     return 0;
 }
