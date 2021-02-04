@@ -17,6 +17,7 @@
 39 vector递归组合 `回溯`<br>
 120 vector递归组合 `回溯`<br>
 437 相互调用 耦合度高
+637 BFS求平均值 已经有一维 二维结果存储
 
 ## 排序
 56  stl-sort 二维数组<br>
@@ -249,10 +250,16 @@ int main()
 ###### 8、erase-vector-map-set清空的使用
 -  include `<vector>`
 -  include `<unordered_map>`
+-  include `<unordered_set>`
+-  include `<set>`
+
 ```c++
     hashmap.erase(hashmap.begin(),hashmap.end());
     vector.erase(hashmap.begin(),hashmap.end());
-    set.erase(hashmap.begin(),hashmap.end());
+    hashset.erase(hashmap.begin(),hashmap.end());
+    
+    unordered_set<int> hashSet(nums.begin(),nums.end());
+    set<int> Set(nums.begin(),nums.end());
 ```
 
 
