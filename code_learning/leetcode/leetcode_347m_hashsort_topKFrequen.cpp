@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
+#include <set>
 using namespace std;
 /* -------------------------------------------
  * cpp哈希表的创建方法unordered_map<int,int> hashMap;
@@ -28,7 +30,8 @@ void topKNumber(std::vector<int> &nums,int K)
         return;
 
     // 创建hashmap
-    unordered_map<int,int> hashMap;
+    unordered_map<int,int> hashMap ;
+    // 形式2的hash集合
 
     // hash 统计数字出现频率 索引为数字数值
     // vector 遍历方法
