@@ -97,12 +97,4 @@ void treeDFS_2d(treeNode_2* root,vector<vector<int>>& result,int level) {
     treeDFS_2d(root->right,result,level+1);
 }
 
-/* -------------------------------------------
- * 使用DFS进行深度优先搜索 强调的是深度 没有必要抢BFS的效果
- *
- * -------------------------------------------*/
-
-
-
-
 #endif
