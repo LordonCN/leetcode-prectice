@@ -2,6 +2,7 @@
 #define TREENODE_H
 #include <iostream>
 #include <queue>
+#include <stack>
 using namespace std;
 
 /* -------------------------------------------
@@ -80,7 +81,7 @@ vector<vector<int>> treeBFS_2d(treeNode_2* root) {
 }
 
 /* -------------------------------------------
- * 使用DFS进行深度优先搜索 关键两点 C
+ * 使用递归进行层次遍历 关键两点:
  * 1、因为在便利过程中需要动态改变vector大小 且pushback之前需要创建好vector
  * 2、此处不需要返回result 通过引用直接对vector进行修改 添加返回值类型反而出错
  * -------------------------------------------*/
@@ -97,4 +98,26 @@ void treeDFS_2d(treeNode_2* root,vector<vector<int>>& result,int level) {
     treeDFS_2d(root->right,result,level+1);
 }
 
+/* -------------------------------------------
+ * DFS 非递归调用方法 与BFS实现方式有异曲同工
+ * DFS 正常实现方式就是用递归即可
+ * -------------------------------------------*/
+vector<int> treeDFSStack(treeNode_2* root) {
+    vector<int> result;
+    if(!root) return result;
+
+    stack<treeNode_2 *> sta;
+    sta.push(root);
+    // 直到所有遍历完成
+    while (!sta.empty()) {
+        // 这里记住pop次数 到这里的时候queue中包含的都是此深度的所有节点值
+        treeNode_2 *node = sta.top();
+        sta.pop();
+        result.push_back(node->val);
+        // 先push右 再push左 循环回来top就先取左 栈的机制 如果是队列的话就是先左再右 node取front
+        if (node->right) sta.push(node->right);
+        if (node->left) sta.push(node->left);
+    }
+    return result;
+}
 #endif
