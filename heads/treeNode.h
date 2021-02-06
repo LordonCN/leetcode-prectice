@@ -38,22 +38,18 @@ vector<int> treeBFS(treeNode_2* root) {
     vector<int> result;
     // 直到所有遍历完成
     while (!que.empty()) {
-        // 这里记住pop次数 到这里的时候queue中包含的都是此深度的所有节点值
-        int size = que.size();
-        // 这里一定要使用固定大小size，不要使用que.size()，因为que.size是不断变化的
-        for (int i = 0; i < size; i++) {
-            treeNode_2 *node = que.front();
-            que.pop();
-            result.push_back(node->val);
-            if (node->left) que.push(node->left);
-            if (node->right) que.push(node->right);
-        }
+        treeNode_2 *node = que.front();
+        que.pop();
+        result.push_back(node->val);
+        if (node->left) que.push(node->left);
+        if (node->right) que.push(node->right);
     }
     return result;
 }
 
 /* -------------------------------------------
  * 返回二维列表的层次搜索 bfs改编版 B
+ * 这里需要统计添加到vector中的长度
  * -------------------------------------------*/
 vector<vector<int>> treeBFS_2d(treeNode_2* root) {
     // 创关键队列保存
