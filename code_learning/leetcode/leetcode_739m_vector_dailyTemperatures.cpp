@@ -37,12 +37,13 @@ vector<int> dailyTemperaturesMinStack(const vector<int>&temperatures)
 
     for(int i = 0 ;i < temperatures.size();i++)
     {
-        result.push_back(0);
+        result.push_back(0);// 添加到输出结果中 result得先扩容
         while(!minstack.empty())
         {
             int stacktop = minstack.top();
-            if(temperatures[i]<=temperatures[stacktop]) break;
+            if(temperatures[i]<=temperatures[stacktop]) break;// 如果遇到更小的 那么就添加到栈中
 
+            // 遇到更大的 更新最小栈状态 更新result状态
             result[stacktop] = i - stacktop;
             minstack.pop();
         }
