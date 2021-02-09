@@ -1268,3 +1268,23 @@ public:
 
 **链接**：[leetcode739](code_learning/leetcode/leetcode_739m_vector_dailyTemperatures.cpp)
 
+### 01E.两数之和 
+
+**专注内容**: hashmap的理解与运用。
+
+**问题描述**：给定一个数组跟目标值，判断找到两数之和为目标值的两个数下标。
+
+**我的思路**:使用hashmap 遍历之后查找即可
+
+**链接**：[leetcode01](code_learning/leetcode/leetcode_01e_vector_twoSum.cpp)
+
+### 128H.最大长度序列
+
+**专注内容**: hashset的理解与运用。
+
+**问题描述**：给定一个数组,统计数组中存在的最长连续序列的长度。
+
+**我的思路**:使用hashset 首先将所有数值添加到set中去重，再一遍查找大小值一遍擦除set中内容即可。
+
+**链接**：[leetcode128](code_learning/leetcode/leetcode_128h_vector_longestConsecutive.cpp)
+

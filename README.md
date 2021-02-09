@@ -29,12 +29,14 @@
 251 快排 冒泡 stl-sort排序<br>
 45  string-sort
 
-## map-hash
+## map-hash-set
 45 用于保存同型异构题 first为排序后的结果 second为排序前<br>
 347 字符统计 first为字母 second为出现次数<br>
 451 字符统计 first为字母 second为出现次数<br>
 17 查map表 排列组合 递归<br>
-36 用来统计字符出现次数 map.clear()
+36 用来统计字符出现次数 map.clear()<br>
+01 hashmap基本用法 常用操作<br>
+128 hashset基本用法 常用操作
 
 ## 递归
 17 46 48 78排列组合递归 `回溯`<br>
