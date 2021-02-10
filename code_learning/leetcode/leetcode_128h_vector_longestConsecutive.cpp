@@ -11,6 +11,7 @@ using namespace std;
  * set.empty 是否为空
  * set.count 判断是否有该元素
  * set.erase 清除某个元素
+ * set.begin()迭代指针
  * max 统计最大值 一直用不好 注意一下
  * ------------------------------------------*/
 
@@ -32,6 +33,7 @@ int twoSum(vector<int>& nums)
         // 首先取集合中国第一个数 不管大小 寻找比它小1的数 若有则清除 若没有则统计长度
         int curvalue = *(hashset.begin());
         hashset.erase(curvalue);
+        // 首位数值大小值为
         int dcur = curvalue -1 ,icur = curvalue+1;
         // 若集合中存在此元素 统计个数
         while(hashset.count(dcur))
