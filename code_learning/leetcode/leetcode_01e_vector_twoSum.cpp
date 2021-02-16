@@ -19,7 +19,7 @@ vector<int> twoSum(vector<int>& nums,int target)
     int i = 0;
     for(auto number:nums)
     {
-        hash[number] = i++;
+        hash[number] = i++;// 记录索引 要作为结果输出
         if(hash.find(target-number) != hash.end())
         {
             result.push_back(hash[number]);
