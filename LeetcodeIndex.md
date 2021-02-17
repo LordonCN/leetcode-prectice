@@ -1298,3 +1298,69 @@ public:
 
 **链接**：[leetcode332](code_learning/leetcode/leetcode_332m_vector_findItinerary.cpp)
 
+### 69E.求平方根
+
+**专注内容**: 折半查找
+
+**我的思路**:通过比较 number a / mid 值大小来判断是大了还是小了
+
+**链接**：[leetcode69](code_learning/leetcode/leetcode_69e_search_sqrt.cpp)
+
+### 76H.最小子字符串
+
+**专注内容**: string类型操作方法以及hash辅助
+
+**问题描述**：给定一个字符串，找到包含所给目标字符最小长度的子字符串。
+
+**我的思路**:使用hash对给定字符进行存储，当hash.find成立之后进行长度计算并截取保存，一次遍历即可完成。
+
+**链接**：[leetcode76](code_learning/leetcode/leetcode_76h_string_minsubcontinuestring.cpp)
+
+### 167E.两数之和2
+
+**专注内容**: 双指针
+
+**问题描述**：给定一个数组 求满足两数之和的下标；
+
+**我的思路**:双指针 左右移动即可。
+
+**链接**：[leetcode167](code_learning/leetcode/leetcode_167e_vector_twoSum2.cpp)
+
+### 88E.两数组按顺序合并
+
+**专注内容**: 双指针
+
+**问题描述**：给定两个排好序的数组，将vector2 合并到 vector1中 仍保持增序。
+
+**我的思路**:从后向前遍历1&2，谁大就把谁添加到1的后面，最后如果2添加完毕直接返回，1添加完毕那么还要对2遍历结束才能返回。
+
+**链接**：[leetcode88](code_learning/leetcode/leetcode_88e_vector_mergeTwoArray.cpp)
+
+
+### 765H.情人节交换位置
+
+**专注内容**: 贪婪算法(n) hash查找与更新 
+
+**问题描述**：给定一个vector，0-1，2-3...为成对情侣，要求将他们调整到一起，左右位置不限。
+
+**我的思路**:使用hash进行位置存储与查找，从左到右遍历遇到不符合条件的即进行交换操作，一次交换即可。
+
+**链接**：[leetcode765](code_learning/leetcode/leetcode_765h_vector_minSwapsCouples.cpp)
+
+
+### 205E,242E,647E,696E.string专题 简单题
+
+**专注内容**: string操作 简单
+
+**链接**：[leetcode205](code_learning/leetcode/leetcode_205e_string_isIsomorphic.cpp)
+
+**链接**：[leetcode242](code_learning/leetcode/leetcode_242e_string_isAnagram.cpp)
+
+**链接**：[leetcode647](code_learning/leetcode/leetcode_647m_string_countSubstringHuiwen.cpp)
+
+**链接**：[leetcode696](code_learning/leetcode/leetcode_696e_string_countBinarySubSttrings.cpp)
+
+
+
+
+

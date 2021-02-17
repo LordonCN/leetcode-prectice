@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
 
 using namespace std;
 
 /* -------------------------------------------
  * 双指针
+ *
  * ------------------------------------------*/
-
 void twoSum(vector<int>& nums,int m,vector<int>& nums1,int n)
 {
 
@@ -23,7 +22,6 @@ void twoSum(vector<int>& nums,int m,vector<int>& nums1,int n)
         nums[pos--] = nums1[nums1P--];
     }
 
-
     return ;
 }
 
@@ -32,7 +30,6 @@ int main()
     // 首先准备好nums target
     vector<int> nums {1,2,3,0,0,0};
     vector<int> nums1 {2,5,6};
-
 
     twoSum(nums,3,nums1,3);
 
