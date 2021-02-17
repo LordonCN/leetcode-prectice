@@ -4,6 +4,7 @@
 using namespace std;
 
 /* -------------------------------------------
+ * 双指针
  * 亮点：
  * return vector<int>{a,b}
  * ------------------------------------------*/
@@ -18,7 +19,7 @@ vector<int> twoSum(vector<int>& nums,int target)
     {
         sum = nums[l] + nums[r];
         if(sum<target)l++;
-        else if(sum>target)r++;
+        else if(sum>target)r--;
         else return vector<int>{l,r}; //返回下标
     }
 }
