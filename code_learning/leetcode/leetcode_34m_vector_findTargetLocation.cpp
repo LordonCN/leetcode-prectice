@@ -3,8 +3,11 @@
 
 using namespace std;
 
+/* -------------------------------------------
+ * 拆分查找
+ * ------------------------------------------*/
 
-vector<int> twoParts(vector<int> nums,int target)
+vector<int> searchRange(vector<int> nums,int target)
 {
     // 先二分法找到target所在下标 再对low high进行左右探索
     int low = 0;
@@ -12,7 +15,7 @@ vector<int> twoParts(vector<int> nums,int target)
     int middle = (high+low)/2;
     bool sign = false; // 是否存在该目标
 
-    // 找目标
+    // 找目标 是否存在target
     while(low<=high)
     {
         int middle_ = (high+low)/2;
@@ -31,7 +34,7 @@ vector<int> twoParts(vector<int> nums,int target)
 
     high = middle + 1;
     low = middle - 1;
-    // 找重复
+    // 找重复 确定该元素出现的频率
     while(sign)
     {
         if(nums[low] == nums[middle]) low -- ;
@@ -47,20 +50,11 @@ vector<int> twoParts(vector<int> nums,int target)
 int main()
 {
     // 首先准备好nums target
-    vector<int> nums;
-    nums.push_back(0);
-//    nums.push_back(1);
-//    nums.push_back(2);
-//    nums.push_back(3);
-//    nums.push_back(7);
-//    nums.push_back(8);
-//    nums.push_back(8);
-//    nums.push_back(8);
-//    nums.push_back(9);
+    vector<int> nums{0,1,2,3,7,8,8,9};
 
-    int target = 0;
+    int target = 8;
     vector<int>result;
-    result = twoParts(nums,target);
+    result = searchRange(nums,target);
 
     return 0;
 }
