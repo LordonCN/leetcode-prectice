@@ -1361,6 +1361,15 @@ public:
 **链接**：[leetcode696](code_learning/leetcode/leetcode_696e_string_countBinarySubSttrings.cpp)
 
 
+### 81M.旋转数组查找数字
+
+**专注内容**: 二分查找 多条件判断
+
+**问题描述**：给定一个旋转vector,从中查找给定的数字
+
+**我的思路**:二分查找变形，首先进行左右区间判断，进而加强条件判断是否单调，否则向反方向移动。
+
+**链接**：[leetcode81](code_learning/leetcode/leetcode_81m_vector_searchRotaarray.cpp)
 
 
 
