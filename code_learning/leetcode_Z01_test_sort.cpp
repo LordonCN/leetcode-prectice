@@ -7,19 +7,15 @@ using namespace std;
 /* -------------------------------------------
  * mergesort
  * ------------------------------------------*/
-vector<int> mergesort(vector<int>&nums)
+vector<int> mergesort(vector<int>&nums,int l,int r)
 {
-    for(int i = 0;i<nums.size()-1;i++)
-    {
-        int mid = i;
-        for(int j = i+1;j<nums.size();j++)
-        {
-            if(nums[mid]>nums[j])
-                mid = j;
-        }
-        swap(nums[mid],nums[i]);
+    if(l>=r-1) return nums; //直到分解成只有一个元素
+    //1、首先进行拆分
+    int mid = (l+r)/2;
+    mergesort(nums,l,mid);
+    mergesort(nums,mid,r);
+    //TODO:2、合并操作
 
-    }
     return nums;
 }
 
@@ -27,12 +23,10 @@ int main()
 {
     // 首先准备好nums target
     vector<int> nums{7,2,9,4,8,10,1};
-    // quicksort
-//    int l = 0,r = nums.size()-1;
-//    vector<int> result = quicksort(nums,l,r);
+    int l = 0,r = nums.size()-1;
+    vector<int> result = quicksort(nums,l,r);
+//    vector<int> result = mergesort(nums,l,r);
 
-    // bubblesort
-    vector<int> result = mergesort(nums);
 
 
     return 0;
