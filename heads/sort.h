@@ -10,7 +10,45 @@ using namespace std;
  * ------------------------------------------*/
 
 /* -------------------------------------------
+ * selectsort
+ * 两次循环 内环通过比较大小得到
+ * `当前剩余的最小值下表`
+ * 与最前面的索引进行交换
+ * ------------------------------------------*/
+vector<int> selectsort(vector<int>&nums)
+{
+    for(int i = 0;i<nums.size()-1;i++)
+    {
+        int mid = i;
+        for(int j = i+1;j<nums.size();j++)
+        {
+            if(nums[mid]>nums[j])
+                mid = j;
+        }
+        swap(nums[mid],nums[i]);
+
+    }
+    return nums;
+}
+
+/* -------------------------------------------
+ * insertsort
+ * 感觉像反向冒泡 气泡从上面开始冒出 底下的最后冒出
+ * 关键就是搞清楚从前向后判断的长度逐次增加
+ * ------------------------------------------*/
+vector<int> insertsort(vector<int>&nums)
+{
+    for(int i = 0;i<nums.size();i++)//所排序长度逐渐增加
+    {
+        for(int j = i; j > 0 && nums[j] < nums[j-1];--j) // 将最小值放到当前排序长度的最后
+            swap(nums[j],nums[j-1]);
+    }
+    return nums;
+}
+
+/* -------------------------------------------
  * bubblesort
+ * 遇到大值就向后移动 将前面最大的数放到当前循环的最后
  * 关键就是搞清楚从前向后判断的长度逐次减少
  * ------------------------------------------*/
 vector<int> bubblesort(vector<int>&nums)
@@ -29,33 +67,34 @@ vector<int> bubblesort(vector<int>&nums)
 /* -------------------------------------------
  * quicksort
  * 分解 治理 合并阶段
- * 首先选取参考元素
- * 在while中对比左右两侧值大小 右侧比value大的不动 last左移 直到发现小值或超范围
- * 发现小值则交换 并对左侧位置大值进行寻找 找到大值或者超范围 交换
+ * 首先选取参考元素 当前[l,r]最左值
+ * 在while中对比左右两侧值大小
+ * 右侧比value大的不动 r左移 直到发现小值或超范围 将其交换 value到r位置
+ * 并对左侧l大值进行寻找 找到大值或者超范围 交换
  * ------------------------------------------*/
 vector<int> quicksort(vector<int>&nums,int l,int r)
 {
-    // 分解 找基准元素
-    int value = nums[l],mid,first = l,last = r ;
-    if(l<r)
+    int mid,first = l,last = r ;
+    if(first<last)
     {
-        while(first<last)
+        int value = nums[l];// 找基准元素
+        while(l<r)
         {
             // 左侧值大 移动last寻找小值 与右侧小值交换
-            while(first<last && nums[last]>=value)
-                last--;
+            while(l<r&& nums[r]>=value)
+                r--;
             // 左侧first数值比last数值大 交换并右移first
-            if(first<last)
-                swap(nums[first++],nums[last]);
+            if(l<r)
+                swap(nums[l++],nums[r]);
 
-            while(first<last && nums[first]<=value)
-                first++;
-            if(first<last)
-                swap(nums[first],nums[last--]);
+            while(l<r&& nums[l]<=value)
+                l++;
+            if(l<r)
+                swap(nums[l],nums[r--]);
         }
-        mid = first;
-        quicksort(nums,l,mid-1);
-        quicksort(nums,mid+1,r);
+        mid = l;
+        quicksort(nums,first,mid-1);
+        quicksort(nums,mid+1,last);
     }
     return nums;
 }

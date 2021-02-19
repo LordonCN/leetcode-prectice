@@ -5,18 +5,23 @@
 using namespace std;
 
 /* -------------------------------------------
- * insertsort
- * 关键就是搞清楚从前向后判断的长度逐次减少
+ * mergesort
  * ------------------------------------------*/
-vector<int> insertsort(vector<int>&nums)
+vector<int> mergesort(vector<int>&nums)
 {
-    for(int i = 0;i<nums.size();i++)
+    for(int i = 0;i<nums.size()-1;i++)
     {
+        int mid = i;
+        for(int j = i+1;j<nums.size();j++)
+        {
+            if(nums[mid]>nums[j])
+                mid = j;
+        }
+        swap(nums[mid],nums[i]);
+
     }
     return nums;
 }
-
-
 
 int main()
 {
@@ -27,7 +32,7 @@ int main()
 //    vector<int> result = quicksort(nums,l,r);
 
     // bubblesort
-    vector<int> result = insertsort(nums);
+    vector<int> result = mergesort(nums);
 
 
     return 0;
