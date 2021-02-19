@@ -45,8 +45,7 @@ void topKNumber(std::vector<int> &nums,int K)
     // hash表遍历方法2
     coutAllNumbersInHash(hashMap);
 
-    // 2dvector 对参考其中一维度大小进行排序
-    // [leetcode(59)涉及到]
+    // 2dvector 对出现频率进行排序
     sort(res.begin(),res.end(),sortVector2d);
 
     // 最后针对347题从高到低输出出现频率降低的数字
