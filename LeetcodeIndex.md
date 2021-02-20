@@ -1372,4 +1372,37 @@ public:
 **链接**：[leetcode81](code_learning/leetcode/leetcode_81m_vector_searchRotaarray.cpp)
 
 
+### 413M.求差为1的等差数列个数
+
+**专注内容**: 1 动态规划  2 hash查表遍历法
+
+**问题描述**：给定一个旋转vector,从中查找所有差为1的等差数列 最后输出个数。
+
+**我的思路**:将所有数字存储到hash中，用来方便查找下一个数字是否存在hash.find(i) != hash.end()即可添加到temp中。
+for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一个循环即可。vector.erase()用于擦除vector，方便使用。
+
+**链接**：[leetcode413](code_learning/leetcode/leetcode_413m_DP_dengchaShuLie.cpp)
+
+
+### 70M.爬台阶
+
+**专注内容**: 动态规划  递归
+
+**问题描述**：给定n节台阶，每次可以走一步或者两步，求一共有多少种方式可以走完这些台阶。
+
+**我的思路**:1-递归的方法：每一层都存在由上一层或者两层得到，那么对于n层就可递归到第0层的情况，即满足n-1>=0;n-2>=0即可。
+2-动态规划的方法：每一层的可能结果可由上一次或者上两层所有可能结果求和得到，意思就是对于第一层有1种结果，第二层有两种结果，若表示为`[1,2]`,
+那么第三层即可由1+2得到`[1,2,1+2]`以此类推，就成了两数求和的形式。
+
+**链接**：[leetcode70](code_learning/leetcode/leetcode_70e_DP_climbstairs.cpp)
+
+### 198M.抢劫最大化
+
+**专注内容**: 动态规划  
+
+**问题描述**：给定一个数组，表示每个房子的钱财数量，输出是劫匪可以最多抢劫的钱财数量。
+
+**我的思路**:考虑动态规划的状态转移方程`dp[i] = max(dp[i-1],dp[i-2]+nums[i])`
+
+**链接**：[leetcode198](code_learning/leetcode/leetcode_198m_DP_houserobber.cpp)
 
