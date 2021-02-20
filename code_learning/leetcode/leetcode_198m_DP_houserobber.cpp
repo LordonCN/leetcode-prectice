@@ -21,7 +21,7 @@ int rob(vector<int>& house)
         temp.push_back(maxsum);
     }
 
-    return temp[-1];
+    return temp[temp.size()-1];
 }
 
 int main()
