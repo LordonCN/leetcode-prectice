@@ -30,7 +30,7 @@ int longestHuiwenXulie(string s)
         dp[i][i] = 1;
 
     // 从下往上遍历
-    for(int i = n-1;i>=0;i++)
+    for(int i = n-1;i>=0;i--)
     {
         // 从左到右遍历
         for(int t = i+1;t<n;t++)
