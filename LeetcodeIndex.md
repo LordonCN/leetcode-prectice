@@ -1406,3 +1406,39 @@ for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一
 
 **链接**：[leetcode198](code_learning/leetcode/leetcode_198m_DP_houserobber.cpp)
 
+### 64M.二维最短路径
+
+**专注内容**: 动态规划
+
+**问题描述**：给定一个数组，计算左上到右下的最短路径。
+
+**我的思路**:考虑动态规划的状态转移方程`dp[i][j] = min(dp[i-1][j],dp[i][j-1])`
+
+**链接**：[leetcode64](code_learning/leetcode/leetcode_64m_DP_minPath.cpp)
+
+### 516M.最长回文子序列
+
+**专注内容**: 动态规划
+
+**问题描述**：给定一个string，找到其中最长的回文字符序列。
+
+**我的思路**:子序列问题本身就相对子串、子数组更困难一些，因为前者是不连续的序列，而后两者是连续的.
+设定二维数组dp，根据状态转移方程：想求 `dp[i][j]` 需要知道 `dp[i+1][j-1]`，`dp[i+1][j]`，`dp[i][j-1]` 这三个位置大小关系。
+
+**链接**：[leetcode516](code_learning/leetcode/leetcode_516m_DP_longesthuiwenxulie.cpp)
+
+### 28M.寻找最小字符串
+
+**专注内容**: vector.find  滑动窗口
+
+**问题描述**：给定一个string，找到其中是否存在所给的子字符串。
+
+**我的思路**:1、首先利用vector.find函数直接定位子字符串首字符位置，然后截取对比即可。
+2、滑动窗口方法通过取固定大小的一段字符 进行对比判断。
+
+**链接**：[leetcode516](code_learning/leetcode/leetcode_516m_DP_longesthuiwenxulie.cpp)
+
+
+
+
+
