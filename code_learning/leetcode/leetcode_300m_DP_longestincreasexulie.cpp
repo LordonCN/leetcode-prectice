@@ -5,29 +5,22 @@
 using namespace std;
 
 /* -------------------------------------------
- * https://zhuanlan.zhihu.com/p/100994146?utm_source=wechat_session&utm_medium=social&utm_oi=817728191245488128
+ * 参考：https://zhuanlan.zhihu.com/p/100994146?utm_source=wechat_session&utm_medium=social&utm_oi=817728191245488128
  * 注意:
- * 类似于516题
+ * 使用类似于516题的二维解法并`不能够`推出状态转移方程
  * 0 8 8 8 8 8 8
- * 0 8 8 8 8 8 8
- * 0 1 1 2 5 5 5
- * 0 0 1 2 5 5 5
- * 0 0 1 2 5 4 7
- * 0 0 1 2 4 4 7  从下往上横向遍历
- * 0 0 1 2 4 7 7
+ *   8 8 8 8 8 8
+ *     1 2 5 5 5
+ *       2 5 5 5
+ *         5 4 7
+ *           4 7
+ *             7 此处不适用
  *
- * 0 1 1 3 3 3
- * 1 1 1 3 3 3
- * 0 0 0 3 3 3
- * 3 3 3 3 3 3
- * 2 2 2 2 2 3
- * 3 3 3 3 3 3
- *
- * 0,1,0,3,2,3
- * 2 1 1 1 1 1
+ * 使用一维数组 这种遍历方法t始终<i 内循环在左侧
  * ------------------------------------------*/
 int longestXulie(vector<int>nums)
 {
+    // base case
     vector<int>dp(nums.size(),1);
 
     for(int i = 0;i<nums.size();i++)
