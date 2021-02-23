@@ -49,10 +49,19 @@
 递归创建树
 
 ## 贪心
-53 依次遍历 寻找最优值 不考虑耗时
+53 依次遍历 寻找最优值 不考虑耗时<br>
+135 <br>
+466 <br>
 
 ## 动态规划
-53 依次遍历 注重有效贡献
+53 依次遍历 注重有效贡献<br>
+413 等差数列满足状态转移方程 遍历比较即可<br>
+198 与70 64相似 都是有将之前数值进行累计的思想 通过判断抢不抢来取max<br>
+70 爬楼梯 经典题型 通过计算第n>2 层左右可能的爬楼方法 向上累加即可<br>
+64 二维最小路径 明确状态转移方法为从`上`或者`左`最小值移动而来 取min<br>
+516 序列类题目 通过二维数组存储 若无新回文字符串添加则取max当前最长回文 ```dp[i,j] = dp[i+1][j-1]+2 
+or max(dp[i][j-1],dp[i+1][j])```<br>
+300 序列类题目 外循环快于内循环 ```dp[i] = max(dp[t]+1,dp[i]) ```
 
 ## cpp 相关知识点
 ###### 1、const的使用
@@ -265,6 +274,7 @@ int main()
     vector.erase(hashmap.begin(),hashmap.end());
     hashset.erase(hashmap.begin(),hashmap.end());
     
+    // set初始化
     unordered_set<int> hashSet(nums.begin(),nums.end());
     set<int> Set(nums.begin(),nums.end());
 ```
