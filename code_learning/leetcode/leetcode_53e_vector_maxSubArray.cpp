@@ -8,7 +8,6 @@ using namespace std;
  * 贪心 O(n2)
  * 可以用分治 就是参数有点多 先不考虑
  * ------------------------------------------*/
-
 int maxSubArrayTanxin(vector<int> nums)
 {
     int maxnumber = nums[0];
@@ -16,10 +15,10 @@ int maxSubArrayTanxin(vector<int> nums)
     for(int i = 0; i < nums.size();i++)
     {
         sumNow = nums[i] ;
-        for(int ik = i+1;ik <nums.size();ik++)
+        for(int t = i+1;t <nums.size();t++)
         {
             maxnumber = max(maxnumber,sumNow);
-            sumNow += nums[ik];
+            sumNow += nums[t];
         }
         maxnumber = max(maxnumber,sumNow);
     }
@@ -27,6 +26,7 @@ int maxSubArrayTanxin(vector<int> nums)
 }
 
 
+//{-2,1,-3,4,-1,2,1,-5,4};
 int maxSubArrayDynamic(vector<int> nums)
 {
     if(nums.size()<2) return nums[0];
@@ -36,8 +36,7 @@ int maxSubArrayDynamic(vector<int> nums)
     {
         sumNow += nums[i];
         maxnumber = max(maxnumber,sumNow);
-        // 这里描述为对整个的贡献可行度
-        if(sumNow<0) sumNow = 0;
+        if(sumNow<0) sumNow = 0;// 关键点这里描述为对整个的贡献可行度
     }
     return maxnumber;
 }
