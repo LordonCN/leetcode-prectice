@@ -26,7 +26,7 @@ int rob(vector<int>& house)
 
 int main()
 {
-    vector<int> house{1,3,1,3,100};
+    vector<int> house{2,1,1,2};
 
     int result = rob(house);
 
