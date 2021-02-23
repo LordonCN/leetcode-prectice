@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -29,13 +28,13 @@ int longestHuiwenXulie(string s)
     for(size_t i = 0;i<n;i++)
         dp[i][i] = 1;
 
-    // 从下往上遍历
+    // i从下往上遍历
     for(int i = n-1;i>=0;i--)
     {
-        // 从左到右遍历
+        // j从左到右遍历
         for(int t = i+1;t<n;t++)
         {
-            if(s[i] == s[t])// s[i+1,t-1] 这一子序列中两端如果出现相同字符 那么就符合回文结构 长度+2
+            if(s[i] == s[t])// s[i+1,t-1] 这一子序列的两端如果出现相同字符 那么此两者就符合回文结构 长度+2
                 dp[i][t] = dp[i+1][t-1]+2;
             else
                 dp[i][t] = max(dp[i][t-1],dp[i+1][t]);
