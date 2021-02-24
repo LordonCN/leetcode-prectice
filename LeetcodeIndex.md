@@ -1434,11 +1434,20 @@ for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一
 **问题描述**：给定一个string，找到其中是否存在所给的子字符串。
 
 **我的思路**:1、首先利用vector.find函数直接定位子字符串首字符位置，然后截取对比即可。
-2、滑动窗口方法通过取固定大小的一段字符 进行对比判断。
+2、滑动窗口方法通过取固定大小的一段字符出来 与目标字符串进行对比判断。
 
-**链接**：[leetcode516](code_learning/leetcode/leetcode_516m_DP_longesthuiwenxulie.cpp)
+**链接**：[leetcode28](code_learning/leetcode/leetcode_28m_string_findSubstring.cpp)
 
 
+### 300M.最小增量序列
+
+**专注内容**: dp
+
+**问题描述**：给定一个string，找到其中最大的增量序列。
+
+**我的思路**: 参考别人思路 
+
+**链接**：[leetcode300](code_learning/leetcode/leetcode_300m_DP_longestincreasexulie.cpp)
 
 
 
