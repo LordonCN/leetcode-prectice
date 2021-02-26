@@ -35,6 +35,7 @@
 17 查map表 排列组合 递归<br>
 36 用来统计字符出现次数 map.clear()<br>
 01 hashmap基本用法 常用操作<br>
+03 hashmap配合deque实现统计个数 <br>
 128 hashset基本用法 常用操作<br>
 205 复杂度为n map索引 string替换<br>
 242 复杂度为n map索引计数
@@ -62,6 +63,9 @@
 516 序列类题目 通过二维数组存储 若无新回文字符串添加则取max当前最长回文 ```dp[i,j] = dp[i+1][j-1]+2 
 or max(dp[i][j-1],dp[i+1][j])```<br>
 300 序列类题目 外循环快于内循环 ```dp[i] = max(dp[t]+1,dp[i]) ```
+91 一维dp 字符解码组合 较复杂<br>
+542 二维dp 仅通过左上右下两次遍历即可完成计算距离最近点的距离<br>
+62 二维路径搜索<br>
 
 ## cpp 相关知识点
 ###### 1、const的使用
@@ -271,6 +275,7 @@ int main()
 
 ```c++
     hashmap.erase(hashmap.begin(),hashmap.end());
+    hashmap.erase(hashmap.find('A')); //实现精准擦除
     vector.erase(hashmap.begin(),hashmap.end());
     hashset.erase(hashmap.begin(),hashmap.end());
     
@@ -292,7 +297,7 @@ int main()
 
 ##### 11、数据查找 find 复杂度较高
 ```c++
-    hash.find() != hash.end();
+    hash.find() != hash.end(); //找到后可直接进行操作 精准
     string.find() --> position/-1
     vector.find() --> position/-1
 ```
