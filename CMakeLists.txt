@@ -8,10 +8,11 @@ include_directories(heads)
 
 add_executable(cpp_code
 
-        code_learning/leetcode/leetcode_11m_vector_maxArea.cpp
+        code_learning/leetcode/leetcode_697e_vector_findShortestSubArray.cpp
 
         heads/listNode.h
         heads/treeNode.h
         heads/queue.h
         heads/structs.h
+        heads/sort.h
         )

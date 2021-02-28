@@ -38,8 +38,9 @@
 03 hashmap配合deque实现统计个数 <br>
 128 hashset基本用法 常用操作<br>
 205 复杂度为n map索引 string替换<br>
-242 复杂度为n map索引计数
-409 复杂度为n map统计
+242 复杂度为n map索引计数<br>
+409 复杂度为n map统计<br>
+697 两个hash组pair 分别统计位置与次数 进行判断<br>
 
 ## 递归
 17 46 48 78排列组合递归 `回溯`<br>
@@ -224,7 +225,7 @@ int main()
     sort(nums.begin(),nums.end(),sortCmp);
     
     // lambda
-    sort(nums.begin(),nums.end(),[](int a,int b){return a>b});
+    sort(nums.begin(),nums.end(),[](int a,int b){return a>b;});
 ```
 <br>当前适用情况：
 ```c++
@@ -300,7 +301,6 @@ int main()
 ```c++
     hash.find() != hash.end(); //找到后可直接进行操作 精准
     string.find() --> position/-1
-    vector.find() --> position/-1
 ```
 
 ## 复习时间
