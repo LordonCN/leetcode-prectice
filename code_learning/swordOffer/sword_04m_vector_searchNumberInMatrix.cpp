@@ -9,43 +9,24 @@ using namespace std;
  * 1、首先竖着判断位于第几行 再横着搜看是否存在对应值
  * 2、从右上角开始判断大小 向下向左移动即可
  * ------------------------------------------*/
-bool searchMatrix(const vector<vector<int>>&matrix,int number)
-{
-    if(number<matrix[0][0]) return false;
-    if(number>matrix[matrix.size()][matrix[0].size()]) return false;
-    // 行
-    for(int i = 0 ;i < matrix.size();i++)
+bool findNumberIn2DArray(vector<vector<int>>& matrix, int number) {
+    if(matrix.empty() || matrix[0].size()==0)return false;
+    if(number<matrix[0][0]) return false; //小于最小值
+    if(number>matrix[matrix.size()-1][matrix[0].size()-1]) return false;// 大于最大值
+    int row = matrix[0].size()-1;// 列
+    int hang = 0;
+    while(row>=0 && hang<matrix.size())// 在范围内的时候
     {
-        // 是否比当前行最小的大 比最大的小
-        if(matrix[i][0] < number && matrix[i][matrix[i].size()] > number)
-        {
-            for(int j = 0;j <matrix[i].size();j++)
-            {
-                if(matrix[i][j] == number) return true;
-            }
-        }
+        if(number<matrix[hang][row])
+            row -= 1;
+        else  if(number>matrix[hang][row])
+            hang += 1;
+        else if(number == matrix[hang][row])
+            return true;
+        else return false;
     }
     return false;
 }
-
-bool findNumberIn2DArray(const vector<vector<int>>&matrix,int number)
-{
-
-    if(number<matrix[0][0]) return false;
-    if(number>matrix[matrix.size()][matrix[0].size()]) return false;
-    // 行
-    int row = 0;
-    int yaw =matrix[0].size();
-
-    while(row<matrix.size() && yaw>=0)
-    {
-        if(matrix[row][yaw] < number ) row++;
-        else if (matrix[row][yaw] > number ) yaw--;
-        else return true;
-    }
-    return false;
-}
-
 
 int main()
 {
