@@ -11,44 +11,34 @@ using namespace std;
 string reverseWord(string s)
 {
     // 准备工作
-    string returnString;
-    string outputString; // 接收
-    int length = s.length();
-    stack<char> stackChar;
-
-    for(int i = 0; i <= length; i++)
+    if(s.length() == 0)return s;
+    stack<char>store;
+    bool canpush  = true;
+    string result;
+    // 存在一种情况 遍历到最后没有遇到空格 stack中内容没有释放出来
+    for(int i = 0;i<s.size();i++)
     {
-        // 如果开头为空格 什么也不做 || 中间有多的空格 消掉
-        if(s[i] == ' ' && stackChar.empty()) ;
-        // 如果遇到中间的空格 那么将他取出来放到待拼接字符串中 并且清空栈
-        else if(s[i] == ' '){
-            while(!stackChar.empty())
+        if(s[i] != ' ' )//遇到字符了 且是第一个
+            store.push(s[i]);
+        else if(s[i] == ' ' && !store.empty())// 此单词结束了！
+        {
+            while(!store.empty())
             {
-                outputString = stackChar.top() + outputString;
-                stackChar.pop();
+                result = store.top() + result ;
+                store.pop();
             }
-            outputString  = s[i] + outputString;
-            // 字符串拼接
-            returnString = outputString + returnString;
-            outputString = "";
-        }
-        // 最后不是以空格结束
-        else if(i == length){
-            while(!stackChar.empty())
-            {
-                outputString = stackChar.top() + outputString;
-                stackChar.pop();
-            }
-            // 字符串拼接
-            returnString = outputString + returnString;
-            outputString = "";
-        }
-        else{
-            stackChar.push(s[i]);
+            result = ' ' + result ;// 先加上 最后返回的时候去掉就行了
         }
     }
-
-    return returnString;
+    while(!store.empty())
+    {
+        result = store.top() + result ;
+        store.pop();
+    }
+    if(result[0] != ' ')
+        return result;
+    else // 去掉首项
+        return result.substr(1,result.length());
 }
 
 int main()
