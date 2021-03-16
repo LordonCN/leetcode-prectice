@@ -5,6 +5,9 @@
 STL中使用的sort为introsort,结合了`快排`/`堆排序`+`插入排序`的方法，其中快排与堆排序通过函数计算快排可拆分数的阈值，
 当拆分段长度<16时采用递归。_RandomAccessIterator 类型数据是三点取中值的value取值方法重要体现
 
+结合快排思想  数据量大时采用Quick Sort，分段递归排序，一旦分段后的数据量小于某个门槛，
+为避免Quick Sort的递归调用带来过大的额外负荷，就改用Insertion Sort。如果递归层次过深，还会改用Heap Sort。
+总而言之：是快排+插入+哈希的组合方法 即【Introspective Sorting(内省式排序)】
 
 `选择排序`(Selection sort)，`插入排序`(Insertion Sort)，`冒泡排序`(Bubble Sort)。这三个排序是初学者必须知道的三个基本排序方式，且他们速度都不快 -- O(N^2)。 **选择排序**就不说了，最好情况复杂度也得O(N^2)，且还是个·不稳定·的排序算法，直接淘汰。
 

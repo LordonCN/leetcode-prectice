@@ -216,17 +216,25 @@ int main()
 
 ###### 5、stl-sort的使用(不能在原数组调整)
 - 在 include <algorithm> 中
-<br>`本质`是对从选择范围内的所有数值进行`两两比较`后排序
-<br>基本用法：
-  
+  <br>TODO:`本质`是对从选择范围内的所有数值进行`两两比较`后排序
+  <br>基本用法：
+  可以结合以下仿函数进行使用
+- less(小于)
+- greater(大于)
+- equal_to(等于)
+- not_equal_to(不相等)
+- less_equal(小于等于)
+- greater_equal(大于等于)
+
 ```c++
     // 从小到大默认排序 可以用于数组 vector 给好起止就好
     sort(nums.begin(),nums.end());
     // 若要从大到小排序 需要配合下面的函数进行修改 同时也可以用于二维数组
     sort(nums.begin(),nums.end(),sortCmp);
-    
     // lambda
     sort(nums.begin(),nums.end(),[](int a,int b){return a>b;});
+    // 仿函数
+    sort(nums.begin(),nums.end(),less<int>();
 ```
 <br>当前适用情况：
 ```c++
@@ -247,6 +255,7 @@ int main()
         return to_string(a) < to_string(b); 
     }
 ```
+
 
 ###### 6、reverse-vector内容翻转的使用
 -  include `<vector>`
