@@ -4,7 +4,11 @@
 using namespace std;
 
 /* -------------------------------------------
- * 链表的应用 ac 50 66
+ * 链表的应用 ac 68 27
+ * 特殊情况 传入链表为空的时候
+ * 思路：
+ * 1 保存到vector然后头插法
+ * 2 一边遍历一边头插
  * ------------------------------------------*/
 
 struct ListNode {
@@ -32,7 +36,10 @@ ListNode* initList(ListNode *&Head)
 }
 
 ListNode* reverseList(ListNode* head) {
+    if(!head)return head;
     ListNode* temp,*s_;
+    temp = new ListNode;
+    temp = nullptr;
     while(head->next)
     {
         s_ = new ListNode;
