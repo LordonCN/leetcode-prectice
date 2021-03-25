@@ -1,5 +1,33 @@
 # 多线程
 
+[stop at 3.3 part](https://github.com/xiaoweiChen/CPP-Concurrency-In-Action-2ed-2019/blob/master/content/chapter3/3.3-chinese.md)
+
+TODO: 
+question：unique_lock怎么灵活了 ，看例子就是使用顺序不同
+
+
+### 死锁
+原因：其中每个线程都有一个互斥量，且等待另一个解锁。
+因为他们都在等待对方先释放互斥量，导致没有线程能正常工作。
+这种情况就是死锁，它的问题就是由两个或两个以上的互斥量进行锁定,导致无法正常运行。
+
+- 死锁是多线程编程中令人相当头痛的问题，并且死锁经常是不可预见的，
+  因为在大部分时间里，所有工作都能很好的完成。
+  不过，一些相对简单的规则能帮助写出“无死锁”的代码。
+
+死锁通常是对锁的使用不当造成。
+无锁的情况下，仅需要两个线程std::thread对象互相调用join()就能产生死锁。
+这种情况下，没有线程可以继续运行，因为他们正在互相等待。
+这种情况很常见，一个线程会等待另一个线程，其他线程同时也会等待第一个线程结束，所以三个或更多线程的互相等待也会发生死锁。
+为了避免死锁，这里意见：不要谦让。以下提供一些个人建议。
+
+### 怎么样避免死锁
+1. 当线程获得一个锁时，就别再去获取第二个。如果`每个线程`只持有`一个锁`，那么就不会产生死锁。
+
+2. 当线程内部需要`获取多个锁`，使用`std::lock(lhs.m,rhs.m)`对获取锁的操作上锁,配合std::adopt_lock交出权限，避免产生死锁。
+
+3. 当线程需要获取多个锁且不能使用lock，就要 在每个线程上用`固定的顺序获取`多个锁,或者使用`层级锁`，让其自动判断。
+   (比如在项目中不能使用std::lock时，在机器人控制的时候都是pthread,修改起来难度太高，那么久要注意按照固定的顺序来获取锁)
 
 ### join detach
 ```c++
@@ -125,28 +153,196 @@ int main()
 }
 
 // for WINDOWS
-
 #include <mutex>
 mutex mtx;
 void do_work(unsigned n)
 {
-mtx.lock();// 全局声明之后直接用
-std::cout<<" now is doing "<<n<<"work ."<<std::endl;
-mtx.unlock();
+    mtx.lock();// 全局声明之后直接用
+    std::cout<<" now is doing "<<n<<"work ."<<std::endl;
+    mtx.unlock();
 }
 
 void f()
 {
-std::vector<std::thread> threads;
-for(unsigned i=0;i<20;++i)
-threads.push_back(std::thread(do_work,i));
-for(auto &each : threads)
-each.join();
+    std::vector<std::thread> threads;
+    for(unsigned i=0;i<20;++i)
+    threads.push_back(std::thread(do_work,i));
+    for(auto &each : threads)
+    each.join();
 }
 
 int main()
 {
-f();
+    f();
+}
+
+// 提高稳定性  使用lock_guard进行智能加锁
+void add_to_list(int value)
+{
+    // lock_guard能够
+    std::lock_guard<std::mutex> guard(some_mutex);
+    some_list.push_back(value);
 }
 ```
 **注意**:使用pthread需要先init，再使用，否则无效；std::mutex可以直接使用，不需要init.
+
+### 线程安全的锁可以加在标准库外 比如thread_stack
+
+在std::stack外加了一层线程安全的保护锁
+
+```c++
+#include <exception>
+#include <stack>
+#include <mutex>
+#include <memory>
+
+// 线程安全的栈使用方法
+// 在std::stack外加了一层线程安全的保护锁
+
+struct empty_stack: std::exception// 异常抛出
+{
+    const char* what() const throw()
+    {
+        return "empty stack";
+    }
+};
+
+template<typename T>
+class threadsafe_stack
+{
+private:
+    std::stack<T> data;
+    mutable std::mutex m; // mutable声明变量并非类内部状态
+public:
+    threadsafe_stack(){}// 默认构造函数
+    threadsafe_stack(const threadsafe_stack& other)// 拷贝构造函数
+    {
+        std::lock_guard<std::mutex> lock(other.m);
+        data=other.data;
+    }
+    threadsafe_stack& operator=(const threadsafe_stack&) = delete;
+
+    void push(T new_value)
+    {
+        std::lock_guard<std::mutex> lock(m);
+        data.push(new_value);
+    }
+    std::shared_ptr<T> pop()//std::shared_ptr可以避免内存分配管理的问题
+    {
+        std::lock_guard<std::mutex> lock(m);
+        if(data.empty()) throw empty_stack();
+        std::shared_ptr<T> const res(std::make_shared<T>(data.top()));
+        data.pop();
+        return res;
+    }
+    void pop(T& value)
+    {
+        std::lock_guard<std::mutex> lock(m);
+        if(data.empty()) throw empty_stack();
+        value=data.top();
+        data.pop();
+    }
+    bool empty() const//与mutable相对应
+    {
+        std::lock_guard<std::mutex> lock(m);/*在类函数为const状态时仍然能使用该锁*/
+        return data.empty();
+    }
+};
+
+int main()
+{
+    threadsafe_stack<int> si;
+    si.push(5);
+    si.pop();
+    if(!si.empty())
+    {
+        int x;
+        si.pop(x);
+    }
+    
+}
+```
+**注意**：这里涉及mutable锁的使用，小细节。
+throw函数为结构体中定义的一种返回方法，    
+
+### 层级锁 根据不同层级来判断上锁先后顺序
+```c++
+class hierarchical_mutex
+{
+    std::mutex internal_mutex;
+    unsigned long const hierarchy_value;
+    unsigned long previous_hierarchy_value;
+    static thread_local unsigned long this_thread_hierarchy_value;
+
+    void check_for_hierarchy_violation()
+    {
+        if(this_thread_hierarchy_value <= hierarchy_value)
+        {
+            throw std::logic_error("mutex hierarchy violated");
+        }
+    }
+    void update_hierarchy_value()
+    {
+        previous_hierarchy_value=this_thread_hierarchy_value;
+        this_thread_hierarchy_value=hierarchy_value;
+    }
+public:
+    explicit hierarchical_mutex(unsigned long value):
+        hierarchy_value(value),
+        previous_hierarchy_value(0)
+    {}
+    void lock()
+    {
+        check_for_hierarchy_violation();
+        internal_mutex.lock();
+        update_hierarchy_value();
+    }
+    void unlock()
+    {
+        this_thread_hierarchy_value=previous_hierarchy_value;
+        internal_mutex.unlock();
+    }
+    bool try_lock()
+    {
+        check_for_hierarchy_violation();
+        if(!internal_mutex.try_lock())
+            return false;
+        update_hierarchy_value();
+        return true;
+    }
+};
+```
+
+### lock_guard
+```c++
+    friend void swap(X& lhs, X& rhs)
+    {
+        if(&lhs==&rhs)
+            return;
+        std::lock(lhs.m,rhs.m);
+        std::lock_guard<std::mutex> lock_a(lhs.m,std::adopt_lock);// 已经锁上 但是权力交出去
+        std::lock_guard<std::mutex> lock_b(rhs.m,std::adopt_lock);
+        swap(lhs.some_detail,rhs.some_detail);
+    }
+```
+
+### unique_lock (所有权可转移 注意是std::move)
+```c++
+    friend void swap(X& lhs, X& rhs)
+    {
+        if(&lhs==&rhs)
+            return;
+        std::unique_lock<std::mutex> lock_a(lhs.m,std::defer_lock);// 未被锁住的
+        std::unique_lock<std::mutex> lock_b(rhs.m,std::defer_lock);
+        std::lock(lock_a,lock_b);// 在这里上锁
+        swap(lhs.some_detail,rhs.some_detail);
+    }
+```
+**注意**：相对lock_guard来说，unique_lock更加灵活，但是效率低。
+
+
+
+
+
+
+
