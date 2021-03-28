@@ -29,6 +29,14 @@ vector<int> twoSum(vector<int>& nums,const int && target)
     }
     return result;
 }
+class P
+{
+public:
+    P(int i = 0,int j = 0):X(i),Y(j){};
+    int GetX(){return X;}
+    int GetY(){return Y;}
+    int X,Y;
+};
 
 int main()
 {
@@ -39,6 +47,7 @@ int main()
     //twoSum(nums,target);//左值引用
     //twoSum(nums,forward<int>(10));//完美转发
     twoSum(nums,move(target));//移动语义
+
 
     return 0;
 }
