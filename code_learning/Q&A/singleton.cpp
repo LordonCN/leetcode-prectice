@@ -29,27 +29,30 @@ private:
 /*********************************************************/
 // 懒汉模式
 // 使用私有静态指针变量
-//
 class Singleton_pointer
 {
 private:
     static Singleton_pointer* instance;
 private:
-    Singleton_pointer() {};
-    ~Singleton_pointer() {};
+    Singleton_pointer() {cout<<"this is pointer constractor"<<endl;};
+    ~Singleton_pointer() {cout<<"this is pointer disconstractor";};
+    Singleton_pointer(const Singleton_pointer&);
+    Singleton_pointer& operator=(const Singleton_pointer&);
+
     // 防止析构的办法 嵌套类对象 析构时调用deletor删除静态指针 消除唯一实例
     class Deletor {
     public:
         ~Deletor() {
             if(Singleton_pointer::instance != NULL)
+            {
                 delete Singleton_pointer::instance;
+                cout<<"this is delete dis"<<endl;
+            }
         }
     };
     static Deletor deletor;
-private:
-    Singleton(const Singleton_pointer&);
-    Singleton_pointer& operator=(const Singleton_pointer&);
 public:
+
     static Singleton_pointer* getInstance()
     {
         if(instance == NULL)// 如果指针为空 单例未被创建
@@ -58,17 +61,24 @@ public:
     }
 };
 
-// init static member 很有必要
 Singleton_pointer* Singleton_pointer::instance = NULL;
-Singleton_pointer::getInstance();
+
+Singleton_pointer::Deletor Singleton_pointer::deletor;
 /*********************************************************/
+
+
+
 
 int main()
 {
+    // 引用模式创建
     Singleton& name1 = Singleton::CreatObject();
 
+    // 指针模式创建
     Singleton_pointer* obj1 = Singleton_pointer::getInstance();
-    delete obj1;
+
+    int a = 0;
+
 
     return 0;
 }
