@@ -98,6 +98,15 @@ vector<vector<int>> treeBFS_2d(treeNode_2* root) {
     return result;
 }
 
+
+void insertSort(vector<int>&nums)
+{
+    for(int i = 0;i < nums.size();i++)
+        for(int j = i;j>0&& nums[j]<nums[j-1];j--)
+            swap(nums[j],nums[j-1]);
+}
+
+
 /* -------------------------------------------
  * 使用递归二维数组进行层次遍历 关键两点:
  * 1、因为在便利过程中需要动态改变vector大小 且pushback之前需要创建好vector

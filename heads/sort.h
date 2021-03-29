@@ -13,7 +13,7 @@ using namespace std;
  * ------------------------------------------*/
 vector<int> selectsort(vector<int>&nums)
 {
-    for(int i = 0;i<nums.size()-1;i++)
+    for(int i = 0;i<nums.size()-1;i++)// 关键是到倒数第二项
     {
         int mid = i;
         for(int j = i+1;j<nums.size();j++)
@@ -36,7 +36,7 @@ vector<int> insertsort(vector<int>&nums)
 {
     for(int i = 0;i<nums.size();i++)//所排序长度逐渐增加
     {
-        for(int j = i; j > 0 && nums[j] < nums[j-1];--j) // 将最小值放到当前排序长度的最后
+        for(int j = i; j > 0 && nums[j] < nums[j-1];--j) // 将最小值放到当前排序长度的最后  j-- --j有啥区别吗
             swap(nums[j],nums[j-1]);
     }
     return nums;
@@ -67,13 +67,14 @@ vector<int> bubblesort(vector<int>&nums)
  * 在while中对比左右两侧值大小
  * 右侧比value大的不动 r左移 直到发现小值或超范围 将其交换 value到r位置
  * 并对左侧l大值进行寻找 找到大值或者超范围 交换
+ * 3.29第一遍默写把mid既当做了value 又当做了范围缩引来用
  * ------------------------------------------*/
 vector<int> quicksort(vector<int>&nums,int l,int r)
 {
     int mid,first = l,last = r ;
     if(first<last)
     {
-        int value = nums[l];// 找基准元素
+        int value = nums[first];// 找基准元素
         while(l<r)
         {
             // 左侧值大 移动last寻找小值 与右侧小值交换
