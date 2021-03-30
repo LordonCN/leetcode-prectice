@@ -18,8 +18,8 @@ using namespace std;
 // 引用构造 更加优雅简洁
 class Singleton{
 public:
-    static Singleton & CreatObject(){
-        static Singleton obj;
+    static Singleton & CreatObject(){// 返回singleton类型的引用
+        static Singleton obj;// 注意没有&符号
         return obj;
     };
 private:
@@ -34,10 +34,10 @@ class Singleton_pointer
 private:
     static Singleton_pointer* instance;
 private:
-    Singleton_pointer() {cout<<"this is pointer constractor"<<endl;};
+    Singleton_pointer() {cout<<"this is pointer constractor"<<endl;};// 默认构造
     ~Singleton_pointer() {cout<<"this is pointer disconstractor";};
-    Singleton_pointer(const Singleton_pointer&);
-    Singleton_pointer& operator=(const Singleton_pointer&);
+    Singleton_pointer(const Singleton_pointer&);           // 拷贝构造
+    Singleton_pointer& operator=(const Singleton_pointer&);// 赋值构造
 
     // 防止析构的办法 嵌套类对象 析构时调用deletor删除静态指针 消除唯一实例
     class Deletor {
@@ -56,13 +56,12 @@ public:
     static Singleton_pointer* getInstance()
     {
         if(instance == NULL)// 如果指针为空 单例未被创建
-            instance = new Singleton_pointer();
+            instance = new Singleton_pointer();// 3.30记住这里是new出来的 不是生成了一个对象赋值
         return instance;
     }
 };
-
-Singleton_pointer* Singleton_pointer::instance = NULL;
-
+                    // 作用类解释符   该指针在逻辑上与singletonp类相关 但不是它的成员
+Singleton_pointer* Singleton_pointer::instance = NULL;// 3.30这里也没记住
 Singleton_pointer::Deletor Singleton_pointer::deletor;
 /*********************************************************/
 
