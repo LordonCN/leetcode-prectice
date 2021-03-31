@@ -90,8 +90,8 @@ vector<int> quicksort(vector<int>&nums,int l,int r)
                 swap(nums[l],nums[r--]);
         }
         mid = l;
-        quicksort(nums,first,mid-1);
-        quicksort(nums,mid+1,last);
+        if(first<mid) quicksort(nums,first,mid-1);
+        if(last>mid) quicksort(nums,mid+1,last);
     }
     return nums;
 }
