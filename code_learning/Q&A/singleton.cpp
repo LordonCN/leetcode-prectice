@@ -37,7 +37,7 @@ private:
     Singleton_pointer() {cout<<"this is pointer constractor"<<endl;};// 默认构造
     ~Singleton_pointer() {cout<<"this is pointer disconstractor";};
     Singleton_pointer(const Singleton_pointer&);           // 拷贝构造
-    Singleton_pointer& operator=(const Singleton_pointer&);// 赋值构造
+    Singleton_pointer& operator=(const Singleton_pointer&);// 赋值构造 传回引用
 
     // 防止析构的办法 嵌套类对象 析构时调用deletor删除静态指针 消除唯一实例
     class Deletor {
@@ -64,9 +64,6 @@ public:
 Singleton_pointer* Singleton_pointer::instance = NULL;// 3.30这里也没记住
 Singleton_pointer::Deletor Singleton_pointer::deletor;
 /*********************************************************/
-
-
-
 
 int main()
 {

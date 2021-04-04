@@ -1,3 +1,23 @@
+
+# vector 内置函数实现方法
+
+reserve 与 resize区别：最大的在reserve只管扩充原vector，不管缩小，resize小了会擦除，大了会扩充。
+
+shrink_to_fit:根据size()决定是否进行移动构造
+
+push_back:没超容量在*end加，超范围则复制拷贝
+
+pop_back:end不=begin 则前移
+
+size：返回end-begin
+
+emplace：原地插入迭代器位置
+
+erase：将后面位置的内容拷贝过来
+
+swap：创建临时变量，使用std::move进行交换
+
+
 # vector扩容问题
 
 ### STL 的 vector 底层实现是动态数组，大致原理就是：
