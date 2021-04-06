@@ -1,6 +1,14 @@
 # new and malloc 区别
 
-/*3.28 返工*/
+```c++
+//包含两部分： operator new 分配空间与Obj::Obj()
+Obj *ob = new Obj;
+//包含两部分： Obj::~Obj()  与 operator delete
+delete ob;
+```
+
+第一级空间配置器由malloc free remalloc实现
+第二级由free list 调配小额区块来实现
 
 **两者有什么区别？**
 
@@ -8,7 +16,7 @@
 malloc操作符从`自由存储区`（free store）上为对象动态分配内存空间，使用free释放已分配的对应内存。
 new函数从`堆`上动态分配内存,new与delete相对应，如果没有手动释放那么将在程序结束时自动释放。
 
-### 2.构造部分：
+### 2.构造部分：(包括三个方面)
 
 ##### 是否调用构造函数/析构函数  (`最关键的部分`)
 使用new操作符来分配对象内存时会经历三个步骤：<br>
