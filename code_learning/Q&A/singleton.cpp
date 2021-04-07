@@ -33,7 +33,7 @@ class Singleton_pointer
 {
 private:
     static Singleton_pointer* instance;
-private:
+
     Singleton_pointer() {cout<<"this is pointer constractor"<<endl;};// 默认构造
     ~Singleton_pointer() {cout<<"this is pointer disconstractor";};
     Singleton_pointer(const Singleton_pointer&);           // 拷贝构造
