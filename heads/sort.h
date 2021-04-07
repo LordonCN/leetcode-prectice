@@ -36,7 +36,7 @@ vector<int> insertsort(vector<int>&nums)
 {
     for(int i = 0;i<nums.size();i++)//所排序长度逐渐增加
     {
-        for(int j = i; j > 0 && nums[j] < nums[j-1];--j) // 将最小值放到当前排序长度的最后  j-- --j有啥区别吗
+        for(int j = i; j > 0 && nums[j] < nums[j-1];--j) // 将最小值放到当前排序长度的最后  j-- --j有啥区别吗 在循环中的这个位置并没有区别 相当于单独执行了一条语句 都是发生了变化 但是在判断条件中还是真实情况下都是有特殊含义的
             swap(nums[j],nums[j-1]);
     }
     return nums;

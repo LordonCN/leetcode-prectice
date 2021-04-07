@@ -48,4 +48,9 @@ struct st_t {
 - 5 同类型指针指向同一个元素
 ```c++
 ptr1 = *&ptr2;
+
+int a = 10;
+int *ptr = &a;// 指针指向a的地址 *ptr即可获得a的数值
+int **ptrr = &ptr;// 指向指针的指针 地址不同
+int ***ptrrr = &ptrr;// ***ptr == 10
 ```
