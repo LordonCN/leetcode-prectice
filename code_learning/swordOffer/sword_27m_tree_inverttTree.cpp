@@ -40,9 +40,11 @@ TreeNode* initTree(TreeNode* &root)
 }
 
 TreeNode* invertTree(TreeNode* root) {
-    if(!root)
-        return root;
+    // 如果当前节点不为空
+    if(!root) return root;
+    // 交换左右节点(对称)
     swap(root->left,root->right);
+    // 递归
     invertTree(root->left);
     invertTree(root->right);
     return root;
@@ -55,5 +57,6 @@ int main()
 
     invertTree(root);
 
+    // 防止内存泄漏需要循环深度遍历释放
     return 0;
 }
