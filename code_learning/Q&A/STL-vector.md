@@ -17,6 +17,14 @@ erase：将后面位置的内容拷贝过来
 
 swap：创建临时变量，使用std::move进行交换
 
+erase:将当前位置到最后的内容向前移一位 注意这里迭代器会失效 `ite = nums.erase(ite);`可有效避免
+```c++
+if(*ite == numsTarget){
+    ite = nums.erase(ite);
+else
+    ite ++;
+}
+```
 
 # vector扩容问题
 
