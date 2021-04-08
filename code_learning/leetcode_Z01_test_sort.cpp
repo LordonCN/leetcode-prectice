@@ -117,7 +117,27 @@ struct GridLocation {
 int main()
 {
 //     首先准备好nums target
-//    vector<int> nums{7,2,9,4,8,10,1};
+    vector<int> nums{7,2,9,4,8,11,23,4,5,6,8};
+    vector<int>::iterator ite = nums.begin();
+    cout<<"the nums's capacity is" <<nums.capacity()<<endl;
+
+    while(ite!=nums.end())
+    {
+        // 删除4之后 8补了上来
+        cout<<"now is "<<nums.capacity()<<endl;
+//        if(ite == (nums.begin()+3))// 这是把3之后的全清除
+        if(*ite == 4)// 这是把4清除
+        {
+            ite = nums.erase(ite);
+            cout<<"after is "<<nums.capacity()<<endl;
+        }
+        else
+            ite ++;
+    }
+
+
+
+
 //    int l = 0,r = nums.size()-1;
 //    vector<int> result = quicksort(nums,l,r);
 //    vector<int> result = mergesort(nums,l,r);
@@ -129,43 +149,6 @@ int main()
 //    quickSort(test,0,test.size()-1);
 
 //    char a = '\82';
-
-
-        int sum = 0;
-        int ans = 0;
-        cin >> sum;
-
-        vector<vector<string>>temp(sum,vector<string>(2,""));
-        for (int i = 0; i < sum; i++)
-        {
-            cin >> temp[i][0] >> temp[i][1];
-        }
-
-        vector<bool> visited(sum, false);
-        vector<set<string>>result;
-
-        while (sum--) {
-            set<string>a;
-            for (int i = 0; i < sum; i++)
-            {
-                if (a.empty() && visited[i] == false)
-                {
-                    a.insert(temp[i][0]); a.insert(temp[i][1]);// 没有添加
-                    visited[i] = true;
-                    continue;
-                }
-
-                if (a.find(temp[i][0]) != a.end() || a.find(temp[i][1]) != a.end() && visited[i] == false) {
-                    a.insert(temp[i][0]);
-                    a.insert(temp[i][1]);
-                    visited[i] = true;
-                }
-            }
-            if (!a.empty()) result.push_back(a);
-        }
-        cout << result.size();
-
-
 
 
     return 0;

@@ -24,8 +24,8 @@ ListNode* initList(ListNode *Head)
         s = new ListNode;
         s->val = i;
         // 开始插入
-        s->next = Head->next;
-        Head->next = s;
+        s->next = Head;
+        Head = s;
     }
     return Head;
 }
