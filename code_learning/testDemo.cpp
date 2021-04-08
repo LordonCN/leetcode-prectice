@@ -136,8 +136,6 @@ int main()
     }
 
 
-
-
 //    int l = 0,r = nums.size()-1;
 //    vector<int> result = quicksort(nums,l,r);
 //    vector<int> result = mergesort(nums,l,r);
