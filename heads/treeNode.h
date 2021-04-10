@@ -117,5 +117,81 @@ void treeDFS_2d(treeNode_2* root,vector<vector<int>>& result,int level) {
     treeDFS_2d(root->right,result,level+1);
 }
 
+/* -------------------------------------------
+ * 使用递归对树进行前序遍历很容易理解 但是面试过程中会要求使用非递归方法
+ * 这里选择使用 迭代入栈 的方法进行操作
+ * -------------------------------------------*/
+void treeQianxuDigui(treeNode_2* root,vector<int>&result)
+{
+    stack<treeNode_2*>sta;
+    while(root || !sta.empty())
+    {
+        while(root)// 一直往左边走 到尽头 左侧为空那么就跳出循环拿中间root出栈
+        {
+            // 前序在这里保存数值 一遍历到就保存结果 跟递归一样
+            result.push_back(root->val);
+            sta.push(root);// 中间入
+            root = root->left;// 切换到左边
+        }
+        root = sta.top();
+        sta.pop();
+
+        root = root->right;
+    }
+
+    return ;
+}
+
+void treeZhongxuDigui(treeNode_2* root,vector<int>&result)
+{
+    stack<treeNode_2*>sta;
+    while(root || !sta.empty())
+    {
+        while(root)
+        {
+            root = root->left;// 切换到左边
+            sta.push(root);
+        }
+        root = sta.top();
+        sta.pop();
+        // 中序在这里添加
+        result.push_back(root->val);
+        root = root->right;
+    }
+
+    return ;
+}
+// 后序遍历
+void treeHouxuDigui(treeNode_2* root,vector<int>&result)
+{
+    stack<treeNode_2*>sta;
+    treeNode_2* help = nullptr;
+    while(root || !sta.empty())
+    {
+        while(root)// 一直往左边走 到尽头 左侧为空那么就跳出循环拿中间root出栈
+        {
+            sta.push(root);
+            root = root->left;
+        }
+        root = sta.top();
+        sta.pop();
+
+        // 在中序遍历的基础上做出了调整
+        if(!root->right || root->right == help)
+        {
+            result.push_back(root->val);
+            help = root;
+            root = nullptr;
+        }
+        else{
+            sta.push(root);
+            root = root->right;
+        }
+
+    }
+
+    return ;
+}
+
 
 #endif
