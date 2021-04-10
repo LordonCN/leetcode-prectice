@@ -49,6 +49,7 @@ bool same(TreeNode* root1,TreeNode* root2)
     return false;
 }
 
+// 此题目还可以用来判断两棵树是不是镜像的  只要交换左右即可
 bool isSameTree(TreeNode* p, TreeNode* q) {
     if(!p && !q) return true;
     else if(!p && q)return false;
