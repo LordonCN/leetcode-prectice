@@ -66,9 +66,11 @@ int main()
 {
     TreeNode *root= new TreeNode;
     root = initTree(root);
-    bool result = false;
-
-    result = isSameTree(root);
+//    bool result = false;
+//
+//    result = isSameTree(root);
+    vector<int>result;
+    treeQianxuDigui(root,result);
 
     return 0;
 }
