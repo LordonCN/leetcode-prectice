@@ -1,20 +1,25 @@
 # new and malloc 区别
 
+- new 执行过程
 ```c++
-//包含两部分： operator new 分配空间与Obj::Obj()
+//包含两部分： operator new 分配空间与Obj::Obj()拷贝赋值
+//第一级空间配置器由malloc free remalloc实现
 Obj *ob = new Obj;
 //包含两部分： Obj::~Obj()  与 operator delete
+//第二级由free list 调配小额区块来实现
 delete ob;
 ```
 
-第一级空间配置器由malloc free remalloc实现
-第二级由free list 调配小额区块来实现
-
 **两者有什么区别？**
 
+new/delete不是库函数，而是关键字，
+虽然其功能完全覆盖了malloc/free，但因为C函数中只能用malloc进行动态分配内存所以仍然保留。
+new能够自动执行构造函数与析构函数，所以在c++中比较好用。
+
+
 ### 1. 申请的内存所在位置
-malloc操作符从`自由存储区`（free store）上为对象动态分配内存空间，使用free释放已分配的对应内存。
-new函数从`堆`上动态分配内存,new与delete相对应，如果没有手动释放那么将在程序结束时自动释放。
+malloc操作符从`堆`上为对象动态分配内存空间，使用free释放已分配的对应内存。
+new函数从`自由存储区`上动态分配内存,new与delete相对应，如果没有手动释放那么将在程序结束时自动释放。
 
 ### 2.构造部分：(包括三个方面)
 
@@ -48,7 +53,6 @@ new内存分配失败时，会抛出bac_alloc异常，它不会返回NULL；mall
 
 ### 4.是否需要指定内存大小
 使用new操作符申请内存分配时无须指定内存块的大小，编译器会根据类型信息自行计算，而malloc则需要显式地指出所需内存的尺寸。
-
 
 ### 5.对数组的处理
 C++提供了new[]与delete[]来专门处理数组类型:
