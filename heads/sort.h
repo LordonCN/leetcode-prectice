@@ -96,8 +96,45 @@ vector<int> quicksort(vector<int>&nums,int l,int r)
     return nums;
 }
 
+/* -------------------------------------------
+ * 归并排序
+ * ------------------------------------------*/
+void Merge(vector<int>& nums, int left, int right, int mid)
+{
+    int i = left;
+    int j = mid + 1;
+    int k = 0;
+    vector<int> temp(right - left + 1, 0);
 
+    while (i <= mid && j <= right)
+    {
+        if (nums[i] < nums[j])
+            temp[k++] = nums[i++];
+        else
+            temp[k++] = nums[j++];
+    }
 
+    while (i <= mid)
+        temp[k++] = nums[i++];
 
+    while (j <= right)
+        temp[k++] = nums[j++];
+
+    k = 0;
+    for (i = left; i <= right; i++)
+        nums[i] = temp[k++];
+    return;
+}
+
+void MergeSort(vector<int>& nums, int left, int right)
+{
+    if (left >= right)
+        return;
+
+    int mid = left + (right - left) / 2;
+    MergeSort(nums, left, mid);
+    MergeSort(nums, mid + 1, right);
+    Merge(nums, left, right, mid);
+}
 
 #endif
