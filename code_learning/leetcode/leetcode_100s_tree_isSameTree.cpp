@@ -70,7 +70,7 @@ int main()
 //
 //    result = isSameTree(root);
     vector<int>result;
-    treeQianxuDigui(root,result);
+    treeQianxu(root,result);
 
     return 0;
 }

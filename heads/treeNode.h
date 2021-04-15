@@ -121,7 +121,7 @@ void treeDFS_2d(treeNode_2* root,vector<vector<int>>& result,int level) {
  * 使用递归对树进行前序遍历很容易理解 但是面试过程中会要求使用非递归方法
  * 这里选择使用 迭代入栈 的方法进行操作
  * -------------------------------------------*/
-void treeQianxuDigui(treeNode_2* root,vector<int>&result)
+void treeQianxu(treeNode_2* root,vector<int>&result)
 {
     stack<treeNode_2*>sta;
     while(root || !sta.empty())
@@ -142,15 +142,15 @@ void treeQianxuDigui(treeNode_2* root,vector<int>&result)
     return ;
 }
 
-void treeZhongxuDigui(treeNode_2* root,vector<int>&result)
+void treeZhongxu(treeNode_2* root,vector<int>&result)
 {
     stack<treeNode_2*>sta;
     while(root || !sta.empty())
     {
         while(root)
         {
-            root = root->left;// 切换到左边
             sta.push(root);
+            root = root->left;// 切换到左边
         }
         root = sta.top();
         sta.pop();
@@ -161,8 +161,9 @@ void treeZhongxuDigui(treeNode_2* root,vector<int>&result)
 
     return ;
 }
-// 后序遍历
-void treeHouxuDigui(treeNode_2* root,vector<int>&result)
+
+// 后序遍历 先不看 一般不考
+void treeHouxu(treeNode_2* root,vector<int>&result)
 {
     stack<treeNode_2*>sta;
     treeNode_2* help = nullptr;
@@ -192,6 +193,5 @@ void treeHouxuDigui(treeNode_2* root,vector<int>&result)
 
     return ;
 }
-
 
 #endif

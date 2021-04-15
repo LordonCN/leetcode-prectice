@@ -4,7 +4,11 @@ using namespace std;
 
 /* * * * * * * * * * * * * * * * * * * * *
  * 单例模式 不使用指针进行构造 否则能够引起内存泄露
- * 使用原因 ： 当只能够存在一个对象的时候
+ * 使用原因 ：
+ * 当只能够存在一个对象的时候
+ * 全局变量，大家应该都使用过，很好用。定义全局变量，项目各个地方都能使用，虽然好用，但是缺点也非常的明显，javaScript这种弱类型语言，
+ * 变量和方法都暴露在全局中，很容易出现变量冲突，变量就会有被覆盖的风险，应该尽量避免使用全局变量。单例模式能解决这种问题。
+ *
  * 参考：
  * https://www.bilibili.com/video/BV1Gz4y1d7RJ
  *
@@ -19,7 +23,7 @@ using namespace std;
 class Singleton{
 public:
     static Singleton & CreatObject(){// 返回singleton类型的引用
-        static Singleton obj;// 注意没有&符号
+        static Singleton obj;// 注意没有&符号 一直没记住 4.14
         return obj;
     };
 private:
