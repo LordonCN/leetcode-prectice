@@ -103,6 +103,7 @@ void Merge(vector<int>& nums, int left, int right, int mid)
 {
     int i = left;
     int j = mid + 1;
+
     int k = 0;
     vector<int> temp(right - left + 1, 0);
 
@@ -113,13 +114,13 @@ void Merge(vector<int>& nums, int left, int right, int mid)
         else
             temp[k++] = nums[j++];
     }
-
     while (i <= mid)
         temp[k++] = nums[i++];
 
     while (j <= right)
         temp[k++] = nums[j++];
 
+    // 将小部分排好序的放回nums
     k = 0;
     for (i = left; i <= right; i++)
         nums[i] = temp[k++];

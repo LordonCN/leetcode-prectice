@@ -50,7 +50,7 @@ vector<int> treeDFSStack(treeNode_2* root) {
 }
 /* -------------------------------------------
  * 返回一维列表的广度优先搜索 A
- * 3.28 复习
+ * 3.28 复习 4.15复习
  * -------------------------------------------*/
 vector<int> treeBFS(treeNode_2* root) {
     // 创关键队列保存
@@ -120,6 +120,7 @@ void treeDFS_2d(treeNode_2* root,vector<vector<int>>& result,int level) {
 /* -------------------------------------------
  * 使用递归对树进行前序遍历很容易理解 但是面试过程中会要求使用非递归方法
  * 这里选择使用 迭代入栈 的方法进行操作
+ * 4.15 复习
  * -------------------------------------------*/
 void treeQianxu(treeNode_2* root,vector<int>&result)
 {
@@ -142,6 +143,7 @@ void treeQianxu(treeNode_2* root,vector<int>&result)
     return ;
 }
 
+// 4.15 复习
 void treeZhongxu(treeNode_2* root,vector<int>&result)
 {
     stack<treeNode_2*>sta;
