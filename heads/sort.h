@@ -97,7 +97,7 @@ vector<int> quicksort(vector<int>&nums,int l,int r)
 }
 
 /* -------------------------------------------
- * 归并排序
+ * 归并排序 4.15测试
  * ------------------------------------------*/
 void Merge(vector<int>& nums, int left, int right, int mid)
 {
@@ -107,9 +107,10 @@ void Merge(vector<int>& nums, int left, int right, int mid)
     int k = 0;
     vector<int> temp(right - left + 1, 0);
 
+    // 小范围排序存放到temp
     while (i <= mid && j <= right)
     {
-        if (nums[i] < nums[j])
+        if (nums[i] < nums[j])// 易混
             temp[k++] = nums[i++];
         else
             temp[k++] = nums[j++];
