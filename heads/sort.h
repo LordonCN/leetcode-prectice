@@ -36,12 +36,41 @@ vector<int> insertsort(vector<int>&nums)
 {
     for(int i = 0;i<nums.size();i++)//所排序长度逐渐增加
     {
-        for(int j = i; j > 0 && nums[j] < nums[j-1];--j) // 将最小值放到当前排序长度的最后  j-- --j有啥区别吗 在循环中的这个位置并没有区别 相当于单独执行了一条语句 都是发生了变化 但是在判断条件中还是真实情况下都是有特殊含义的
-            swap(nums[j],nums[j-1]);
+        for(int j = i; j > 0 ;--j) // 如果把判断条件写到循环里会进行无意义的判断
+        {
+            if( nums[j] < nums[j-1])
+                swap(nums[j],nums[j-1]);
+            else
+                break;
+        }
+
     }
     return nums;
 }
 
+/* -------------------------------------------
+ * 希尔排序 在插入基础上添加步长操作
+ * 4.17
+ * ------------------------------------------*/
+vector<int> xierSort(vector<int>&nums)
+{
+    int m = nums.size()/2;
+    for(int k = m;k>=1;k/=2)// 设定步长
+    {
+        for(int i = 0;i<nums.size()/k;i+=1)//按照步长增加
+        {
+            for(int j = i; j > 0 ;j-=k)
+            {
+                if( nums[j] < nums[j-k])
+                    swap(nums[j],nums[j-k]);
+                else
+                    break;
+            }
+        }
+
+    }
+    return nums;
+}
 /* -------------------------------------------
  * bubblesort     n2  稳定
  * 遇到大值就向后移动 将前面最大的数放到当前循环的最后
@@ -177,7 +206,6 @@ void heapSort(vector<int>&nums,int length)
     sortHeap(nums);
     return;
 }
-
 
 
 #endif
