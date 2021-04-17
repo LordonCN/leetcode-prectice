@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "sort.h"
-
+#include <queue>
 using namespace std;
 
 class A{
@@ -31,7 +31,7 @@ int B::a = 10;
 int main()
 {
     int arr[10]{6,7,8,2,3,4,9,10,1,5};
-    merge_sort(arr,10);
+    priority_queue<int,int>;
 
 
     return 0;

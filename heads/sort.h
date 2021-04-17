@@ -97,7 +97,9 @@ vector<int> quicksort(vector<int>&nums,int l,int r)
 }
 
 /* -------------------------------------------
- * 归并排序 4.15测试
+ * 归并排序
+ * 分治思想
+ * 4.15测试 4.17复习
  * ------------------------------------------*/
 void Merge(vector<int>& nums, int left, int right, int mid)
 {
@@ -108,9 +110,9 @@ void Merge(vector<int>& nums, int left, int right, int mid)
     vector<int> temp(right - left + 1, 0);
 
     // 小范围排序存放到temp
-    while (i <= mid && j <= right)
+    while (i <= mid && j <= right)// 想清楚为啥
     {
-        if (nums[i] < nums[j])// 易混
+        if (nums[i] < nums[j])    // 易混
             temp[k++] = nums[i++];
         else
             temp[k++] = nums[j++];
@@ -138,5 +140,43 @@ void MergeSort(vector<int>& nums, int left, int right)
     MergeSort(nums, mid + 1, right);
     Merge(nums, left, right, mid);
 }
+
+/* -------------------------------------------
+ * 堆排序
+ * 4.17 测试
+ * ------------------------------------------*/
+void heapSortGreat(vector<int>&nums,int k,int length)
+{
+    for(int i = 2*k+1;i<=length;i = i*2+1)// 这里为了下坠处理
+    {
+        if(i<length && nums[i]<nums[i+1])
+            i++;// 取大的那个 否则还是单节点
+        if(nums[k]<nums[i])swap(nums[k], nums[i]);
+        k = i;// 更新孩子位置下坠检测
+    }
+    return ;
+}
+
+void heapSortLess(vector<int>&nums,int k,int length)
+{
+    for(int i = 2*k+1;i<=length;i = i*2+1)// 这里为了下坠处理
+    {
+        if(i<length && nums[i]>nums[i+1])
+            i++;
+        if(nums[k]>nums[i])swap(nums[k], nums[i]);
+        k = i;
+    }
+    return ;
+}
+
+void buildHeap(vector<int>&nums,int length)
+{
+    for(int i = length/2-1 ; i>=0 ; i--)// 这里是因为从0开始的 所以减一
+        heapSortLess(nums,i,length);
+//        heapSortGreat(nums,i,length);
+    return;
+}
+
+
 
 #endif
