@@ -143,37 +143,38 @@ void MergeSort(vector<int>& nums, int left, int right)
 
 /* -------------------------------------------
  * 堆排序
- * 4.17 测试
+ * 4.17 测试大根堆
  * ------------------------------------------*/
-void heapSortGreat(vector<int>&nums,int k,int length)
+void makeheapGreat(vector<int>&nums,int k,int length)
 {
-    for(int i = 2*k+1;i<=length;i = i*2+1)// 这里为了下坠处理
+    for(int i = 2*k+1;i<=length;i = i*2+1)// 不仅包含交换 还有下坠处理
     {
         if(i<length && nums[i]<nums[i+1])
             i++;// 取大的那个 否则还是单节点
         if(nums[k]<nums[i])swap(nums[k], nums[i]);
-        k = i;// 更新孩子位置下坠检测
+        k = i;// 如果可下坠 更新孩子位置
     }
     return ;
 }
 
-void heapSortLess(vector<int>&nums,int k,int length)
+void sortHeap(vector<int>&nums)
 {
-    for(int i = 2*k+1;i<=length;i = i*2+1)// 这里为了下坠处理
+    for(int i = nums.size()-1;i>0;i--)// 堆顶与末尾的交换
     {
-        if(i<length && nums[i]>nums[i+1])
-            i++;
-        if(nums[k]>nums[i])swap(nums[k], nums[i]);
-        k = i;
+        if(nums[0]>nums[i])
+        {
+            swap(nums[0],nums[i]);// 大根堆顶与最后数字进行交换
+            makeheapGreat(nums, 0, i-1);// 除交换的最后一个外前边部分进行大根堆重排
+        }
     }
-    return ;
+    return;
 }
 
-void buildHeap(vector<int>&nums,int length)
+void heapSort(vector<int>&nums,int length)
 {
-    for(int i = length/2-1 ; i>=0 ; i--)// 这里是因为从0开始的 所以减一
-        heapSortLess(nums,i,length);
-//        heapSortGreat(nums,i,length);
+    for(int i = length/2-1 ; i>=0 ; i--)// 找到中间位置 向前推
+        makeheapGreat(nums,i,length);
+    sortHeap(nums);
     return;
 }
 
