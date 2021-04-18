@@ -11,7 +11,7 @@ using namespace std;
  * `当前剩余的最小值下表`
  * 与最前面的索引进行交换
  * ------------------------------------------*/
-vector<int> selectsort(vector<int>&nums)
+vector<int> selectSort(vector<int>&nums)
 {
     for(int i = 0;i<nums.size()-1;i++)// 关键是到倒数第二项
     {
@@ -32,7 +32,7 @@ vector<int> selectsort(vector<int>&nums)
  * 感觉像反向冒泡 气泡从上面开始冒出 底下的最后冒出
  * 关键就是搞清楚从前向后判断的长度逐次增加
  * ------------------------------------------*/
-vector<int> insertsort(vector<int>&nums)
+vector<int> insertSort(vector<int>&nums)
 {
     for(int i = 0;i<nums.size();i++)//所排序长度逐渐增加
     {
@@ -52,7 +52,7 @@ vector<int> insertsort(vector<int>&nums)
  * 希尔排序 在插入基础上添加步长操作
  * 4.17
  * ------------------------------------------*/
-vector<int> xierSort(vector<int>&nums)
+vector<int> shellSort(vector<int>&nums)
 {
     int m = nums.size()/2;
     for(int k = m;k>=1;k/=2)// 设定步长
@@ -76,7 +76,7 @@ vector<int> xierSort(vector<int>&nums)
  * 遇到大值就向后移动 将前面最大的数放到当前循环的最后
  * 关键就是搞清楚从前向后判断的长度逐次减少
  * ------------------------------------------*/
-vector<int> bubblesort(vector<int>&nums)
+vector<int> bubbleSort(vector<int>&nums)
 {
     int length = nums.size();
     while(--length)
@@ -98,7 +98,7 @@ vector<int> bubblesort(vector<int>&nums)
  * 并对左侧l大值进行寻找 找到大值或者超范围 交换
  * 3.29第一遍默写把mid既当做了value 又当做了范围缩引来用
  * ------------------------------------------*/
-vector<int> quicksort(vector<int>&nums,int l,int r)
+vector<int> quickSort(vector<int>&nums,int l,int r)
 {
     int mid,first = l,last = r ;
     if(first<last)
@@ -119,8 +119,8 @@ vector<int> quicksort(vector<int>&nums,int l,int r)
                 swap(nums[l],nums[r--]);
         }
         mid = l;
-        if(first<mid) quicksort(nums,first,mid-1);
-        if(last>mid) quicksort(nums,mid+1,last);
+        if(first<mid) quickSort(nums,first,mid-1);
+        if(last>mid) quickSort(nums,mid+1,last);
     }
     return nums;
 }
