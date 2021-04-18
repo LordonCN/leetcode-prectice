@@ -57,11 +57,11 @@ vector<int> xierSort(vector<int>&nums)
     int m = nums.size()/2;
     for(int k = m;k>=1;k/=2)// 设定步长
     {
-        for(int i = 0;i<nums.size()/k;i+=1)//按照步长增加
+        for(int i = 0;i<nums.size()/k;i++)//按照步长增加 注意/k 遍历的数字逐渐增多
         {
-            for(int j = i; j > 0 ;j-=k)
+            for(int j = i; j-k>= 0 ;j-=k)// 这里如果不判断j-k的大小会索引错误
             {
-                if( nums[j] < nums[j-k])
+                if(nums[j] < nums[j-k])
                     swap(nums[j],nums[j-k]);
                 else
                     break;
@@ -172,15 +172,17 @@ void MergeSort(vector<int>& nums, int left, int right)
 
 /* -------------------------------------------
  * 堆排序
- * 4.17 测试大根堆
+ * 4.17 大根堆方法
+ * 易混点：长度怎么给的问题 得画图分析
  * ------------------------------------------*/
 void makeheapGreat(vector<int>&nums,int k,int length)
 {
-    for(int i = 2*k+1;i<=length;i = i*2+1)// 不仅包含交换 还有下坠处理
+    for(int i = 2*k+1;i<length;i = i*2+1)// 不仅包含交换 还有下坠处理
     {
-        if(i<length && nums[i]<nums[i+1])
-            i++;// 取大的那个 否则还是单节点
-        if(nums[k]<nums[i])swap(nums[k], nums[i]);
+        if(i<length-1 && nums[i]<nums[i+1])// 有两个叶子节点
+            i++;// 取大的那个
+        if(nums[k]<nums[i])
+            swap(nums[k], nums[i]);
         k = i;// 如果可下坠 更新孩子位置
     }
     return ;
@@ -188,9 +190,9 @@ void makeheapGreat(vector<int>&nums,int k,int length)
 
 void sortHeap(vector<int>&nums)
 {
-    for(int i = nums.size()-1;i>0;i--)// 堆顶与末尾的交换
+    for(int i = nums.size()-1;i>0;i--)
     {
-        if(nums[0]>nums[i])
+        if(nums[0]>nums[i])// 堆顶与末尾的交换
         {
             swap(nums[0],nums[i]);// 大根堆顶与最后数字进行交换
             makeheapGreat(nums, 0, i-1);// 除交换的最后一个外前边部分进行大根堆重排
