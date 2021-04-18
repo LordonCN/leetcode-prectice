@@ -209,5 +209,35 @@ void heapSort(vector<int>&nums,int length)
     return;
 }
 
+/* -------------------------------------------
+ * 桶排序 基数排序
+ * 先从const int i说起。使用const修饰的i我们称之为符号常量。即，i不能在其他地方被重新赋值了。
+ * 注意：const int i与int const i是等价的，相同的，即const与int的位置无所谓。
+ * pos = 0, 表示个位数 pos = 1, 表示十位数 pos = 2, 表示百位数 其中new_type为要转换的数据类型，expression为原始的变量或表达式
+ * ------------------------------------------*/
+#include <math.h>
+void bucketSort(vector<int> & nums)
+{
+    const int bucketSize= 10;               //定义桶数组长度
+    vector<vector<int>> buckets(bucketSize);//二维的桶数组长度，有BUCKETS行，每行元素都是空
+
+    //外层循环是根据数字的位数确定的。因为是三位数，所以从2到0
+    for (int pos = 0; pos <= 2; ++pos)
+    {
+        // 放到桶里
+        int denominator = static_cast<int>(pow(10, pos)); // 取某一位数的时候需要用的分母  pow(10, pos)；10是底数，pos是指数
+        for (auto tmp : nums)               // 按数字放入桶中
+            buckets[(tmp / denominator) % 10].push_back(tmp);//按照个位数大小放置桶的位置，十位、百位也是如此
+
+        // 从桶中取出来，放入原来的nums序列中，以备下次遍历时使用
+        int index = 0;
+        for (auto &theBucket : buckets)     //为什么用auto&而不是auto；theBucket是个引用，改变theBucket，影响buckets的值
+        {
+            for (int &k : theBucket)
+                nums[index++] = k;
+            theBucket.clear();              //一定要清空桶中数据 但是空间并没有释放
+        }
+    }
+}
 
 #endif

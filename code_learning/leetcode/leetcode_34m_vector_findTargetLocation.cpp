@@ -16,7 +16,7 @@ vector<int> searchRange(vector<int> nums,int target)
     bool sign = false; // 是否存在该目标
 
     // 找目标 是否存在target
-    while(low<=high)
+    while(low<high)
     {
         int middle_ = (high+low)/2;
         if(nums[middle_] == target){
