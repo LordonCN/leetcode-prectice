@@ -59,7 +59,7 @@ vector<int> shellSort(vector<int>&nums)
     {
         for(int i = 0;i<nums.size()/k;i++)//按照步长增加 注意/k 遍历的数字逐渐增多
         {
-            for(int j = i; j-k>= 0 ;j-=k)// 这里如果不判断j-k的大小会索引错误
+            for(int j = i; j-k>= 0 ;j-=k)// 这里如果不判断j-k的大小会索引错误 或者在if中判断是否有j-k>0
             {
                 if(nums[j] < nums[j-k])
                     swap(nums[j],nums[j-k]);
@@ -129,6 +129,7 @@ vector<int> quickSort(vector<int>&nums,int l,int r)
  * 归并排序
  * 分治思想
  * 4.15测试 4.17复习
+ * 4.19 r-l+1  &&
  * ------------------------------------------*/
 void Merge(vector<int>& nums, int left, int right, int mid)
 {
@@ -164,7 +165,7 @@ void MergeSort(vector<int>& nums, int left, int right)
     if (left >= right)
         return;
 
-    int mid = left + (right - left) / 2;
+    int mid = left + (right - left) / 2;// (left+right)/2
     MergeSort(nums, left, mid);
     MergeSort(nums, mid + 1, right);
     Merge(nums, left, right, mid);
@@ -210,7 +211,7 @@ void heapSort(vector<int>&nums,int length)
 }
 
 /* -------------------------------------------
- * 桶排序 基数排序
+ * 基数排序
  * 先从const int i说起。使用const修饰的i我们称之为符号常量。即，i不能在其他地方被重新赋值了。
  * 注意：const int i与int const i是等价的，相同的，即const与int的位置无所谓。
  * pos = 0, 表示个位数 pos = 1, 表示十位数 pos = 2, 表示百位数 其中new_type为要转换的数据类型，expression为原始的变量或表达式
