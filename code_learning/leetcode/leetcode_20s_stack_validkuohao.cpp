@@ -7,6 +7,7 @@ using namespace std;
  * 栈的应用
  * switch-case
  * enum-switch-case
+ * vector erase ite 灵活运用
  * ------------------------------------------*/
 
 void charStack(char *charList)
@@ -102,25 +103,61 @@ void stringStack(string stringList)
 
 }
 
+void stringDelete(string s)
+{
+    string temp = s;
+    string a = "{}",b = "()",c = "[]";
+
+    string::iterator ite = temp.begin();
+    while(temp.find(a) != -1 ||
+          temp.find(b) != -1 ||
+          temp.find(c) != -1)
+    {
+        if(temp.find(a) != -1)
+        {
+            ite = temp.find(a)+temp.begin();
+            ite = temp.erase(ite);
+            ite = temp.erase(ite);
+        }
+        if(temp.find(b) != -1)
+        {
+            ite = temp.find(b)+temp.begin();
+            ite = temp.erase(ite);
+            ite = temp.erase(ite);
+        }
+        if(temp.find(c) != -1)
+        {
+            ite = temp.find(c)+temp.begin();
+            ite = temp.erase(ite);
+            ite = temp.erase(ite);
+        }
+    }
+
+    if(temp.size() == 0) cout<<"yes"<<endl;
+    else cout<<"no"<<endl;
+}
 int main()
 {
-    enum {charType,stringType};
-    auto choice = charType;
+    enum {charType,stringType,test};
+    auto choice = test;
 
     char* charList = "{}"; // char 类型 指针定义 双引号包含内容
-    string stringList ="()";
+    string stringList ="([]){}[]";
 
+    // switch通过逐个判断可以做到逐个入栈出栈进行判断
     switch(choice)
     {
         case charType:
-                charStack(charList);
-                break;
+            charStack(charList);
+            break;
         case stringType:
-                stringStack(stringList);
-                break;
+            stringStack(stringList);
+            break;
+        case test:
+            stringDelete(stringList);
+            break;
         default:
             break;
     }
-
     return 0;
 }
