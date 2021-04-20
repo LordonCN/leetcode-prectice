@@ -278,8 +278,9 @@ int main()
     int aSum = accumulate(a.begin(),a.end(),0);
 ```
 
-
 ###### 8、erase-vector-map-set清空的使用
+// 这里有坑 erase删除后原迭代器失效的问题 
+
 -  include `<vector>`
 -  include `<unordered_map>`
 -  include `<unordered_set>`
@@ -290,6 +291,7 @@ int main()
     hashmap.erase(hashmap.find('A')); //实现精准擦除
     vector.erase(hashmap.begin(),hashmap.end());
     hashset.erase(hashmap.begin(),hashmap.end());
+    ite = vector.erase(ite);// 防止删除当前位置内容迭代器失效
     
     // set初始化
     unordered_set<int> hashSet(nums.begin(),nums.end());
