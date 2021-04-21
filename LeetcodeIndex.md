@@ -17,6 +17,16 @@
 **链接**：[leetcode8](code_learning/leetcode/leetcode_08m_string_stringtoint.cpp)
 
 
+### 2M. 两数之和
+
+**问题描述**：给定两个链表，返回两链表的和链表。
+
+**我的思路**:将list1 与 list2相加 先连成一个list1,再通过遍历list1 完成进位操作
+
+
+**链接**：[leetcode02](code_learning/leetcode/leetcode_02m_list_addTwoNumbers.cpp)
+
+
 
 ### 19M. 移除倒数第n个链表结点。
 

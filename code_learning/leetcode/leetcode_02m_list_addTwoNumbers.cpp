@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
-
+#include <algorithm>
+#include <math.h>
 using namespace std; 
 /* -------------------------------------------
  * 熟练掌握链表头插法 以及掌握链表深度的搜索方式(比如找最后一项)
@@ -36,7 +37,7 @@ ListNode* initList2(ListNode *Head)
     Head->next = nullptr;
     ListNode *s;
     // 头插法进行链表填充
-    for(int i = 3; i > 0; i--)
+    for(int i = 8; i > 0; i--)
     {
         // 需要进行如下操作 否则报段错误
         s = new ListNode;
@@ -48,7 +49,7 @@ ListNode* initList2(ListNode *Head)
     return Head;
 }
 
-void addTwoNumbers(ListNode* &list1,ListNode* &list2)
+void addTwoNumbers1(ListNode* &list1,ListNode* &list2)
 {
     ListNode* headPoint = new ListNode;
     ListNode* s;
@@ -58,7 +59,7 @@ void addTwoNumbers(ListNode* &list1,ListNode* &list2)
         // 倒数第二个之前以及l2长的时候最后一个
         if((list2->next && list1->next)||(!list1->next && !list2->next))
         {
-            list1->val += list2->val;
+            list1->val += list2->val;// 进位没考虑？
             list1 = list1->next;
             list2 = list2->next;
         }
@@ -108,6 +109,68 @@ void addTwoNumbers(ListNode* &list1,ListNode* &list2)
 
     // result is :output->next->next;
 }
+
+
+/* -------------------------------------------
+ * ac 31.72 96
+ * 思路：
+ * 将list1 与 list2相加 先连成一个list1
+ * 再通过遍历list1 完成进位操作
+ * ------------------------------------------*/
+ListNode* addTwoNumbers(ListNode* list1, ListNode* list2) {
+    // 整一个哨兵
+    ListNode *solder = new ListNode;
+    solder->next = list1;
+
+    while(list1->next && list2)
+    {
+        list1->val += list2->val;
+        list1 = list1->next;
+        list2 = list2->next;
+    }
+    if(list1->next && !list2)// list2空了 只处理list1即可
+    {
+        goto outputdeal;
+    }
+    if(!list1->next && list2)// 将list1接到list2上 处理list1
+    {
+        list1->val += list2->val;
+        list1->next = list2->next;
+        goto outputdeal;
+    }
+    outputdeal:// come here
+    list1 = solder->next;
+    int addMe = 0;
+    for(int i = 0;list1;i++)
+    {
+        if(list1->val>=10)
+        {
+            int a = list1->val%10;// 取出来末位
+            int inc = list1->val/10;// 取首位
+            int b = (a + addMe)%10;// 个位加进位
+            addMe = inc + (a + addMe)/10;// 若还有进位
+            list1->val = b;
+        }
+        else
+        {
+            int b = (list1->val + addMe)%10;// 个位加进位
+            addMe = (list1->val + addMe)/10;// 若还有进位
+            list1->val = b;
+        }
+
+        if(!list1->next)// 要结束了 但是还有进位
+            if(addMe)
+            {
+                ListNode* s = new ListNode;
+                s->val = addMe;
+                list1->next = s;
+                break;
+            }
+        list1 = list1->next;
+    }
+    return solder->next;
+}
+
 int main()
 {
     ListNode *head = new ListNode;
