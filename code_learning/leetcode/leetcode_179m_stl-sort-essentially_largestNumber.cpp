@@ -24,7 +24,7 @@ bool sortCmp(const int a, const int b)
 void largestNumber(vector<int>&nums)
 {
     sort(nums.begin(),nums.end(),sortCmp);
-
+    if(nums[0] == 0)return "0";
     string output;
     for(auto i : nums)
         output += to_string(i);

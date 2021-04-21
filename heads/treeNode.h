@@ -144,6 +144,7 @@ void treeQianxu(treeNode_2* root,vector<int>&result)
 }
 
 // 4.15 复习
+// 4.21 遗忘
 void treeZhongxu(treeNode_2* root,vector<int>&result)
 {
     stack<treeNode_2*>sta;

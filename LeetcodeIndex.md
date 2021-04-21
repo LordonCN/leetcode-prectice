@@ -88,7 +88,7 @@
 
 **我的思路**：按照区间头从小到大排序，比较好分析一些。对每对相邻区间排序，如果后者的头小于前者的尾，则可以混合，所有相邻的混合过的区间可用start和end统一表示成一个区间。这道题可分为允许和不允许对原输入进行操作的，如果允许改变输入，那么混合过后可以直接删除多余的那个，改变另一个的尾部，而剩去start和end进行计数，当然从提交结果来看，vector的erase操作是相当费时的。
 
-**链接**：[leetcode](code_learning/leetcode/leetcode_56m_vector_mergelap.cpp)
+**链接**：[leetcode](code_learning/leetcode/leetcode_56-57m_vector_mergelap.cpp)
 
 
 ### 61M. 轮换链表
@@ -513,6 +513,16 @@ private:
 ~~~
 
 ## V. 排序
+
+### 147E 148E 179E
+
+**专注内容**: 建立哨兵，链表二次遍历与赋值操作
+
+**我的思路**: 将原始数值读取出来保存到vector，sort之后再挨个赋值。
+
+**链接**：[leetcode147](code_learning/leetcode/leetcode_147m_list_insertionSortList.cpp)
+
+
 
 ### 75M. 颜色排序
 
@@ -1200,6 +1210,21 @@ public:
 
 **链接**：[leetcode03-for-for](code_learning/leetcode/leetcode_03m_string_lengthOfLongestSubstring.cpp)
 
+
+### 350E
+
+**专注内容**: 双指针对两数组进行顺序遍历同时进行对比。
+
+**我的思路**: 想过用find来索引返回下标配合迭代器疯狂删删删(我的很多思路都是这个)，发现vector没有这个方法，好吧字符串虽然跟vector类似
+但是还是有不同点的。无奈之下一个循环进行两个数组的遍历好了= =。
+
+**坑**：因为两个数组一长一短，所以存在增长到最长之后不能退出的情况，要及时终止。
+
+**链接**：[leetcode350](code_learning/leetcode/leetcode_350e_vector_twoVectorSame.cpp)
+
+
+
+
 ### 11M. 能盛最多水的容器
 
 **问题描述**·；有若干相距为1的立起来的板子，他们的高度依次被存在给定的数组中。现在需要找到个板子，使得这两个板子之间能盛的水最多。
@@ -1535,7 +1560,7 @@ for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一
 
 **我的思路**：按照区间头从小到大排序，比较好分析一些。对每对相邻区间排序，如果后者的头小于前者的尾，则可以混合，所有相邻的混合过的区间可用start和end统一表示成一个区间。这道题可分为允许和不允许对原输入进行操作的，如果允许改变输入，那么混合过后可以直接删除多余的那个，改变另一个的尾部，而剩去start和end进行计数，当然从提交结果来看，vector的erase操作是相当费时的。
 
-**链接**：[leetcode](code_learning/leetcode/leetcode_56m_vector_mergelap.cpp)
+**链接**：[leetcode](code_learning/leetcode/leetcode_56-57m_vector_mergelap.cpp)
 
 
 ### 61M. 轮换链表
