@@ -57,7 +57,7 @@ vector<int> shellSort(vector<int>&nums)
     int m = nums.size()/2;
     for(int k = m;k>=1;k/=2)// 设定步长
     {
-        for(int i = 0;i<nums.size()/k;i++)//按照步长增加 注意/k 遍历的数字逐渐增多
+        for(int i = 0;i<nums.size();i+=k)//按照步长增加  4.21 fix bug
         {
             for(int j = i; j-k>= 0 ;j-=k)// 这里如果不判断j-k的大小会索引错误 或者在if中判断是否有j-k>0
             {
