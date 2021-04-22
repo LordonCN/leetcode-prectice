@@ -13,7 +13,6 @@ using namespace std;
  * 1、首先参考leetcode12 创建一个表格用于查询
  * 2、排列组合与树形结构很显然 但是递归起来有点绕
  * 3、首先考虑第一个数字下的字符循环遍历 这里用 A_ 作为当前数字当前循环下取出的字符
- * 4、递归中
  * -------------------------------------------*/
 void letterHelper(string digt,string &lettercombin,vector<string> &result,unordered_map<char,string> &dictionary)
 {
