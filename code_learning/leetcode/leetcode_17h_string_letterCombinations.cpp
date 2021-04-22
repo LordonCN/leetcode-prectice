@@ -38,6 +38,23 @@ void letterHelper(string digt,string &lettercombin,vector<string> &result,unorde
     return ;
 }
 
+// ac 37 5
+void Helper(string digt,
+            string temp,
+            vector<string>&result,
+            unordered_map<char,string>dic,
+            int deep){
+    if(deep == digt.size())
+    {
+        result.emplace_back(temp);
+        return;// 停止操作
+    }
+    for(int i = 0;i<dic[digt[deep]].size();i++)
+    {
+        Helper(digt, temp+dic[digt[deep]][i], result, dic, deep+1);
+    }
+}
+
 void letterCombian(string digt)
 {
     unordered_map<char,string> dictionary = {
@@ -54,6 +71,9 @@ void letterCombian(string digt)
     string lettercombin;
     // 输入量多为了调试直观
     letterHelper(digt,lettercombin,result,dictionary);
+
+    // int deep = 0;
+    // Helper(digt,lettercombin,result,dictionary,deep);// 方法2
 
     return ;
 }
