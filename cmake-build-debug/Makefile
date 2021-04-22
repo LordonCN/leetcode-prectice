@@ -143,32 +143,32 @@ cpp_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/build
 .PHONY : cpp_code/fast
 
-code_learning/leetcode/leetcode_11m_vector_maxArea.o: code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.o
+code_learning/hduACM/ali_2021_1.o: code_learning/hduACM/ali_2021_1.cpp.o
 
-.PHONY : code_learning/leetcode/leetcode_11m_vector_maxArea.o
+.PHONY : code_learning/hduACM/ali_2021_1.o
 
 # target to build an object file
-code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.o
-.PHONY : code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.o
+code_learning/hduACM/ali_2021_1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o
+.PHONY : code_learning/hduACM/ali_2021_1.cpp.o
 
-code_learning/leetcode/leetcode_11m_vector_maxArea.i: code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.i
+code_learning/hduACM/ali_2021_1.i: code_learning/hduACM/ali_2021_1.cpp.i
 
-.PHONY : code_learning/leetcode/leetcode_11m_vector_maxArea.i
+.PHONY : code_learning/hduACM/ali_2021_1.i
 
 # target to preprocess a source file
-code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.i
-.PHONY : code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.i
+code_learning/hduACM/ali_2021_1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.i
+.PHONY : code_learning/hduACM/ali_2021_1.cpp.i
 
-code_learning/leetcode/leetcode_11m_vector_maxArea.s: code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.s
+code_learning/hduACM/ali_2021_1.s: code_learning/hduACM/ali_2021_1.cpp.s
 
-.PHONY : code_learning/leetcode/leetcode_11m_vector_maxArea.s
+.PHONY : code_learning/hduACM/ali_2021_1.s
 
 # target to generate assembly for a file
-code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.s
-.PHONY : code_learning/leetcode/leetcode_11m_vector_maxArea.cpp.s
+code_learning/hduACM/ali_2021_1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.s
+.PHONY : code_learning/hduACM/ali_2021_1.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpp_code"
-	@echo "... code_learning/leetcode/leetcode_11m_vector_maxArea.o"
-	@echo "... code_learning/leetcode/leetcode_11m_vector_maxArea.i"
-	@echo "... code_learning/leetcode/leetcode_11m_vector_maxArea.s"
+	@echo "... code_learning/hduACM/ali_2021_1.o"
+	@echo "... code_learning/hduACM/ali_2021_1.i"
+	@echo "... code_learning/hduACM/ali_2021_1.s"
 .PHONY : help
 
 
