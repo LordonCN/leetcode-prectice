@@ -1157,6 +1157,8 @@ BFS 实现 改成DFS实现
 
 ### 22M. 产生括号对
 
+**相似**: 17 40 216 377
+
 **问题描述**：给出应产生的括号对数n，生成所有符合条件的括号对。其中任何一对括号对中不能包含未闭合的单个括号，如`(()`是错误的，而`((()()))`等是正确的。
 
 **思路**：这个问题属于最基本的卡特兰数问题，把每一种情况确定下来需要用到递归。我们知道左括号和右括号的初始数量都是n，每使用一个左括号或右括号都把变量left或right减去1，递归终止条件是左括号和右括号的数量都为0。
@@ -1164,7 +1166,11 @@ BFS 实现 改成DFS实现
 
 **注意**： 1先添加左括号 回溯的时候清除左括号 添加右括号 .2一开始想的时候就没有搞清楚这个该怎么递归 想成了() ()() ()()() 三种情况
 
+**链接**：[leetcode17](code_learning/leetcode/leetcode_17h_string_letterCombinations.cpp))
 **链接**：[leetcode22](code_learning/leetcode/leetcode_22m_vector_generateKuohao.cpp))
+**链接**：[leetcode40](code_learning/leetcode/leetcode_40m_vector_combinationSum2Digui.cpp))
+**链接**：[leetcode216](code_learning/leetcode/leetcode_216m_vector_combinationSum3Digui.cpp))
+**链接**：[leetcode377](code_learning/leetcode/leetcode_377m_vector_combinationSum4Digui.cpp))
 
 ### 36M. 有效的数独*
 
