@@ -28,6 +28,7 @@
 215 快排 冒泡 stl-sort 数值大小排序<br>
 179 stl-sort 数值逐位排序 按照字符串大小排序<br>
 45  string-sort
+1011 33 二分法求解
 
 ## map-hash-set
 45 用于保存同型异构题 first为排序后的结果 second为排序前<br>
