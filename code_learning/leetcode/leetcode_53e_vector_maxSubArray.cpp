@@ -41,7 +41,25 @@ int maxSubArrayDynamic(vector<int> nums)
     }
     return maxnumber;
 }
+/* -------------------------------------------
+ * 与上面方法类似 不过使用相加和来判断是否应该放弃前面的累加结果更加直观
+ * 直接将sumNow置为0有点武断
+ * ------------------------------------------*/
 
+int maxSubArrayDynamic(vector<int> nums)
+{
+    if(nums.size()<2) return nums[0];
+    int maxnumber = nums[0];
+    int sumNow = 0;
+    for(int i = 0; i < nums.size();i++)
+    {
+        if((sumNow+nums[i])<nums[i]) sumNow = nums[i];
+        else
+            sumNow += nums[i];
+        maxnumber = max(maxnumber,sumNow);
+    }
+    return maxnumber;
+}
 
 int main()
 {
