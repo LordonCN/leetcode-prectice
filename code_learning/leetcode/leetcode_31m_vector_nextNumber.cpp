@@ -9,71 +9,38 @@
  * ------------------------------------------*/
 using namespace std;
 
+void nextPermutation(vector<int>& nums) {
+    if(nums.size()<=1)return;
+    int length = (int)nums.size();
+    for(int i = length-2;i>=0;i--)
+    {
+        if(nums[i]<nums[i+1])// 两两相邻的比较
+        {
+            for(int j = length-1;j>i;j++)// 两两相邻比较完再从后向前找一个比前面找到的数值第一个大的元素
+            {
+                if(nums[j]>nums[i])
+                {
+                    swap(nums[i],nums[j]);
+                    reverse(nums.begin()+i+1,nums.end());
+                    return;
+                }
+            }
+            swap(nums[i],nums[i+1]);
+            reverse(nums.begin()+i+1,nums.end());
+            return;
+        }
+    }
+    reverse(nums.begin(),nums.end());
+    
+    return;
+}
+
+
 int main()
 {
     vector<int> array {1,4,7,5,2,6,1};
 
-    cout<<array.size()<<endl;
-
-    /********************************
-     *  next bigger one
-     *==============================*/
-//     只有一个或为空 直接结束
-//    if(array.size() < 2) return 0 ;
-//    // 定义双指针
-//    int prior = array.size() - 2;
-//    while(prior >= 0)
-//    {
-//        int slower = array.size() - 1;
-//        while(slower > prior)
-//        {
-//            // 前面的数小
-//            if(array[prior] < array[slower]){
-//                // 交换数值
-//                int temp = array[slower];
-//                array[slower] = array[prior];
-//                array[prior] = temp;
-//                // 并将交换位置之后 prior后面的所有数进行反转 并不是排序
-//                // 解释为什么用reverse 不用sort:
-//                // reverse这是个置换 并没有对大小进行判断来排序 因为在两个while中已经对顺序进行过判断
-//                // 所以这里只要颠倒一下顺序即可选出右侧最小值
-//                reverse(array.begin() + prior + 1 ,array.end());
-//                return 0;
-//            }
-//            slower --;
-//        }
-//        prior --;
-//    }
-//    reverse(array.begin(),array.end());
-
-
-    /********************************
-     *  last small one
-     *==============================*/
-
-    // 1472165
-    // 只有一个或为空 直接结束
-    if(array.size() < 2) return 0 ;
-    // 定义双指针
-    int prior = array.size() - 2;
-    while(prior >= 0)
-    {
-        int slower = array.size() - 1;
-        while(slower > prior)
-        {
-            // 前面的数大
-            if(array[prior] > array[slower]){
-                // 交换数值
-                swap(array[slower] , array[prior]);
-                // 并将交换位置之后 prior后面的所有数交换位置
-                reverse(array.begin()+prior+1,array.end());
-                return 0;
-            }
-            slower --;
-        }
-        prior --;
-    }
-    reverse(array.begin(),array.end());
+    nextPermutation(nums);
 
     return 0;
 }
