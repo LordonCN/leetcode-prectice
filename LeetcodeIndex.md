@@ -1088,35 +1088,23 @@ public:
 
 **我的思路**：考虑递推，假设前边n个字母的所有排列方式都已经举出，那么对于每一种**排列方式**，第n+1个字母都有n+1个位置放置（每两个字母之间以及第一个字母之前和最后一个字母之后），依此递推。
 
-**坑**：
+**坑** 建议使用DFS
 
-**代码**；
+**链接**: [leetcode46](code_learning/leetcode/leetcode_46m_vector_permute_quanpailie.cpp)
 
-~~~C++
-class Solution {
-public:
-    vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> res = {};
-        if(nums.size() == 0) return res;
-        res = {{nums[0]}};
-        for(int i = 1; i < nums.size(); i++)
-        {
-            int size = res.size();
-            for(int j = 0; j < size; j++)
-            {
-                for(int k = 0; k < i; k++)
-                {
-                    vector<int> temp(res[j]);
-                    temp.insert(temp.begin() + k, nums[i]);
-                    res.push_back(temp);
-                }
-                res[j].push_back(nums[i]);
-            }
-        }
-        return res;
-    }
-};
-~~~
+
+
+### 47M. 排列组合2
+
+**问题描述**：给出一个字母`可以相同`的字符串，输出这些字母的所有可能的排列方式。
+
+**我的思路**：考虑DFS,使用集合进行去重操作，类似于46题的方法。
+
+**坑** : 也就是重复数字出现会有相同结果append 上去。
+
+**链接**: [leetcode47](code_learning/leetcode/leetcode_47m_vector_permute_quanpailie2.cpp)
+
+
 
 ### 48M. 旋转图像
 
