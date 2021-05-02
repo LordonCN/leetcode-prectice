@@ -1416,6 +1416,16 @@ for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一
 
 **链接**：[leetcode413](code_learning/leetcode/leetcode_413m_DP_dengchaShuLie.cpp)
 
+### 300M.最小增量序列
+
+**专注内容**: dp
+
+**问题描述**：给定一个string，找到其中最大的增量序列。
+
+**我的思路**: 参考别人思路
+
+**链接**：[leetcode300](code_learning/leetcode/leetcode_300m_DP_longestincreasexulie.cpp)
+
 
 ### 70M.爬台阶
 
@@ -2923,23 +2933,23 @@ for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一
 
 ### 28M.寻找最小字符串
 
-**专注内容**: vector.find  滑动窗口
+**专注内容**: string.find  滑动窗口
 
 **问题描述**：给定一个string，找到其中是否存在所给的子字符串。
 
-**我的思路**:1、首先利用vector.find函数直接定位子字符串首字符位置，然后截取对比即可。
+**我的思路**:1、首先利用string.find函数直接定位子字符串首字符位置，然后截取对比即可。
 2、滑动窗口方法通过取固定大小的一段字符出来 与目标字符串进行对比判断。
 
 **链接**：[leetcode28](code_learning/leetcode/leetcode_28m_string_findSubstring.cpp)
 
+## Z. 不明确分组
 
-### 300M.最小增量序列
+### 54M.螺旋数组读取
 
-**专注内容**: dp
+**问题描述**：给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针(逆时针)螺旋顺序 ，返回矩阵中的所有元素
 
-**问题描述**：给定一个string，找到其中最大的增量序列。
+**我的思路**：使用边界性循环判断即可，注意及时停止循环遍历。
 
-**我的思路**: 参考别人思路
+**链接**：[leetcode54](code_learning/leetcode/leetcode_54m_vector_spiralOrder.cpp)
 
-**链接**：[leetcode300](code_learning/leetcode/leetcode_300m_DP_longestincreasexulie.cpp)
 
