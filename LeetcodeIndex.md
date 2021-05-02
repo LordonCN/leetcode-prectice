@@ -1555,9 +1555,12 @@ for(auto i:nums) 循环可逐个取出每一个数列的开头元素，内加一
 
 **问题描述**：给出一个有序数组和目标元素，找出数组中该元素出现的第一个和最后一个位置。要求对数级时间复杂度。
 
-**我的思路**：首先通过二分法，找出该元素的任意一个位置。再从该位置和二分法的左右端的最后位置分别用二分法查找该元素的左、右起始位置。
+**我的思路**：1.首先通过二分法，找出该元素的任意一个位置。再从该位置和二分法的左右端的最后位置分别用二分法查找该元素的左、右起始位置。
+2. 使用迭代器对容器进行find查找，取值索引均可容易操作。
 
 **坑**：对于常见的二分法查找，在每次迭代的过程中为了防止最后left = right + 1时的死循环，使left = middle + 1和right = middle - 1是有效的方法。但是对于寻找该元素的第一个和最后一个位置，这样的做法不合适。因为循环的终止条件并不是middle等于或不等target，而是middle等于target但是middle的下一个不是target。所以在之后的二分法中，迭代只能是left = middle 和 right = middle 而不再加减1。这样需要额外的防止死循环的方法—当middle等于left时，判断并终止。
+对于使用iterator对vector进行查找的时候leetcode频繁报错超范围的问题，
+在本地调试过程中不存在该问题，原因应该是本地vector创建时size为8，leetcode中vector size归到了固定大小。
 
 **链接**：[leetcode](code_learning/leetcode/leetcode_34m_vector_findTargetLocation.cpp)
 

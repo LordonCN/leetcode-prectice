@@ -4,7 +4,11 @@
 using namespace std;
 
 /* -------------------------------------------
- * 拆分查找
+ * 1 - 折半查找
+ * 2 - vector 使用 iterator 进行查找 ac 100 50
+ * 看看底层是怎么找的 总结一下
+ * 普适性更强，查找速度应该比折半查找更快
+ * 统计个数只需要迭代器之间做差即可
  * ------------------------------------------*/
 
 vector<int> searchRange(vector<int> nums,int target)
@@ -46,6 +50,21 @@ vector<int> searchRange(vector<int> nums,int target)
     return vector<int>{-1,-1};
 }
 
+vector<int> vectorFindIterator(const vector<int>& nums,const int & target)
+{
+    vector<int>result;
+    result.push_back(-1);
+    result.push_back(-1);
+    // 使用迭代器进行查找
+    vector<int>::iterator it = find(nums.begin(), nums.end(), target);
+    if(it == nums.end())return result;
+    // 记录位置
+    result[0] = it-nums.begin();
+    while(it+1 != nums.end() && *it == *(it+1))
+        it ++;
+    result[1] = it-nums.begin();
+    return result;
+}
 
 int main()
 {
