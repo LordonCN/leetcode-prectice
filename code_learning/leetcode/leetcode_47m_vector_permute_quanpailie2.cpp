@@ -1,69 +1,48 @@
 #include <iostream>
 #include <vector>
+#include <set>
 
 using namespace std;
 
 /* -------------------------------------------
- * 类似于DFS深度 前序遍历
- * 添加了一个辅助状态判断数组 用来判断是否用过
- * 递归过程同leetcode17
- * 注意：及时pop出去 及时更新状态位 即可
- * 遍历要灵活使用 不论是根据索引还是直接取值 这里要同步更新状态数组backup所以用索引方便
+ * DFS深度 前序遍历
+ * 添加了一个辅助状态判断数组sign 用来判断是否用过
+ * 为了处理重复数组出现导致的多次重复遍历 可以排序一下然后优化TODO
  * ------------------------------------------*/
-vector<int> backup;
-
-void permuteHelper(vector<int>&nums,vector<vector<int>>&result,vector<int>temp)
+void DFS(set<vector<int>>&result,
+         vector<int>temp,
+         vector<int>sign,
+         const vector<int>&nums)
 {
-    // 2、再看结束：递归结束标志
     if(temp.size() == nums.size())
     {
-        result.push_back(temp);
+        result.insert(temp);
         return;
     }
-
-    // 3、中间部分
-    for(int i = 0;i<nums.size();i++)
+    for(int i = 0;i<sign.size();i++)
     {
-        if(0 == backup[i])
+        if(!sign[i])
         {
             temp.push_back(nums[i]);
-            backup[i] = 1;
-            permuteHelper(nums,result,temp);
-            temp.pop_back();
-            backup[i] = 0;
+            sign[i] = 1;
+            DFS(result,temp,sign,nums);
+            sign[i] = 0;
+            temp.erase(temp.end()-1);
         }
     }
-
-    temp.pop_back();
-
-}
-
-void permute(vector<int> &nums)
-{
-    vector<vector<int>> result;
-    vector<int>temp;
-    sort(nums.begin(),nums.end());
-
-    // 1、先看开始：首位取1，2，3
-    for(int i = 0;i<nums.size();i++)
-    {
-        temp.push_back(nums[i]);
-        backup[i] = 1;
-        permuteHelper(nums,result,temp);
-        backup[i] = 0;
-        temp.pop_back();
-    }
-    return ;
 }
 
 
 int main()
 {
-    // 首先准备好nums target
-    vector<int> nums {1,2,3};
-    for(auto i : nums)
-        backup.push_back(0);
-    permute(nums);
+    set<vector<int>>result;
+    vector<int>temp;
+    vector<int>sign(nums.size(),0);
+    DFS(result,temp,sign,nums);
+    vector<vector<int>>output;
+    for(set<vector<int>>::iterator ite = result.begin();ite!= result.end();ite++)
+        output.push_back(*ite);
 
+    // return output;
     return 0;
 }
