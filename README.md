@@ -46,7 +46,8 @@
 697 两个hash组pair 分别统计位置与次数 进行判断<br>
 
 ## 递归
-17 46 48 78排列组合递归 `回溯`<br>
+17 46 48 排列组合递归 `回溯`<br>
+78 90 DFS<br>
 22 递归创建括号 `回溯`<br>
 39 40 216 377 vector递归组合 `回溯`<br>
 120 递归 `动态`<br>
@@ -347,10 +348,24 @@ int main()
 ```c++
     hash.find() != hash.end(); //找到后可直接进行操作 精准
     string.find() --> position/-1
+	// 通用格式：
+	find(ite.begin(),ite.end(),n);
 ```
 ##### 12、math 求幂运算
 ```c++
     pow(10,2) == 100
+```
+
+##### 13、string 截取处理(linux 简化路径)
+能够将下一个'/'之前对字符串截取出来
+好用！
+```
+#include <sstream>
+string path = "/../s/.//../sdf//";
+stringstream is(path);
+string temp = "";
+while(getline(is,temp,'/'))();
+
 ```
 
 ## 复习时间

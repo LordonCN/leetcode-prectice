@@ -17,6 +17,7 @@ bool sortCmp(const vector<int>&a,const vector<int>&b)
 
 void twoParts(vector<vector<int>> &nums) // 这里直接nums  *nums需要用->
 {
+    if(nums.size() == 1)return ;
     vector<vector<int>> result;
     if(nums.size()<2) return ;
 
@@ -30,7 +31,7 @@ void twoParts(vector<vector<int>> &nums) // 这里直接nums  *nums需要用->
     for(int i = 0;i < nums.size()-1;i++)
     {
         // 按照首位排序后 左侧的最大值如果大于右侧最小值那么说明需要进行合并 至于合并为啥要根据连个区间的最大值决定
-        if(highNumber > nums[i+1][0])
+        if(highNumber >= nums[i+1][0])
         {
             highNumber = max(highNumber,nums[i+1][1]);// 更新最大值
         }
