@@ -76,6 +76,30 @@ ListNode* partition(ListNode* head,int target)
 
     return head;
 }
+// 双数组储存
+ListNode* partition2(ListNode* head, int x) {
+    ListNode * solder = new ListNode;
+    solder->next = head;
+    if(!head || !head->next)return head;
+    vector<int>mi;
+    vector<int>ma;
+    while(head)
+    {
+        if(head->val >= x)ma.push_back(head->val);
+        else mi.push_back(head->val);
+        head = head->next;
+    }
+    head = solder->next;
+    for(int i = 0;i<ma.size();i++)
+        mi.push_back(ma[i]);
+    int i = 0;
+    while(head)
+    {
+        head->val = mi[i++];
+        head = head->next;
+    }
+    return solder->next;
+}
 
 int main()
 {
