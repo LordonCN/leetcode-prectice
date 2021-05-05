@@ -1094,6 +1094,15 @@ public:
 
 
 
+### 93M. 重新生成IP地址
+
+**问题描述**：给出一个string重新组合成有效的ip地址
+
+**我的思路**：考虑DFS,不断回溯添加，两个‘.’之间的string需要进行条件判断。
+
+**链接**: [leetcode93](code_learning/leetcode/leetcode_93m_DFS_resizeIPAddress.cpp)
+
+
 ### 47M. 排列组合2
 
 **问题描述**：给出一个字母`可以相同`的字符串，输出这些字母的所有可能的排列方式。
@@ -1104,6 +1113,13 @@ public:
 
 **链接**: [leetcode47](code_learning/leetcode/leetcode_47m_vector_permute_quanpailie2.cpp)
 
+
+### 92M. 翻转链表
+**问题描述**：给出一个链表,对其指定位置进行反转。
+
+**我的思路**：这种能用复杂度为n的解决就直接上vector，空间多用一点没关系。
+
+**链接**: [leetcode92](code_learning/leetcode/leetcode_92m_list_reverseList.cpp)
 
 
 ### 48M. 旋转图像
