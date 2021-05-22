@@ -197,4 +197,20 @@ void treeHouxu(treeNode_2* root,vector<int>&result)
     return ;
 }
 
+treeNode_2 *pre = NULL;
+bool isValidBST(treeNode_2 *root)
+{
+	if(!root)return true;
+	if(!isValidBST(root->left))
+		return false;
+	if(pre != NULL && pre->val >= root->val)
+    {
+        return false;
+    }
+    pre = root;
+    bool right = isValidBST(root->right);
+    return left && right;
+}
+
+
 #endif

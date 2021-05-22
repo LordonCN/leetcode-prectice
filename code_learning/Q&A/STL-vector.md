@@ -5,13 +5,13 @@ reserve 与 resize区别：最大的在reserve只管扩充原vector，不管缩�
 
 shrink_to_fit:根据size()决定是否进行移动构造
 
-push_back:没超容量在*end加，超范围则复制拷贝
+push_back:没超容量在*end加，超范围则复制拷贝，使用拷贝构造
 
 pop_back:end不=begin 则前移
 
 size：返回end-begin
 
-emplace：原地插入迭代器位置
+emplace_back：原地插入迭代器位置 右值引用
 
 erase：将后面位置的内容拷贝过来
 
@@ -32,7 +32,7 @@ else
 vector 为空的时候没有预分配空间，每次添加一个元素时，
 会判断当前(size)(`resize 直接进行扩容 短截长补0`)是否还有剩余可用空间，
 如果没有则进行试探性扩容变为之前的2倍(capacity)(`reserve 改变扩容策略`)，
-并且把内存拷贝到 新申请的内存空间上，并且释放原先的内存；
+并且把内存拷贝到 新申请的内存空间上，然后释放原先的内存；
 
 vector的数据安排以及操作方式，与array非常相似，两者的唯一差别在于空间的运用的灵活性。
 vector是动态空间，随着元素的加入，它的内部机制会自行扩充空间以容纳新元素。

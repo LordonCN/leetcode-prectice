@@ -23,7 +23,7 @@ using namespace std;
 class Singleton{
 public:
     static Singleton & CreatObject(){// 返回singleton类型的引用
-        static Singleton obj;// 注意没有&符号 一直没记住 4.14
+        static Singleton obj;// 注意没有&符号 一直没记住 4.14 5.22
         return obj;
     };
 private:
