@@ -6,6 +6,7 @@ struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {} // 无参数传入的构造函数
+    ListNode(int num,ListNode *s) : val(num), next(s) {} // 无参数传入的构造函数
 };
 
 /*需要三个指针相互合作才能交换完成*/

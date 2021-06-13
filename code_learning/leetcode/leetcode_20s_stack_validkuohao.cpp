@@ -136,6 +136,7 @@ void stringDelete(string s)
     if(temp.size() == 0) cout<<"yes"<<endl;
     else cout<<"no"<<endl;
 }
+
 int main()
 {
     enum {charType,stringType,test};

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <stack> // 本身就是一个模板类
+#include <stack> 
+
 using namespace std;
 
 struct ListNode {
@@ -16,17 +17,16 @@ struct ListNode {
  *======================================================================*/
 int main()
 {
-    ListNode *list; // 构造函数中已经有赋值跟指向空了
-    int n = 10;// 删除第10个元素
+    ListNode *list;
+    list = new ListNode;
+
+    int n = 10;// 删除倒数第10个元素 所以快指针要先多走n步 然后同步运动直到快指针到末尾
 
     // 特殊情况
-    if(!list->next)
-    {
-        return 0;
-    }
+    if(!list->next) return 0;
 
     ListNode *fast,*slow;
-    fast = slow = list;
+    fast = slow = list;// 都指向起始位置
     // fast迁移n步
     while(n--)
     {

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "listNode.h"
+#include <algorithm>
 using namespace std;
 
 /* -------------------------------------------
@@ -16,10 +17,9 @@ struct ListNode {
 
 int main()
 {
-   ListNode* l1, l2;
+   ListNode* l1, *l2;
    // 便于返回新链表,l1，l2结点追加到新链表中
-   ListNode *newHead;
-   ListNode *pi = &newHead;
+   ListNode *pi;
    // 空有两种情况 l1将链表遍历到空或者l2本身为空
    while(l1 && l2)
    {

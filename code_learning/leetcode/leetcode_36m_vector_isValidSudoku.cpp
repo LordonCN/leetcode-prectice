@@ -24,7 +24,7 @@ void isValidSudoku(vector<vector<string>>sudo)
     {
         for(int i = 0;i<H.size();i++)
         {
-            if(isValid(H[i]))
+            if(isValid(H[i])) // 逐行检测是否满足0-9出现单次
             {
                 hashmap[H[i][0]] += 1;
                 if(hashmap[H[i][0]] == 2) return;
@@ -38,7 +38,7 @@ void isValidSudoku(vector<vector<string>>sudo)
     {
         for(int j = 0;j<sudo.size();j++)
         {
-            if(isValid(sudo[j][i]))
+            if(isValid(sudo[j][i]))// 逐列检测是否满足0-9出现单次
             {
                 hashmap[sudo[j][i][0]] += 1;
                 if(hashmap[sudo[j][i][0]] == 2) return;
@@ -55,7 +55,7 @@ void isValidSudoku(vector<vector<string>>sudo)
         for(int p = 0; p < 3; p++)
         {
             // i = 0,p = 0,1,2; i = 1,p = 0,1,2
-            for(int i = k * 3; i < (k + 1) * 3; i++)
+            for(int i = k * 3; i < (k + 1) * 3; i++)// 3*3小方块进行统计
             {
                 for(int j = p * 3; j < p * 3 + 3; j++)
                 {

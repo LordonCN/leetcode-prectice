@@ -14,9 +14,9 @@ void nextPermutation(vector<int>& nums) {
     int length = (int)nums.size();
     for(int i = length-2;i>=0;i--)
     {
-        if(nums[i]<nums[i+1])// 两两相邻的比较
+        if(nums[i]<nums[i+1])// 两两相邻的比较 找到后面大于前面数的位置
         {
-            for(int j = length-1;j>i;j++)// 两两相邻比较完再从后向前找一个比前面找到的数值第一个大的元素
+            for(int j = length-1;j>i;j++)// 再从后向前找一个比前面 找到的数值第一个大的元素 因为后面已经有序
             {
                 if(nums[j]>nums[i])
                 {
@@ -30,6 +30,7 @@ void nextPermutation(vector<int>& nums) {
             return;
         }
     }
+    // 已经是最大值 翻转为最小值
     reverse(nums.begin(),nums.end());
     
     return;
@@ -40,7 +41,7 @@ int main()
 {
     vector<int> array {1,4,7,5,2,6,1};
 
-    nextPermutation(nums);
+    nextPermutation(array);
 
     return 0;
 }

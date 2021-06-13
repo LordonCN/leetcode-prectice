@@ -56,7 +56,10 @@ vector<int> vectorFindIterator(const vector<int>& nums,const int & target)
     result.push_back(-1);
     result.push_back(-1);
     // 使用迭代器进行查找
-    vector<int>::iterator it = find(nums.begin(), nums.end(), target);
+    vector<int>::iterator it = nums.begin();
+    for(auto it = nums.begin();it != nums.end();it++)
+        if(*it == target) break;// 找到了目标退出
+        
     if(it == nums.end())return result;
     // 记录位置
     result[0] = it-nums.begin();

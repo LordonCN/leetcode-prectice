@@ -20,10 +20,10 @@ int twoParts(vector<int> nums,int target)
         // 找到位置 返回所在位置
         if(nums[middle] == target) return middle;
         // 存在两种情况:
-        // 中间值小 并且在右半部分不存在更大的数 要左移
+        // 中间值小 并且在右半部分不存在更大的数 要左移  2 4 6 0 1 2 3 4 t=5
         if(nums[middle] < target && target > nums[high] ||
-           // 中间值大 并且目标值小于当前区域最大值 要左移
-           nums[middle] > target && target < nums[middle]){
+           // 中间值大 并且目标值小于当前区域最大值 要左移 1 3 4 7 0 1 t=2  
+           nums[middle] > target && target > nums[high]){
            high = middle - 1;
         }
         else{
@@ -40,9 +40,10 @@ int search(vector<int>& nums, int target) {
         int mid = (l + r)/2;
         // 如果正好等于中间值
         if (target == nums[mid]) return mid;
+
         // mid划分出的左半区间为递增 包括第一次以及后面单调后的划分
-        if (nums[l] <= nums[mid])
-        {   // 符合左半区间的值
+        if (nums[l] <= nums[mid])  //中间值与最左侧比
+        {   // target符合左半区间的值
             if (target >= nums[l] && target < nums[mid])
                 r = mid-1;
             else
