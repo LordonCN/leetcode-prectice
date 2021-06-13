@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,14 +13,14 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         nums1.push_back(nums2[i]);
     sort(nums1.begin(),nums1.end());
     int length = nums1.size();
-    if(length%2 == 0)
+    if(length%2 == 0)// 若为偶数 需要求个平均值
     {
         double a = nums1[length/2] / 1.0;
         double b = nums1[length/2-1] / 1.0;
         double out =(a+b)/2.0;
         return out;
     }
-    else return nums1[length/2];
+    else return nums1[length/2];// 若为奇数 直接返回中间那个数
 }
 int main()
 {

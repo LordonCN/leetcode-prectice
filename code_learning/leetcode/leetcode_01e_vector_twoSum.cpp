@@ -11,6 +11,7 @@ using namespace std;
  * hash[A] = key
  * ------------------------------------------*/
 
+// 这种方法存在相同数字不能识别的情况 5，5
 vector<int> twoSum(vector<int>& nums,const int && target)
 {
     vector<int>result;
@@ -29,14 +30,6 @@ vector<int> twoSum(vector<int>& nums,const int && target)
     }
     return result;
 }
-class P
-{
-public:
-    P(int i = 0,int j = 0):X(i),Y(j){};
-    int GetX(){return X;}
-    int GetY(){return Y;}
-    int X,Y;
-};
 
 int main()
 {

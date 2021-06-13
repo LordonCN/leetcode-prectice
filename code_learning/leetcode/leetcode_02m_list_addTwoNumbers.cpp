@@ -13,13 +13,15 @@ struct ListNode {
     ListNode() : val(0), next(nullptr) {} // 无参数传入的构造函数
 };
 
+
+// init 1->2->3->4->5->null
 ListNode* initList(ListNode *Head)
 {
-    Head->val = 0;
+    Head->val = 5;
     Head->next = nullptr;
     ListNode *s;
     // 头插法进行链表填充
-    for(int i = 5; i > 0; i--)
+    for(int i = 4; i > 0; i--)
     {
         // 需要进行如下操作 否则报段错误
         s = new ListNode;
@@ -31,15 +33,14 @@ ListNode* initList(ListNode *Head)
     return Head;
 }
 
+// 0->1->2->3->..->8->null
 ListNode* initList2(ListNode *Head)
 {
     Head->val = 0;
     Head->next = nullptr;
     ListNode *s;
-    // 头插法进行链表填充
     for(int i = 8; i > 0; i--)
     {
-        // 需要进行如下操作 否则报段错误
         s = new ListNode;
         s->val = i;
         // 开始插入

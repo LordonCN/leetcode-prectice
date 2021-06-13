@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    string s= " -452jk"; // 双引号跟单引号到底有什么区别  单引号是字符？？？
+    string s= " -452jk"; // 双引号跟单引号到底有什么区别 双引号是字符串 单引号是字符
     int numberChar = 0;
     int length = s.length();
     bool positive = true;
