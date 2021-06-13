@@ -40,6 +40,7 @@ TreeNode* initTree(TreeNode* &root)
 
 /* -------------------------------------------
  * 递归求最大深度
+ * 多了一个提前终止的判断
  * ------------------------------------------*/
 int getDeepth(TreeNode* &root )
 {
@@ -58,7 +59,7 @@ int getDeepth(TreeNode* &root )
 }
 
 /* -------------------------------------------
- * 判断左右深度是否相同
+ * 判断左右深度是否高度差在1以内
  * ------------------------------------------*/
 bool isBalance(TreeNode* &root)
 {
@@ -67,7 +68,7 @@ bool isBalance(TreeNode* &root)
     int left = getDeepth(root->left);
     int right = getDeepth(root->right);
 
-    return abs(left-right)<=1 && left!=-1 && right!=-1;
+    return abs(left-right)<=1 && left!=-1 && right!=-1;// 4.8默写这里忘掉了
 
 }
 

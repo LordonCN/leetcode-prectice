@@ -50,6 +50,8 @@ int slideWindow(string s,string sub)
     return -1;
 }
 
+int return
+
 int main()
 {
     string s = "a";

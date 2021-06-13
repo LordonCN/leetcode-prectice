@@ -4,7 +4,7 @@
 using namespace std;
 
 /* -------------------------------------------
- * 类似于DFS深度
+ * 类似于DFS深度 ac 72 52
  * 46题通过判断该数字是否用过来进行添加
  * 此题目通过将数字该位括号后添加了穿插这种中间操作
  * 递归过程同leetcode17
@@ -18,7 +18,7 @@ void generateHelper(vector<string>&result,string temp,int left,int right)
     // 2、再看结束：递归结束标志 左右括号均使用完毕
     if(0 == left&&0 == right)
     {
-        result.push_back(temp);
+        result.emplace_back(temp);
         return;
     }
 
@@ -27,7 +27,7 @@ void generateHelper(vector<string>&result,string temp,int left,int right)
     if(left>0)
     {
         temp += '(';
-        generateHelper(result,temp,left-1,right);
+        generateHelper(result,temp,left-1,right); // 不用erase时 把temp+"("作为形参传入即可
         // string数据不能用pop 用erase清除
         temp.erase(temp.size()-1,1);
     }

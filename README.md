@@ -1,5 +1,6 @@
 # 关键知识点
 
+
 ###### 0、多种类型数据结构的创建
 ## 链表
 02 链表按位相加 整体翻转 取map元素+链表尾插<br>
@@ -7,6 +8,11 @@
 21 swap交换两链表 链表的拼接<br>
 24 三个指针进行node两两交换<br>
 61 整体翻转 使用map或者暴力破解<br>
+141 环形链表检测 快慢指针
+
+## 位操作
+89 格雷码 
+
 
 ## 树
 17 排列组合<br>
@@ -18,7 +24,7 @@
 120 vector递归组合 `回溯`<br>
 437 相互调用 耦合度高<br>
 637 BFS求平均值 已经有一维 二维结果存储<br>
-94 144 145 `递归`实现深度遍历 以及使用`栈`实现深度遍历
+94 144 145 894 `递归`实现深度遍历 以及使用`栈`实现深度遍历
 
 ## 排序
 56  stl-sort 二维数组<br>
@@ -27,6 +33,7 @@
 215 快排 冒泡 stl-sort 数值大小排序<br>
 179 stl-sort 数值逐位排序 按照字符串大小排序<br>
 45  string-sort
+1011 33 二分法求解
 
 ## map-hash-set
 45 用于保存同型异构题 first为排序后的结果 second为排序前<br>
@@ -43,16 +50,18 @@
 697 两个hash组pair 分别统计位置与次数 进行判断<br>
 
 ## 递归
-17 46 48 78排列组合递归 `回溯`<br>
+17 46 48 排列组合递归 `回溯`<br>
+78 90 DFS 93<br>
 22 递归创建括号 `回溯`<br>
-39 vector递归组合 `回溯`<br>
+39 40 216 377 vector递归组合 `回溯`<br>
 120 递归 `动态`<br>
-424 string递归 `遍历`<br>
+424 string递归 93 `遍历`<br>
+89 位操作+递归
 
 递归创建树
 
 ## 贪心
-53 依次遍历 寻找最优值 不考虑耗时<br>
+53 717依次遍历 寻找最优值 不考虑耗时<br>
 135 <br>
 466 <br>
 
@@ -62,13 +71,50 @@
 198 与70 64相似 都是有将之前数值进行累计的思想 通过判断抢不抢来取max<br>
 70 爬楼梯 经典题型 通过计算第n>2 层左右可能的爬楼方法 向上累加即可<br>
 64 二维最小路径 明确状态转移方法为从`上`或者`左`最小值移动而来 取min<br>
-516 序列类题目 通过二维数组存储 若无新回文字符串添加则取max当前最长回文 ```dp[i,j] = dp[i+1][j-1]+2 
+516 序列类题目 通过二维数组存储 若无新回文字符串添加则取max当前最长回文 
+```
+dp[i,j] = dp[i+1][j-1]+2 
 or max(dp[i][j-1],dp[i+1][j])```<br>
-300 序列类题目 外循环快于内循环 ```dp[i] = max(dp[t]+1,dp[i]) ```
+300 序列类题目 外循环快于内循环 ```dp[i] = max(dp[t]+1,dp[i]) 
+```
 91 一维dp 字符解码组合 较复杂<br>
 542 二维dp 仅通过左上右下两次遍历即可完成计算距离最近点的距离<br>
 62 二维路径搜索<br>
-121 122 二维dp
+121 122 二维dp<br>
+121 122 123 188 offer63 `股票`问题
+322 416 装满`书包`问题<br>
+
+**组合问题：**
+377. 组合总和 Ⅳ(涉及排序)
+494. 目标和
+518. 零钱兑换 II 
+
+**True、False问题：**
+139. 单词拆分
+416. 分割等和子集(或实现的bool判断)
+
+**最大最小问题：**
+474. 一和零
+322. 零钱兑换(最少要多少个硬币)
+```c++
+//组合问题公式
+dp[i] += dp[i-num]
+//True、False问题公式
+dp[i] = dp[i] or dp[i-num]
+//最大最小问题公式
+dp[i] = min(dp[i], dp[i-num]+1)或者dp[i] = max(dp[i], dp[i-num]+1)
+
+
+1.如果是0-1背包，即数组中的元素不可重复使用，nums放在外循环，target在内循环，且内循环倒序；
+for num in nums:
+for i in range(target, nums-1, -1):
+2.如果是完全背包，即数组中的元素可重复使用，nums放在外循环，target在内循环。且内循环正序。
+for num in nums:
+for i in range(nums, target+1):
+3.如果组合问题需考虑元素之间的顺序，需将target放在外循环，将nums放在内循环。
+for i in range(1, target+1):
+for num in nums:
+```
 
 ## cpp 相关知识点
 ###### 1、const的使用
@@ -278,8 +324,9 @@ int main()
     int aSum = accumulate(a.begin(),a.end(),0);
 ```
 
-
 ###### 8、erase-vector-map-set清空的使用
+// 这里有坑 erase删除后原迭代器失效的问题 
+
 -  include `<vector>`
 -  include `<unordered_map>`
 -  include `<unordered_set>`
@@ -290,6 +337,7 @@ int main()
     hashmap.erase(hashmap.find('A')); //实现精准擦除
     vector.erase(hashmap.begin(),hashmap.end());
     hashset.erase(hashmap.begin(),hashmap.end());
+    ite = vector.erase(ite);// 防止删除当前位置内容迭代器失效
     
     // set初始化
     unordered_set<int> hashSet(nums.begin(),nums.end());
@@ -303,14 +351,33 @@ int main()
 ```
 
 ##### 10、字符串截取 
+- leetcode 93
 ```c++
-    string sub = s.substr(s.begin(),length);
+    string sub = s.substr(position,length);
 ```
 
 ##### 11、数据查找 find 复杂度较高
 ```c++
     hash.find() != hash.end(); //找到后可直接进行操作 精准
     string.find() --> position/-1
+	// 通用格式：
+	find(ite.begin(),ite.end(),n);
+```
+##### 12、math 求幂运算
+```c++
+    pow(10,2) == 100
+```
+
+##### 13、string 截取处理(linux 简化路径)
+能够将下一个'/'之前对字符串截取出来
+好用！
+```
+#include <sstream>
+string path = "/../s/.//../sdf//";
+stringstream is(path);
+string temp = "";
+while(getline(is,temp,'/'))();
+
 ```
 
 ## 复习时间

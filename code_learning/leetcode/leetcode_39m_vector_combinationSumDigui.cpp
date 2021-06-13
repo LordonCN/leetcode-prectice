@@ -6,6 +6,7 @@ using namespace std;
 /* -------------------------------------------
  * vector题目 贪婪
  * 递归完成
+ * ac 76 95
  * ------------------------------------------*/
 void combinHelper(const vector<int>&nums,int target,vector<vector<int>>&result,vector<int>&temp,int pos)
 {
@@ -32,9 +33,10 @@ void combinSum(const vector<int>&nums,int number)
 {
     vector<vector<int>>result;
     vector<int>temp;
-    int startPos = 0;
+    int startPos = 0;// 因为之前逆序排列了
     for(int i = 0 ;i <nums.size();i++)
     {
+        // 找到一个比number大的数
         if(number>=nums[i])
         {
             startPos = i;

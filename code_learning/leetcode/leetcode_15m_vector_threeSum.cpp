@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -104,7 +105,7 @@ int main()
 {
     // 首先准备好nums target
     vector<int> nums {-1,0,1,2,-1,-4};
-    threeSum(nums);
+    threeSum(nums);// 引用左值
 
     return 0;
 }

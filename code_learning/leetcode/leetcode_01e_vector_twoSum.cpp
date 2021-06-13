@@ -11,7 +11,7 @@ using namespace std;
  * hash[A] = key
  * ------------------------------------------*/
 
-vector<int> twoSum(vector<int>& nums,int target)
+vector<int> twoSum(vector<int>& nums,const int && target)
 {
     vector<int>result;
     unordered_map<int,int>hash;
@@ -29,6 +29,14 @@ vector<int> twoSum(vector<int>& nums,int target)
     }
     return result;
 }
+class P
+{
+public:
+    P(int i = 0,int j = 0):X(i),Y(j){};
+    int GetX(){return X;}
+    int GetY(){return Y;}
+    int X,Y;
+};
 
 int main()
 {
@@ -36,7 +44,10 @@ int main()
     vector<int> nums {7,9,0,1,2};
     int target = 10;
 
-    twoSum(nums,target);
+    //twoSum(nums,target);//左值引用
+    //twoSum(nums,forward<int>(10));//完美转发
+    twoSum(nums,move(target));//移动语义
+
 
     return 0;
 }

@@ -17,7 +17,7 @@ struct ListNode {
 int main()
 {
     ListNode *list; // 构造函数中已经有赋值跟指向空了
-    int n = 10;
+    int n = 10;// 删除第10个元素
 
     // 特殊情况
     if(!list->next)
@@ -40,7 +40,8 @@ int main()
     }
     // 慢指针删除结点
     slow->next = slow->next->next;
-    // 之前跳过的那个节点要删除不 ？
+    // 之前跳过的那个节点要删除不 ？ 是应该删除 但是这里程序结束也释放掉了 无所谓
+    //
     delete slow,fast;
 
     return 0;

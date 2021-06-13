@@ -2,20 +2,18 @@
 
 [STL手册](http://www.cplusplus.com/reference/unordered_map/unordered_map/)  
 
-`运行效率方面`：unordered_map最高，而map效率较低但 提供了稳定效率和有序的序列。
+`运行效率方面`：unordered_map最高，而map效率较低但提供了`稳定效率`和`有序的序列`。
 
 `占用内存方面`：map内存占用略低，unordered_map内存占用略高,而且是线性成比例的。
 
 `两者使用区别`：需要无序容器，快速查找删除，不担心略高的内存时用unordered_map；
-
 有序容器稳定查找删除效率，内存很在意时候用map。
 
-map 与 set的内部实现是二叉平衡树`红黑树`； 搜索效率是`logn`
-
-hashmap内部是一个hashtable一般是由一个大vector组成，vector元素节点可挂接链表来解决冲突，来实现.（但是调试过程中hash存储时并不连续）
+hashmap内部是一个hashtable,由一个大vector组成，每个空又叫做桶，vector元素节点可挂接链表来解决冲突，来实现。（但是调试过程中hash存储时并不连续）
 
 - 原理：
 map是通过重载<比较运算符来判断元素是否相同，进而插入到红黑树中，因为对map进行中序遍历得到的结果是有序的。
+  
 unordered_map 实现键值对存储时首先申请一个连续的vector空间，vector中存储链表的头指针，这些链表称为桶，通过hash值与桶数运算得到存储位置，创建新节点链接到桶上
 
 - 解释问题： unordered_map 在存储过程中会变得无序？无序容器不能够顺序遍历
@@ -26,5 +24,5 @@ unordered_map 实现键值对存储时首先申请一个连续的vector空间，
 这也就解释了，为什么我们在操作无序容器过程中，键值对的存储顺序有时会“莫名”的发生变动。
 
 
-http://c.biancheng.net/view/7235.html 参考
+[参考](http://c.biancheng.net/view/7235.html) 
 
