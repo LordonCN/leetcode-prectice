@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
+#include <numeric>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ bool canPartition(vector<int>& nums) {
         {
             dp[j] = (bool)(dp[j] || dp[j-nums[i]]);
         }
-        dp[nums[i]] = true;
+        dp[nums[i]] = true;// 遍历之后再将该number置位
         if(dp[target])break;
     }
     return dp[sum/2];
@@ -47,7 +48,8 @@ int main()
     // 存放可以取到的值
     vector<int>dp(sum/2+1,0);
 
-    canPartain416(nums,sum/2,dp);
+//    canPartain416(nums,sum/2,dp);
+    canPartition(nums);
 
     return 0;
 
