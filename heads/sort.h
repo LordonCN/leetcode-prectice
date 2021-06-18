@@ -15,13 +15,13 @@ vector<int> selectSort(vector<int>&nums)
 {
     for(int i = 0;i<nums.size()-1;i++)// 关键是到倒数第二项
     {
-        int mid = i;
+        int min = i;
         for(int j = i+1;j<nums.size();j++)
         {
-            if(nums[mid]>nums[j])
-                mid = j;
+            if(nums[min]>nums[j])
+                min = j;
         }
-        swap(nums[mid],nums[i]);
+        swap(nums[min],nums[i]);
 
     }
     return nums;
@@ -72,7 +72,7 @@ vector<int> shellSort(vector<int>&nums)
     return nums;
 }
 /* -------------------------------------------
- * bubblesort     n2  稳定
+ * bubblesort   n2  稳定
  * 遇到大值就向后移动 将前面最大的数放到当前循环的最后
  * 关键就是搞清楚从前向后判断的长度逐次减少
  * ------------------------------------------*/
@@ -110,7 +110,7 @@ vector<int> quickSort(vector<int>&nums,int l,int r)
             while(l<r&& nums[r]>=value)
                 r--;
             // 左侧first数值比last数值大 交换并右移first
-            if(l<r)
+            if(l<r)// TODO:615 复习 写成了while
                 swap(nums[l++],nums[r]);
 
             while(l<r&& nums[l]<=value)
@@ -126,10 +126,11 @@ vector<int> quickSort(vector<int>&nums,int l,int r)
 }
 
 /* -------------------------------------------
- * 归并排序
+ * 归并排序 nlogn
  * 分治思想
- * 4.15测试 4.17复习
- * 4.19 r-l+1  &&
+ * 将原数组拆分成很细小的左右区间 left,mid | mid,right
+ * 遍历两个区间并逐个比较大小重新排列 存放到 temp
+ * 将 temp 写回到原位置
  * ------------------------------------------*/
 void Merge(vector<int>& nums, int left, int right, int mid)
 {
@@ -140,17 +141,17 @@ void Merge(vector<int>& nums, int left, int right, int mid)
     vector<int> temp(right - left + 1, 0);
 
     // 小范围排序存放到temp
-    while (i <= mid && j <= right)// 想清楚为啥
+    while (i <= mid && j <= right)// 分别从两区间的最左边向右进行遍历 先把最小的那个区间找完
     {
         if (nums[i] < nums[j])    // 易混
             temp[k++] = nums[i++];
         else
             temp[k++] = nums[j++];
     }
-    while (i <= mid)
+    while (i <= mid)// 若右侧遍历完左侧还有剩余
         temp[k++] = nums[i++];
 
-    while (j <= right)
+    while (j <= right)// 若左侧遍历完右侧还有剩余
         temp[k++] = nums[j++];
 
     // 将小部分排好序的放回nums
@@ -162,10 +163,10 @@ void Merge(vector<int>& nums, int left, int right, int mid)
 
 void MergeSort(vector<int>& nums, int left, int right)
 {
-    if (left >= right)
+    if (left >= right)// 递归拆分成很细小的集合
         return;
 
-    int mid = left + (right - left) / 2;// (left+right)/2
+    int mid = (left + right)/2;
     MergeSort(nums, left, mid);
     MergeSort(nums, mid + 1, right);
     Merge(nums, left, right, mid);
@@ -175,14 +176,17 @@ void MergeSort(vector<int>& nums, int left, int right)
  * 堆排序
  * 4.17 大根堆方法
  * 易混点：长度怎么给的问题 得画图分析
+ * 思路：
+ * 首先将堆排成大根堆的形式：最上面值最大 同一行左侧最大
+ * 排序的时候将最后面最小的值与顶端最大值进行交换 然后剩余部分排成大根堆
  * ------------------------------------------*/
 void makeheapGreat(vector<int>&nums,int k,int length)
 {
-    for(int i = 2*k+1;i<length;i = i*2+1)// 不仅包含交换 还有下坠处理
+    for(int i = 2*k+1 ; i<length ; i = i*2+1)// 不仅包含交换 还有下坠处理
     {
-        if(i<length-1 && nums[i]<nums[i+1])// 有两个叶子节点
+        if(i<length-1 && nums[i]<nums[i+1])// 有两个叶子节点 且 右侧大于左侧
             i++;// 取大的那个
-        if(nums[k]<nums[i])
+        if(nums[k]<nums[i])// 如果子节点数值大于父节点 交换
             swap(nums[k], nums[i]);
         k = i;// 如果可下坠 更新孩子位置
     }
@@ -196,7 +200,7 @@ void sortHeap(vector<int>&nums)
         if(nums[0]>nums[i])// 堆顶与末尾的交换
         {
             swap(nums[0],nums[i]);// 大根堆顶与最后数字进行交换
-            makeheapGreat(nums, 0, i-1);// 除交换的最后一个外前边部分进行大根堆重排
+            makeheapGreat(nums, 0, i-1);// 除交换的最后一个外重新排列一下位置
         }
     }
     return;
@@ -204,7 +208,7 @@ void sortHeap(vector<int>&nums)
 
 void heapSort(vector<int>&nums,int length)
 {
-    for(int i = length/2-1 ; i>=0 ; i--)// 找到中间位置 向前推
+    for(int i = length/2-1; i>=0; i--)// 找到中间位置 向前推
         makeheapGreat(nums,i,length);
     sortHeap(nums);
     return;
