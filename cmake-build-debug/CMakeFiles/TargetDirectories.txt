@@ -1,3 +1,3 @@
-/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir
+/Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir

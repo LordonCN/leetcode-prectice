@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice
+CMAKE_SOURCE_DIR = /Users/mac/Documents/leetcode-prectice
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/mac/Documents/leetcode-prectice/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmak
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles /Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -143,32 +143,32 @@ cpp_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/build
 .PHONY : cpp_code/fast
 
-code_learning/hduACM/ali_2021_1.o: code_learning/hduACM/ali_2021_1.cpp.o
+code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.o: code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o
 
-.PHONY : code_learning/hduACM/ali_2021_1.o
+.PHONY : code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.o
 
 # target to build an object file
-code_learning/hduACM/ali_2021_1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o
-.PHONY : code_learning/hduACM/ali_2021_1.cpp.o
+code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o
+.PHONY : code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o
 
-code_learning/hduACM/ali_2021_1.i: code_learning/hduACM/ali_2021_1.cpp.i
+code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.i: code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i
 
-.PHONY : code_learning/hduACM/ali_2021_1.i
+.PHONY : code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.i
 
 # target to preprocess a source file
-code_learning/hduACM/ali_2021_1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.i
-.PHONY : code_learning/hduACM/ali_2021_1.cpp.i
+code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i
+.PHONY : code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i
 
-code_learning/hduACM/ali_2021_1.s: code_learning/hduACM/ali_2021_1.cpp.s
+code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.s: code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s
 
-.PHONY : code_learning/hduACM/ali_2021_1.s
+.PHONY : code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.s
 
 # target to generate assembly for a file
-code_learning/hduACM/ali_2021_1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.s
-.PHONY : code_learning/hduACM/ali_2021_1.cpp.s
+code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpp_code.dir/build.make CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s
+.PHONY : code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpp_code"
-	@echo "... code_learning/hduACM/ali_2021_1.o"
-	@echo "... code_learning/hduACM/ali_2021_1.i"
-	@echo "... code_learning/hduACM/ali_2021_1.s"
+	@echo "... code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.o"
+	@echo "... code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.i"
+	@echo "... code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.s"
 .PHONY : help
 
 

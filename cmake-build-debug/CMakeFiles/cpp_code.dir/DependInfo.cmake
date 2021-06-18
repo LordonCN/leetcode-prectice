@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/hduACM/ali_2021_1.cpp" "/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o"
+  "/Users/mac/Documents/leetcode-prectice/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp" "/Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o  -o cpp_code 
+/usr/local/Cellar/gcc/10.2.0_4/bin/g++-10  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=11.0 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o  -o cpp_code 

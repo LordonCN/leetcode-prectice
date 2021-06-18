@@ -6,8 +6,8 @@ using namespace std;
 #include <limits>
 #include <numeric>
 /*
- * 理解为使用n个来塞满书包即可
- * 第一次遍历的时候只能用最少的来塞满 甚至塞不满-->416问题 塞不满时候
+ * 理解为使用n个来塞满书包即可 完全背包
+ * 第一次遍历的时候只能用最少的来塞满 甚至塞不满-->416问题 塞不满时候 01背包
  * ac 47 20
  */
 void coinChange322(vector<int>nums,int sum,vector<int>&dp)

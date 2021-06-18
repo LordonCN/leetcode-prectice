@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /Volumes/MAC_软件/安装应用/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice
+CMAKE_SOURCE_DIR = /Users/mac/Documents/leetcode-prectice
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/mac/Documents/leetcode-prectice/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpp_code.dir/depend.make
@@ -77,30 +77,30 @@ include CMakeFiles/cpp_code.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cpp_code.dir/flags.make
 
-CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o: CMakeFiles/cpp_code.dir/flags.make
-CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o: ../code_learning/hduACM/ali_2021_1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o -c /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/hduACM/ali_2021_1.cpp
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o: CMakeFiles/cpp_code.dir/flags.make
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o: ../code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o"
+	/usr/local/Cellar/gcc/10.2.0_4/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o -c /Users/mac/Documents/leetcode-prectice/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp
 
-CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/hduACM/ali_2021_1.cpp > CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.i
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i"
+	/usr/local/Cellar/gcc/10.2.0_4/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mac/Documents/leetcode-prectice/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp > CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.i
 
-CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/code_learning/hduACM/ali_2021_1.cpp -o CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.s
+CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s"
+	/usr/local/Cellar/gcc/10.2.0_4/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mac/Documents/leetcode-prectice/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp -o CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.s
 
 # Object files for target cpp_code
 cpp_code_OBJECTS = \
-"CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o"
+"CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o"
 
 # External object files for target cpp_code
 cpp_code_EXTERNAL_OBJECTS =
 
-cpp_code: CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o
+cpp_code: CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o
 cpp_code: CMakeFiles/cpp_code.dir/build.make
 cpp_code: CMakeFiles/cpp_code.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_code"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_code"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cpp_code.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -113,6 +113,6 @@ CMakeFiles/cpp_code.dir/clean:
 .PHONY : CMakeFiles/cpp_code.dir/clean
 
 CMakeFiles/cpp_code.dir/depend:
-	cd /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug /Volumes/MAC_软件/MY_Projects_VSCode/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/mac/Documents/leetcode-prectice/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/mac/Documents/leetcode-prectice /Users/mac/Documents/leetcode-prectice /Users/mac/Documents/leetcode-prectice/cmake-build-debug /Users/mac/Documents/leetcode-prectice/cmake-build-debug /Users/mac/Documents/leetcode-prectice/cmake-build-debug/CMakeFiles/cpp_code.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cpp_code.dir/depend
 

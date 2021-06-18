@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cpp_code.dir/code_learning/hduACM/ali_2021_1.cpp.o"
+  "CMakeFiles/cpp_code.dir/code_learning/leetcode/leetcode_494m_DP01_findTargetSumWays.cpp.o"
   "cpp_code"
   "cpp_code.pdb"
 )
