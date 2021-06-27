@@ -17,3 +17,8 @@ vector<int> exchange(vector<int>& nums) {
 }
 // 涉及两vector组合拼接
 // 迭代器遍历 erase操作容易产生迭代器的错位 循环操作不建议使用
+
+
+
+// 0625 直接sort + lambda即可
+sort(nums.begin(),nums.end(),[](int a,int b){return a%2 > b%2};);

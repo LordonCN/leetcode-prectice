@@ -40,15 +40,8 @@ void helper(vector<vector<int>>& result,vector<int> temp,TreeNode* root,int sum)
         temp.push_back(root->val);
         now = now-root->val;
         helper(result,temp,root->left,now);
-//        if(now == 0)result.push_back(temp);// 左侧当前now为0了 也存在下一个右有0的时候 所以这里先添加 下一个也能添加
         helper(result,temp,root->right,now);
         if(now == 0)result.push_back(temp);
-
-//        temp.erase(temp.begin(),temp.end());
-//        if(root->left)
-//            helper(result,temp,root->left,sum);
-//        if(root->right)
-//            helper(result,temp,root->right,sum);
     }
     return;
 }

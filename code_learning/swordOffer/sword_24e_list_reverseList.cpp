@@ -17,6 +17,27 @@ struct ListNode {
     ListNode() : val(0), next(nullptr) {} // 无参数传入的构造函数
 };
 
+// 0625 复习
+ListNode* reverseList0625(ListNode* head) {
+    // 方法1：遍历出来重新塞回去 用vector存储即可 2n
+    // 方法2：先将head移动到最后 然后逐个插入 2n
+    ListNode* solider = new ListNode;
+    solider = head;
+    while(head->next)
+        head = head->next;
+    while(solider != head)
+    {
+        ListNode* s = new ListNode;
+        s->val = solider->val;
+        s->next = head->next;
+        head->next = s;
+        solider = solider->next;
+    }
+    return head;
+}
+
+
+
 ListNode* initList(ListNode *&Head)
 {
     Head->val = 0;
@@ -35,6 +56,7 @@ ListNode* initList(ListNode *&Head)
     return Head;
 }
 
+// 方法2：逐个向后添加
 ListNode* reverseList(ListNode* head) {
     if(!head)return head;
     ListNode* temp,*s_;

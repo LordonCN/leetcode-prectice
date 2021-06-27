@@ -9,6 +9,26 @@ using namespace std;
  * ------------------------------------------*/
 
 typedef treeNode_2 TreeNode;
+
+// 0625 复习
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(!root)return true;
+        return dfs(root->left,root->right);
+    }
+    bool dfs(TreeNode* l,TreeNode* r)
+    {
+        if(!r && !l)return true;
+        if((!l && r) || (l && !r))return false;
+        if(l->val != r->val)return false;
+
+        // 这两边都要验
+        return dfs(l->left,r->right) && dfs(l->right,r->left);
+    }
+};
+
+
 /* -------------------------------------------
  *    0
  *   /  \

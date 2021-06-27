@@ -77,7 +77,17 @@ bool compare(TreeNode* A,TreeNode* B)
     else if(!A && B)return false;
 
     // 特殊条件判断完进入递归
-    result = helper(A,B);
+    // methord 1:
+//    result = helper(A,B);
+
+
+    // methord 2:
+    if(A->val == B->val)
+        return compare(A->left,B->left) && compare(A->right,B->right) ||
+            compare(A->left,B) || compare(A->right,B);
+    else
+        return compare(A->left,B) || compare(A->right,B);
+
 
     return result;
 }

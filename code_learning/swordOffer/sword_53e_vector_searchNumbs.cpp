@@ -16,3 +16,8 @@ int search(vector<int>& nums, int target) {
 
     return store[target];
 }
+
+// cpp 边界一说 使用迭代器对有序数组进行查找
+int search(vector<int>& nums, int target) {
+    return (upper_bound(nums.begin(), nums.end(), target) - lower_bound(nums.begin(), nums.end(), target));
+}

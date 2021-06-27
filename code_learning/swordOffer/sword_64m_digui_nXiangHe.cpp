@@ -6,12 +6,21 @@
 
 int digui(int n)
 {
-    n && (n+= digui(n-1));
+    n && (n+= digui(n-1));// : 如果n!-0   n+n-1
     return n;
 }
 
 int main()
 {
-    digui(4);
+    int result = digui(4);
     return 0;
+}
+
+
+
+// 天秀：对于可由公式计算的 (n*(n+1))/2
+int sumNums(n)
+{
+    char a[n][n+1];
+    return sizeof(a)/2;
 }
